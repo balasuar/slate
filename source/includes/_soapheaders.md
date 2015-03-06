@@ -67,6 +67,11 @@ taxSvc.setSecurity(security);
 
 ```
 
+The SOAP API uses standard WSS (Web Service Security) token to authenticate the account or user. These security tokens are supported by most SOAP tools and SDKs. The security token is not actually defined in the WSDL and must be added as a custom SOAP header. We recommend using this version if it is supported by your development environment because it provides more security options and is supported by many web service tools.
+
+Alternate security WSDLs are also available for <a href='https://development.avalara.net/tax/taxsvcaltsec.wsdl' targest=_blank>tax</a> and <a href='https://development.avalara.net/address/addresssvcaltsec.wsdl' targest=_blank>address validation</a> services. These WSDLs use an alternate SOAP header security token for development environments that are unable to generate the standard WSS security token. The token is specified in the WSDL and should be recognized by most WSDL code generation tools. It is easier to use, but provides less security options. The service URL is also slightly different for the alternate security service, requiring a '/altsec' extensoin to be added to the standard service URL (e.g. `https://avatax.avalara.net/tax/taxsvc.asmx/altsec`)
+
+
 #### Configuration
 
 **Account:** int as string [10], *required*
