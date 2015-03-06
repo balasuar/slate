@@ -29,6 +29,9 @@ includes:
   - soapping
   - soapvalidate
   - soaperrors
+  - exciseintroduction
+  - exciseauthentication
+  - exciseprocesstransactions
 
 search: true
 ---
