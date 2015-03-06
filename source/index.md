@@ -29,9 +29,14 @@ includes:
   - soapping
   - soapvalidate
   - soaperrors
+  - taxratesintroduction
+  - taxratesaddress
+  - taxrateszip
+  - taxrateserrors
   - exciseintroduction
   - exciseauthentication
   - exciseprocesstransactions
+  - exciseprocesstransactionsresponse
 
 search: true
 ---

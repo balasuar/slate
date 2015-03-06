@@ -53,6 +53,16 @@ else
 </soap:Envelope>
 ```
 
+```php
+# A PHP sample is not available for this resource at this time.
+
+```
+
+```java
+// A Java sample is not available for this resource at this time.
+
+```
+
 > The above command returns XML structured like this:
 
 ``` xml
