@@ -203,6 +203,13 @@ html, body {
     &>li:last-child {
       box-shadow: none; // otherwise it'll overflow out of the subheader
     }
+    
+    .tocify-subheader {
+        .tocify-item>a {
+          font-size: 10px; 
+          padding-left: $nav-padding + $nav-indent + $nav-indent;
+        }
+      }
   }
 
   .toc-footer {
