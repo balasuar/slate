@@ -75,7 +75,9 @@ PingResult pingResult = taxSvc.Ping("");
 
 ```
 
-> The above command returns XML structured like this:
+Ping allows you to check the availability of our web service at any given time. This is merely a call to the Ping method with an empty string as the data along with account or user credentials.
+
+### Ping Result
 
 ```xml
 <PingResult>
@@ -84,24 +86,15 @@ PingResult pingResult = taxSvc.Ping("");
 </PingResult>
 ```
 
-Ping allows you to check the availability of our web service at any given time. This is merely a call to the Ping method with an empty string as the data along with account or user credentials.
-
-### Ping Result
-
 Result data returned from Ping.
 
-#### Properties
-
-**Version:** string [15]
-
+**Version:** string [15]  
 The date and time at which your AvaTax account will expire.
 
-**Messages:** Message[]
+**Messages:** <a href="#errors79">Message[]</a>  
+If ResultCode is Success, Messages is null. Otherwise, it describes any warnings, errors, or exceptions encountered while processing the request.
 
-If ResultCode is Success, Messages is null. Otherwise, it describes any warnings, errors, or exceptions encountered while processing the request. Properties defined in <a title="Common Response Format" href="http://developer.avalara.com/api-docs/soap/shared-formats-and-methods#CommonResponseFormat" target="_parent">Common Response Format</a>
-
-**ResultCode:** SeverityLevel
-
+**ResultCode:** SeverityLevel  
 Indicates success or failure. One of:
 
 * Success
@@ -109,6 +102,5 @@ Indicates success or failure. One of:
 * Error
 * Exception
 
-**TransactionId:** bigint as string
-
+**TransactionId:** bigint as string  
 The unique transaction ID assigned by AvaTax to this request/response set. This value need only be retained for troubleshooting.

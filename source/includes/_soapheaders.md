@@ -79,40 +79,32 @@ Alternate security WSDLs are also available for <a href='https://development.ava
 
 #### Configuration
 
-**Account:** int as string [10], *required*
-
+**Account:** int as string [10], *required*  
 The unique account number provided by Avalara for verification against the service. 
 If you are on a free trial and don't have a license key, use **Username**.
 
-**License Key:** string [16], *required*
-
+**License Key:** string [16], *required*  
 The unique alpha-numeric key provided by Avalara for verification against the service. 
 If you are on a free trial and don't have a license key, use **Password**.
 
-**Username:** string [50], optional - using Account and License is preferred
-
+**Username:** string [50], optional - using Account and License is preferred  
 Your AvaTax Admin Console username. Usually an email address.
 
-**Password:** string [50], optional - using Account and License is preferred
-
+**Password:** string [50], optional - using Account and License is preferred\  
 Your AvaTax Admin Console password.
 
 #### Profile
 
-**Name:** string [50], *required*
-
+**Name:** string [50], *required*  
 Reference to a named profile
 
-**Client:** string [50], *required*
-
+**Client:** string [50], *required*  
 Client application name and version
 
-**Adapter:** string [50], *required*
-
+**Adapter:** string [50], *required*  
 Name and version of the adapter. 
 This is set automatically by the .NET, PHP, and Java adapters.
 
-**Machine:** string [50], *required*
-
+**Machine:** string [50], *required*  
 The NetBIOS name of the local computer. 
 This is set automatically by the .NET, PHP, and Java adapters.

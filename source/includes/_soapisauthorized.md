@@ -1,5 +1,9 @@
 ## IsAuthorized
 
+IsAuthorized allows you to send a user's credentials along with a list of AvaTax methods to check which methods that user is authorized to use. You can also get your account expiration date via this method. 
+
+### IsAuthorized Request
+
 ```shell
 curl -X POST --header "Content-Type: text/xml" 
 --header "SOAPAction: \"http://avatax.avalara.com/services/IsAuthorized\"" 
@@ -73,7 +77,10 @@ taxSvc.setSecurity(security);
 IsAuthorizedResult isAuthorizedResult = taxSvc.isAuthorized("Ping, IsAuthorized,GetTax, PostTax, GetTaxHistory, CommitTax, CancelTax, AdjustTax");
 ```
 
-> The above command returns XML structured like this:
+**Operations:** string [255], *required*  
+The list of operations that you would like to test.
+
+### IsAuthorized Result
 
 ```xml
 <IsAuthorizedResult>
@@ -84,28 +91,18 @@ IsAuthorizedResult isAuthorizedResult = taxSvc.isAuthorized("Ping, IsAuthorized,
 </IsAuthorizedResult>
 ```
 
-IsAuthorized allows you to send a user's credentials along with a list of AvaTax methods to check which methods that user is authorized to use. You can also get your account expiration date via this method. There is technically no request to build - just a string to pass in the method call when you instantiate the result object.
-
-### IsAuthorized Result
-
 Result data returned from IsAuthorized.
 
-#### Properties
-
-**Expires:** DateTime
-
+**Expires:** DateTime  
 The date and time at which your AvaTax account will expire.
 
-**Operations:** string [255]
-
+**Operations:** string [255]  
 The operations that the current user is authorized to use. Determined from the list provided in the IsAuthorized call.
 
-**Messages:** Message[]
+**Messages:** <a href="#errors79">Message[]</a>  
+If ResultCode is Success, Messages is null. Otherwise, it describes any warnings, errors, or exceptions encountered while processing the request.
 
-If ResultCode is Success, Messages is null. Otherwise, it describes any warnings, errors, or exceptions encountered while processing the request. Properties defined in <a title="Common Response Format" href="http://developer.avalara.com/api-docs/soap/shared-formats-and-methods#CommonResponseFormat" target="_parent">Common Response Format</a>
-
-**ResultCode:** SeverityLevel
-
+**ResultCode:** SeverityLevel  
 Indicates success or failure. One of:
 
 * Success
@@ -113,6 +110,5 @@ Indicates success or failure. One of:
 * Error
 * Exception
 
-**TransactionId:** bigint as string
-
+**TransactionId:** bigint as string  
 The unique transaction ID assigned by AvaTax to this request/response set. This value need only be retained for troubleshooting.
