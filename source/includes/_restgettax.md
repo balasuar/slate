@@ -1,5 +1,32 @@
 ## GetTax
 
+Calculates taxes on a document such as a sales order, sales invoice, purchase order, purchase invoice, or credit memo.
+
+##### URL and Method
+
+`POST /1.0/tax/get`
+
+Development: `POST https://development.avalara.net/1.0/tax/get`  
+Production: `POST https://avatax.avalara.net/1.0/tax/get`
+    
+<aside class='notice'>
+    Note that xml-encoded requests should use the `POST /1.0/tax/cancel.xml` and set the Content-Type header to `text/xml`.
+</aside>
+
+##### Headers
+
+**Authorization:** header, *required*  
+In the format "Basic[ account number]:[license key]" encoded to <a href="http://en.wikipedia.org/wiki/Base64" target="_parent">Base64</a>, as per <a href="http://en.wikipedia.org/wiki/Basic_access_authentication" target="_parent">basic access authentication</a>.  
+e.g.: `Basic a2VlcG1vdmluZzpub3RoaW5nMnNlZWhlcmU=`
+
+**Content Type:** header, *required*  
+Standard content type header, indicating the content type of the request content. Either `text/json` or `text/xml`.
+
+**Content Length:** header, *required*  
+Standard content length header, indicating the size of the request content.
+
+### GetTaxRequest
+
 ```shell
 curl --user 1234567890:A1B2C3D4E5F6G7H8 \
 --header "Content-Type: text/json" \
@@ -7,88 +34,88 @@ curl --user 1234567890:A1B2C3D4E5F6G7H8 \
 "https://development.avalara.net/1.0/tax/get" 
 
 {
-"CustomerCode": "ABC4335",
-"DocDate": "2014-01-01",
-"CompanyCode": "APITrialCompany",
-"Client": "AvaTaxSample",
-"DocCode": "INV001",
-"DetailLevel": "Tax",
-"Commit": "false",
-"DocType": "SalesInvoice",
-"CustomerUsageType": "G",
-"BusinessIdentificationNo": "234243",
-"ExemptionNo": "12345",
-"Discount": "50",
-"TaxOverride": {
-"TaxOverrideType": "TaxDate",
-"Reason": "Adjustment for return",
-"TaxDate": "2013-07-01",
-"TaxAmount": "0",
-},
-"PurchaseOrderNo": "PO123456",
-"ReferenceCode": "ref123456",
-"PosLaneCode": "09",
-"CurrencyCode": "USD",
-"Addresses": [
-{
-"AddressCode": "01",
-"Line1": "45 Fremont Street",
-"City": "San Francisco",
-"Region": "CA"	
-},
-{
-"AddressCode": "02",
-"Line1": "118 N Clark St",
-"Line2": "Suite 100",
-"Line3": "ATTN Accounts Payable",
-"City": "Chicago",
-"Region": "IL",
-"Country": "US",
-"PostalCode": "60602"	
-},
-{
-"AddressCode": "03",
-"Latitude": "47.627935",
-"Longitude": "-122.51702"	
-}
-],
-"Lines": [
-{
-"LineNo": "01",
-"ItemCode": "N543",
-"Qty": "1",
-"Amount": "10",
-"OriginCode": "01",
-"DestinationCode": "02",
-"Description": "Red Size 7 Widget",
-"TaxCode": "NT",
-"CustomerUsageType": "L",
-"Discounted": "true",
-"TaxIncluded": "true",
-"Ref1": "ref123",
-"Ref2": "ref456"	
-},
-{
-"LineNo": "02",
-"ItemCode": "T345",
-"Qty": "3",
-"Amount": "150",
-"OriginCode": "01",
-"DestinationCode": "03",
-"Description": "Size 10 Green Running Shoe",
-"TaxCode": "PC030147"	
-},
-{
-"LineNo": "02-FR",
-"ItemCode": "FREIGHT",
-"Qty": "1",
-"Amount": "15",
-"OriginCode": "01",
-"DestinationCode": "03",
-"Description": "Shipping Charge",
-"TaxCode": "FR"	
-}
-]
+    "CustomerCode": "ABC4335",
+    "DocDate": "2014-01-01",
+    "CompanyCode": "APITrialCompany",
+    "Client": "AvaTaxSample",
+    "DocCode": "INV001",
+    "DetailLevel": "Tax",
+    "Commit": "false",
+    "DocType": "SalesInvoice",
+    "CustomerUsageType": "G",
+    "BusinessIdentificationNo": "234243",
+    "ExemptionNo": "12345",
+    "Discount": "50",
+    "TaxOverride": {
+        "TaxOverrideType": "TaxDate",
+        "Reason": "Adjustment for return",
+        "TaxDate": "2013-07-01",
+        "TaxAmount": "0",
+    },
+    "PurchaseOrderNo": "PO123456",
+    "ReferenceCode": "ref123456",
+    "PosLaneCode": "09",
+    "CurrencyCode": "USD",
+    "Addresses": [
+        {
+            "AddressCode": "01",
+            "Line1": "45 Fremont Street",
+            "City": "San Francisco",
+            "Region": "CA"	
+        },
+        {
+            "AddressCode": "02",
+            "Line1": "118 N Clark St",
+            "Line2": "Suite 100",
+            "Line3": "ATTN Accounts Payable",
+            "City": "Chicago",
+            "Region": "IL",
+            "Country": "US",
+            "PostalCode": "60602"	
+        },
+        {
+            "AddressCode": "03",
+            "Latitude": "47.627935",
+            "Longitude": "-122.51702"	
+        }
+    ],
+    "Lines": [
+        {
+            "LineNo": "01",
+            "ItemCode": "N543",
+            "Qty": "1",
+            "Amount": "10",
+            "OriginCode": "01",
+            "DestinationCode": "02",
+            "Description": "Red Size 7 Widget",
+            "TaxCode": "NT",
+            "CustomerUsageType": "L",
+            "Discounted": "true",
+            "TaxIncluded": "true",
+            "Ref1": "ref123",
+            "Ref2": "ref456"	
+        },
+        {
+            "LineNo": "02",
+            "ItemCode": "T345",
+            "Qty": "3",
+            "Amount": "150",
+            "OriginCode": "01",
+            "DestinationCode": "03",
+            "Description": "Size 10 Green Running Shoe",
+            "TaxCode": "PC030147"	
+        },
+        {
+            "LineNo": "02-FR",
+            "ItemCode": "FREIGHT",
+            "Qty": "1",
+            "Amount": "15",
+            "OriginCode": "01",
+            "DestinationCode": "03",
+            "Description": "Shipping Charge",
+            "TaxCode": "FR"	
+        }
+    ]
 }
 ```
 
@@ -431,7 +458,210 @@ newStream.Write(ASCIIEncoding.ASCII.GetBytes(sb.ToString()), 0, sb.Length);
 WebResponse response = request.GetResponse();
 ```
 
-> The above command returns JSON structured like this:
+Input for GetTax describing the document on which tax should be calculated.
+
+**BusinessIdentificationNo:** string [25], *optional, unless the user needs VAT calculated*  
+The buyer's VAT id. Using this value will force VAT rules to be considered for the transaction. This may be set on the document or the line.
+
+**Commit:** bool, *optional*  
+Default is false. Setting this value to true will prevent further document status changes, except voiding with CancelTax.
+
+**Client:** string [50], *optional*  
+An identifier of software client generating the API call.
+
+**CompanyCode:** string [25], *optional*  
+The code that identifies the company in the AvaTax account in which the document should be posted. This code is declared during the company setup in the <a href="https://admin-development.avalara.net/" target="_parent">AvaTax Admin Console</a>. If no value is passed, the document will be assigned to the default company.
+
+**CustomerCode:** string [50], *required*  
+The client application customer reference code. This is required since it is the key to the Exemption Certificate Management Service in the Admin Console.
+
+**CurrencyCode:** string [3], *optional*  
+3 character ISO 4217 compliant currency code.
+
+**CustomerUsageType:** string [25], *optional*  
+The client application customer or usage type.  
+The standard values for the CustomerUsageType are:
+
+ - A - Federal Government
+ - B - State/Local Govt.
+ - C - Tribal Government
+ - D - Foreign Diplomat
+ - E - Charitable Organization
+ - F - Religious/Education
+ - G - Resale
+ - H - Agricultural Production
+ - I - Industrial Prod/Mfg.
+ - J - Direct Pay Permit
+ - K - Direct Mail
+ - L - Other
+ - N - Local Government
+ - P - Commercial Aquaculture (Canada)
+ - Q - Commercial Fishery (Canada)
+ - R - Non-resident (Canada)
+ - MED1 - US MDET with exempt sales tax
+ - MED2 - US MDET with taxable sales tax
+
+**DetailLevel:** DetailLevel, *optional*  
+Specifies the level of detail to return.
+
+ - Summary - summarizes document and jurisdiction detail with no line breakout
+ - Document - only document detail
+ - Line - document and line detail
+ - Tax - document, line and jurisdiction detail
+ 
+ **Discount:** decimal, *optional*  
+The discount amount to apply to the document. This may be used along with the line attribute Discounted in order to distribute a set discount amount proportionally across the applicable document lines.
+
+**DocCode:** string [50], *optional*  
+While this is an optional field, serious consideration should be given to using it. If no value is sent, AvaTax assigns a GUID value to keep the document unique. This can make reconciliation a challenge.
+
+**DocDate:** DateTime, *required*  
+The date on the invoice, purchase order, etc. Format YYYY-MM-DD.
+
+**DocType:** DocumentType  
+The document type specifies the category of the document and affects how the document is treated after a tax calculation.
+
+ - SalesOrder: This is a temporary document type and is not saved in tax history. GetTaxResult will return with a DocStatus of Temporary.
+ - SalesInvoice: The document is a permanent invoice; document and tax calculation results are saved in the tax history. GetTaxResult will return with a DocStatus of Saved.
+ - PurchaseOrder: This is a temporary document type and is not saved in tax history. GetTaxResult will return with a DocStatus of Temporary.
+ - PurchaseInvoice : The document is a permanent invoice; document and tax calculation results are saved in the tax history. GetTaxResult will return with a DocStatus of Saved.
+ - ReturnOrder: This is a temporary document type and is not saved in tax history. GetTaxResult will return with a DocStatus of Temporary.
+ - ReturnInvoice: The document is a permanent sales return invoice; document and tax calculation results are saved in the tax history GetTaxResult will return with a DocStatus of Saved.
+
+**ExemptionNo:** string [25], *optional*  
+Any string value will cause the sale to be exempt. This should only be used if your finance team is manually verifying and tracking exemption certificates.
+
+**PosLaneCode:** string [50], *optional*  
+Permits a Point of Sale application to record the unique code / ID / number associated with the terminal processing a sale.
+
+**PurchaseOrderNo:** string [50], *optional*  
+Your customer's purchase order number.
+
+**ReferenceCode:** string [50], *optional*  
+For returns, refers to the DocCode of the original invoice.
+
+**TaxOverride:** TaxOverride, *optional*  
+TaxOverride for the document - can be used to manually override components of the tax calculation. See TaxOverride for more information.
+
+**Addresses:** Address, at least one required  
+Document address array. Should represent all origin and destination addresses which will be associated with individual lines.
+
+**Lines:** Line, at least one required  
+Document line array. There is a limit of 1000 lines per document.
+
+#### TaxOverride
+
+Nested object describing any tax override applied to the document. TaxOverride only needs to be included when there is need to override our tax calculation. Most commonly on ReturnInvoices. For each document, this may be done at either the document or line level, but not both on the same document. 
+
+This will probably be handled within some conditional statement like:
+
+ - if(getTaxRequest.DocType == DocumentType.ReturnInvoice)
+ - do TaxOverride
+
+**Reason:** string [255], *required*  
+This provides the reason for a tax override for audit purposes. Typical reasons include: "Return", "Layaway", "Imported".
+
+**TaxOverrideType:** string, *required*
+
+ - None: Default
+ - TaxAmount: The TaxAmount overrides the total tax for the document. This is used for imported documents, returns, and layaways where the tax has already been calculated either by AvaTax or another means.
+ - Exemption: Exemption certificates are overridden making the document taxable. This may be used for situations where a normally exempt entity needs to be treated as not exempt.
+ - TaxDate: The TaxDate overrides the DocDate as the effective date used for tax calculation. This may effect rates, rules and other factors.
+
+**TaxDate:** string, *must be valid date, required if TaxOverrideType is TaxDate*  
+The override tax date to use. This is used when the tax has been previously calculated as in the case of a layaway, return or other reason indicated by the Reason element. If the date is not overridden, then it should be set to the same as the DocDate.
+
+**TaxAmount:** string, *must be numeric, required if TaxOverrideType is TaxAmount*  
+The overriding amount of tax to apply. This is distributed across all taxable rows.
+
+#### Line
+Input property of the GetTaxRequest describing item lines.
+
+**LineNo:** string [50], *required*  
+Line item identifier. LineId uniquely identifies the line item row.
+
+**DestinationCode:** string, *required*  
+Destination (ship-to) address code.DestinationCode references an address from the Addresses collection.
+
+**OriginCode:** string, *required*  
+Origination (ship-from) address code. OriginCode references an address from the Addresses collection.
+
+**ItemCode:** string [50], *optional*  
+Your item identifier, SKU, or UPC. Strongly recommended. 
+
+**TaxCode:** string [25], *optional*  
+Product taxability code of the line item. Can be an AvaTax system tax code, or a custom-defined tax code.
+
+**CustomerUsageType:** string [25], *optional*  
+The client application customer or usage type. CustomerUsageType determines the exempt status of the transaction based on the exemption tax rules for the jurisdictions involved. Can also be referred to as Entity/Use Code.
+
+**BusinessIdentificationNo:** string [25], *optional, unless the user needs VAT calculated*  
+The buyer's VAT id. Using this value will force VAT rules to be considered for the transaction. This may be set on the document or the line.
+
+**Description:** string [255], *optional*  
+Item description. Required for customers using our filing service.
+
+**Qty:** decimal, *required*  
+Item quantity. The tax engine does NOT use this as a multiplier with price to get the Amount.
+
+**Amount:** decimal, *required*  
+Total amount of item (extended amount, qty * unit price)
+
+**Discounted:** bool, *optional*  
+Should be set to true if the document level discount is applied to this line item. Defaults to false.
+
+**TaxIncluded:** bool, *optional*  
+Should be set to true if the tax is already included, and sale amount and tax should be back-calculated from the provided Line.Amount. Defaults to false.
+
+**Ref1:** string [250], *optional*  
+Value stored with SalesInvoice DocType that is submitter dependent.
+
+**Ref2:** string [250], *optional*  
+Value stored with SalesInvoice DocType that is submitter dependent.
+
+**TaxOverride** TaxOverride, *optional*  
+Same as document-level TaxOverride. Use this if you only need to override individual lines.
+
+
+#### Address
+
+Input property of GetTaxRequest representing addresses needed for tax calculations.
+
+**AddressCode:** string, *required*  
+Reference code uniquely identifying this address instance.
+
+**Line1:** string [50], *required*  
+Address line 1, required if Latitude and Longitude are not provided.
+
+**Line2:** string [50], *optional*  
+Address line 2
+
+**Line3:** string [50], *optional*  
+Address line 3
+
+**City:** string [50], *optional*  
+City name, required unless PostalCode is specified and/or Latitude and Longitude are provided.
+
+**Region:** string [3], *optional*  
+State, province, or region name. Required unless City is specified and/or Latitude and Longitude are provided.
+
+**Country:** string [2], *optional*  
+Country code. If not provided, will default to "US".
+
+**PostalCode:** string [11], *optional unless City and Region are not specified*  
+Postal or ZIP code, Required unless City and Region are specified, and/or Latitude and Longitude are provided.
+
+**Latitude:** decimal, *optional*  
+Geographic latitude. If Latitude is defined, it is expected that the longitude field will also be provided. Failure to do so will result in operation error.
+
+**Longitude:** decimal, *optional*  
+Geographic longitude. If Longitude is defined, it is expected that the latitude field will also be provided. Fail to do so will result in operation error.
+
+**TaxRegionId:** int, *optional*  
+AvaTax tax region identifier. If a non-zero value is entered into TaxRegionId, other fields will be ignored.
+
+
+### GetTaxResult
 
 ```json
 {
@@ -615,504 +845,160 @@ WebResponse response = request.GetResponse();
 }
 ```
 
-Calculates taxes on a document such as a sales order, sales invoice, purchase order, purchase invoice, or credit memo.
-
-### URL and Method
-
-URL: /1.0/tax/get POST
-
-For development, 
-	https://development.avalara.net
-	/1.0/tax/get
-    
-For production, 
-	https://avatax.avalara.net
-	/1.0/tax/get
-    
-Note that xml-encoded requests should use /1.0/tax/get.xml
-
-### Headers
-
-**Authorization:** header, *required*
-
-In the format "Basic[ account number]:[license key]" encoded to <a href="http://en.wikipedia.org/wiki/Base64" target="_parent">Base64</a>, as per <a href="http://en.wikipedia.org/wiki/Basic_access_authentication" target="_parent">basic access authentication</a>.
-
-Sample: Basic a2VlcG1vdmluZzpub3RoaW5nMnNlZWhlcmU=
-
-**Content Type:** header, *required*
-
-Standard content type header, indicating the content type of the request content.
-
-**Content Length:** header, *required*
-
-Standard content length header, indicating the size of the request content.
-
-### GetTaxRequest
-
-Input for GetTax describing the document on which tax should be calculated.
-
-#### Properties 
-
-**BusinessIdentificationNo:** string [25], *optional, unless the user needs VAT calculated*
-
-The buyer's VAT id. Using this value will force VAT rules to be considered for the transaction. This may be set on the document or the line.
-
-**Commit:** bool, *optional*
-
-Default is false. Setting this value to true will prevent further document status changes, except voiding with CancelTax.
-
-**Client:** string [50], *optional*
-
-An identifier of software client generating the API call.
-
-**CompanyCode:** string [25], *optional*
-
-The code that identifies the company in the AvaTax account in which the document should be posted. This code is declared during the company setup in the <a href="https://admin-development.avalara.net/" target="_parent">AvaTax Admin Console</a>. If no value is passed, the document will be assigned to the default company.
-
-**CustomerCode:** string [50], *required*
-
-The client application customer reference code. This is required since it is the key to the Exemption Certificate Management Service in the Admin Console.
-
-**CurrencyCode:** string [3], *optional*
-
-3 character ISO 4217 compliant currency code.
-
-**CustomerUsageType:** string [25], *optional*
-
-The client application customer or usage type.
-
-The standard values for the CustomerUsageType are:
-
- - A - Federal Government
- - B - State/Local Govt.
- - C - Tribal Government
- - D - Foreign Diplomat
- - E - Charitable Organization
- - F - Religious/Education
- - G - Resale
- - H - Agricultural Production
- - I - Industrial Prod/Mfg.
- - J - Direct Pay Permit
- - K - Direct Mail
- - L - Other
- - N - Local Government
- - P - Commercial Aquaculture (Canada)
- - Q - Commercial Fishery (Canada)
- - R - Non-resident (Canada)
- - MED1 - US MDET with exempt sales tax
- - MED2 - US MDET with taxable sales tax
-
-**DetailLevel:** DetailLevel, *optional*
-
-Specifies the level of detail to return.
-
- - Summary - summarizes document and jurisdiction detail with no line breakout
- - Document - only document detail
- - Line - document and line detail
- - Tax - document, line and jurisdiction detail
- 
- **Discount:** decimal, *optional*
-
-The discount amount to apply to the document. This may be used along with the line attribute Discounted in order to distribute a set discount amount proportionally across the applicable document lines.
-
-**DocCode:** string [50], *optional*
-
-While this is an optional field, serious consideration should be given to using it. If no value is sent, AvaTax assigns a GUID value to keep the document unique. This can make reconciliation a challenge.
-
-**DocDate:** DateTime, *required*
-
-The date on the invoice, purchase order, etc. Format YYYY-MM-DD.
-
-**DocType:** DocumentType
-
-The document type specifies the category of the document and affects how the document is treated after a tax calculation.
-
- - SalesOrder: This is a temporary document type and is not saved in tax history. GetTaxResult will return with a DocStatus of Temporary.
- - SalesInvoice: The document is a permanent invoice; document and tax calculation results are saved in the tax history. GetTaxResult will return with a DocStatus of Saved.
- - PurchaseOrder: This is a temporary document type and is not saved in tax history. GetTaxResult will return with a DocStatus of Temporary.
- - PurchaseInvoice : The document is a permanent invoice; document and tax calculation results are saved in the tax history. GetTaxResult will return with a DocStatus of Saved.
- - ReturnOrder: This is a temporary document type and is not saved in tax history. GetTaxResult will return with a DocStatus of Temporary.
- - ReturnInvoice: The document is a permanent sales return invoice; document and tax calculation results are saved in the tax history GetTaxResult will return with a DocStatus of Saved.
-
-
-**ExemptionNo:** string [25], *optional*
-
-Any string value will cause the sale to be exempt. This should only be used if your finance team is manually verifying and tracking exemption certificates.
-
-**PosLaneCode:** string [50], *optional*
-
-Permits a Point of Sale application to record the unique code / ID / number associated with the terminal processing a sale.
-
-**PurchaseOrderNo:** string [50], *optional*
-
-Your customer's purchase order number.
-
-**ReferenceCode:** string [50], *optional*
-
-For returns, refers to the DocCode of the original invoice.
-
-**TaxOverride:** TaxOverride, *optional*
-
-TaxOverride for the document - can be used to manually override components of the tax calculation. See TaxOverride for more information.
-
-**Addresses:** Address, at least one required
-
-Document address array. Should represent all origin and destination addresses which will be associated with individual lines.
-
-**Lines:** Line, at least one required
-
-Document line array. There is a limit of 1000 lines per document.
-
-#### TaxOverride
-
-Nested object describing any tax override applied to the document. TaxOverride only needs to be included when there is need to override our tax calculation. Most commonly on ReturnInvoices. For each document, this may be done at either the document or line level, but not both on the same document. 
-
-This will probably be handled within some conditional statement like:
-
- - if(getTaxRequest.DocType == DocumentType.ReturnInvoice)
- - do TaxOverride
-
-
-**Reason:** string [255], *required*
-
-This provides the reason for a tax override for audit purposes. Typical reasons include: "Return", "Layaway", "Imported".
-
-**TaxOverrideType:** string, *required*
-
- - None: Default
-
- - TaxAmount: The TaxAmount overrides the total tax for the document. This is used for imported documents, returns, and layaways where the tax has already been calculated either by AvaTax or another means.
-
-
- - Exemption: Exemption certificates are overridden making the document taxable. This may be used for situations where a normally exempt entity needs to be treated as not exempt.
-
-
- - TaxDate: The TaxDate overrides the DocDate as the effective date used for tax calculation. This may effect rates, rules and other factors.
-
-**TaxDate:** string, *must be valid date, required if TaxOverrideType is TaxDate*
-
-The override tax date to use. This is used when the tax has been previously calculated as in the case of a layaway, return or other reason indicated by the Reason element. If the date is not overridden, then it should be set to the same as the DocDate.
-
-**TaxAmount:** string, *must be numeric, required if TaxOverrideType is TaxAmount*
-
-The overriding amount of tax to apply. This is distributed across all taxable rows.
-
-#### Line
-Input property of the GetTaxRequest describing item lines.
-
-**LineNo:** string [50], *required*
-
-Line item identifier. LineId uniquely identifies the line item row.
-
-**DestinationCode:** string, *required*
-
-Destination (ship-to) address code.DestinationCode references an address from the Addresses collection.
-
-**OriginCode:** string, *required*
-
-Origination (ship-from) address code. OriginCode references an address from the Addresses collection.
-
-**ItemCode:** string [50], *optional*
-
-Your item identifier, SKU, or UPC. Strongly recommended. 
-
-**TaxCode:** string [25], *optional*
-
-Product taxability code of the line item. Can be an AvaTax system tax code, or a custom-defined tax code.
-
-**CustomerUsageType:** string [25], *optional*
-
-The client application customer or usage type. CustomerUsageType determines the exempt status of the transaction based on the exemption tax rules for the jurisdictions involved. Can also be referred to as Entity/Use Code.
-
-**BusinessIdentificationNo:** string [25], *optional, unless the user needs VAT calculated*
-
-The buyer's VAT id. Using this value will force VAT rules to be considered for the transaction. This may be set on the document or the line.
-
-**Description:** string [255], *optional*
-
-Item description. Required for customers using our filing service.
-
-**Qty:** decimal, *required*
-
-Item quantity. The tax engine does NOT use this as a multiplier with price to get the Amount.
-
-**Amount:** decimal, *required*
-
-Total amount of item (extended amount, qty * unit price)
-
-**Discounted:** bool, *optional*
-
-Should be set to true if the document level discount is applied to this line item. Defaults to false.
-
-**TaxIncluded:** bool, *optional*
-
-Should be set to true if the tax is already included, and sale amount and tax should be back-calculated from the provided Line.Amount. Defaults to false.
-
-**Ref1:** string [250], *optional*
-
-Value stored with SalesInvoice DocType that is submitter dependent.
-
-**Ref2:** string [250], *optional*
-
-Value stored with SalesInvoice DocType that is submitter dependent.
-
-**TaxOverride** TaxOverride, *optional*
-
-Same as document-level TaxOverride. Use this if you only need to override individual lines.
-
-
-#### Address
-Input property of GetTaxRequest representing addresses needed for tax calculations.
-
-**AddressCode:** string, *required*
-
-Reference code uniquely identifying this address instance.
-
-**Line1:** string [50], *required*
-
-Address line 1, required if Latitude and Longitude are not provided.
-
-**Line2:** string [50], *optional*
-
-Address line 2
-
-**Line3:** string [50], *optional*
-
-Address line 3
-
-**City:** string [50], *optional*
-
-City name, required unless PostalCode is specified and/or Latitude and Longitude are provided.
-
-**Region:** string [3], *optional*
-
-State, province, or region name. Required unless City is specified and/or Latitude and Longitude are provided.
-
-**Country:** string [2], *optional*
-
-Country code. If not provided, will default to "US".
-
-**PostalCode:** string [11], *optional unless City and Region are not specified*
-
-Postal or ZIP code, Required unless City and Region are specified, and/or Latitude and Longitude are provided.
-
-**Latitude:** decimal, *optional*
-
-Geographic latitude. If Latitude is defined, it is expected that the longitude field will also be provided. Failure to do so will result in operation error.
-
-**Longitude:** decimal, *optional*
-
-Geographic longitude. If Longitude is defined, it is expected that the latitude field will also be provided. Fail to do so will result in operation error.
-
-**TaxRegionId:** int, *optional*
-
-AvaTax tax region identifier. If a non-zero value is entered into TaxRegionId, other fields will be ignored.
-
-
-### GetTaxResult
-
-#### Properties
 Document-level tax calculation information.
 
-**DocCode:** string [50]
-
+**DocCode:** string [50]  
 The document code, if not supplied in the request the returned value is a GUID.
 
-**DocDate:** date
-
+**DocDate:** date  
 Date of invoice, sales order, purchase order, etc.
 
-**TimeStamp:** DateTime
-
+**TimeStamp:** DateTime  
 Server timestamp of request.
 
-**TotalAmount:** decimal
-
+**TotalAmount:** decimal  
 Sum of all line Amount values.
 
-**TotalDiscount:** decimal
-
+**TotalDiscount:** decimal  
 Sum of all TaxLine discount amounts.
 
-**TotalExemption:** decimal
-
+**TotalExemption:** decimal  
 Total exemption amount.
 
-**TotalTaxable:** decimal
-
+**TotalTaxable:** decimal  
 Total taxable amount.
 
-**TotalTax:** decimal
-
+**TotalTax:** decimal  
 Sum of all TaxLine tax amounts.
 
-**TotalTaxCalculated:** decimal
-
+**TotalTaxCalculated:** decimal  
 TotalTaxCalculated indicates the total tax calculated by AvaTax. This is usually the same as the TotalTax, except when a tax override amount is specified. 
 This is for informational purposes. The TotalTax will still be used for reporting.
 
-**TaxDate:** date
-
+**TaxDate:** date  
 Date used to assess tax rates and jurisdictions.
 
-**TaxLines:** TaxLine[]
-
+**TaxLines:** TaxLine[]  
 Tax calculation details for each item line (returned for detail levels Line and Tax).
 
-**TaxSummary:** TaxDetail[]
-
+**TaxSummary:** TaxDetail[]  
 Summary of the jurisdiction details for all item lines (returned for detail levels Summary and Line).
 
-**TaxDetails:** TaxDetail[]
-
+**TaxDetails:** TaxDetail[]  
 Tax calculation details for each jurisdiction per line (returned for detail level Tax).
 
-**TaxAddresses:** TaxAddress[]
-
+**TaxAddresses:** TaxAddress[]  
 Addresses used in tax calculations (returned for detail levels Line and Tax).
 
-**ResultCode:** SeverityLevel
+**ResultCode:** enum as string [see below]  
+Classifies severity of message. One of:
 
-Severity as per <a title="Common Response Format" href="http://developer.avalara.com/api-docs/soap/shared-formats-and-methods#CommonResponseFormat" target="_parent">Common Response Format</a>
+* Success
+* Error
+* Warning
+* Exception
 
-**Messages:** Message[]
-
-As per <a title="Common Response Format" href="http://developer.avalara.com/api-docs/soap/shared-formats-and-methods#CommonResponseFormat" target="_parent">Common Response Format</a>
+**Messages:** <a href='#errors'>Message[]</a>
+Human-readable description of any warning, error, or exception that occured.
 
 #### TaxLine
 
 Tax calculation details for item lines. Information returned is dependent on the DetailLevel passed in the request.
 
-##### Properties
-
-**LineNo:** string [50]
-
+**LineNo:** string [50]  
 Line item identifier
 
-**TaxCode:** string [25]
-
+**TaxCode:** string [25]  
 The tax code used in calculating tax
 
-**Taxability:** boolean
-
+**Taxability:** boolean  
 Flag indicating item was taxable
 
-**Taxable:** decimal
-
+**Taxable:** decimal  
 The amount that is taxable
 
-**Rate:** decimal
-
+**Rate:** decimal  
 Effective tax rate
 
-**Tax:** decimal
-
+**Tax:** decimal  
 Tax amount
 
-**Discount:** decimal
-
+**Discount:** decimal  
 Discount amount
 
-**TaxCalculated:** decimal
-
+**TaxCalculated:** decimal  
 Amount of tax calculated
 
-**Exemption:** decimal
-
+**Exemption:** decimal  
 Exempt amount
 
-**BoundaryLevel:** string [7]
-
+**BoundaryLevel:** string [7]  
 The boundary level used to calculate tax: determined by the provided addresses
 
-**TaxDetails:** TaxDetail[]
-
+**TaxDetails:** TaxDetail[]  
 Collection of tax details
 
 #### TaxDetail
 
 Tax details by jurisdiction. Information returned is dependent on the DetailLevel passed in the request.
 
-##### Properties
-
-**Country:** string [2]
-
+**Country:** string [2]  
 Country of tax jurisdiction
 
-**JurisCode:** string [200]
-
+**JurisCode:** string [200]  
 State assigned code identifying the jurisdiction. Note that this is not necessarily a unique identifier of the jurisdiction.
 
-**JurisName:** string [200]
-
+**JurisName:** string [200]  
 Name of tax jurisdiction
 
-**JurisType:** string [9]
-
+**JurisType:** string [9]  
 Regional type of tax jurisdiction
 
-**Rate:** decimal
-
+**Rate:** decimal  
 Effective tax rate for tax jurisdiction
 
-**Region:** string [3]
-
+**Region:** string [3]  
 Region of tax jurisdiction
 
-**Tax:** decimal
-
+**Tax:** decimal  
 Tax amount
 
-**Taxable:** decimal
-
+**Taxable:** decimal  
 Taxable amount on the line
 
-**TaxName:** string [75]
-
+**TaxName:** string [75]  
 Tax name
 
 #### TaxAddress
 
 TaxAddress represents canonical addresses used in tax calculation.
 
-##### Properties
-
-**Address:** string [50]
-
+**Address:** string [50]  
 Canonical street address
 
-**AddressCode:** string
-
+**AddressCode:** string  
 Reference code uniquely identifying this address instance. AddressCode will always correspond to an address code supplied to in the address collection provided in the request.
 
-**City:** string [50]
-
+**City:** string [50]  
 City name
 
-**Region:** string [3]
-
+**Region:** string [3]  
 State or region name
 
-**Country:** string
-
+**Country:** string  
 Country code, as ISO 3166-1 (Alpha-2) country code (e.g. “US”)
 
-**PostalCode:** string
-
+**PostalCode:** string  
 Postal code
 
-**Latitude:** decimal
-
+**Latitude:** decimal  
 Geographic latitude. Latitude is only defined if input address was a geographic point.
 
-**Longitude:** decimal
-
+**Longitude:** decimal  
 Geographic longitude. Longitude is only defined if input address was a geographic point.
 
-**TaxRegionId:** string
-
+**TaxRegionId:** string  
 AvaTax tax region identifier
 
-**JurisCode:** string
-
+**JurisCode:** string  
 Tax jurisdiction code
