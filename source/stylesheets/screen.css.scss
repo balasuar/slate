@@ -209,7 +209,14 @@ html, body {
           font-size: 10px; 
           padding-left: $nav-padding + $nav-indent + $nav-indent;
         }
-      }
+      
+      .tocify-subheader {
+          .tocify-item>a {
+            font-size: 10px; 
+            padding-left: $nav-padding + $nav-indent + $nav-indent + $nav-indent;
+          }
+        }
+    }
   }
 
   .toc-footer {
@@ -414,7 +421,7 @@ html, body {
     text-transform: uppercase;
   }
 
-  h4, h5, h6 {
+  h5, h6 {
     font-size: 10px;
   }
 
@@ -484,7 +491,7 @@ html, body {
   aside {
     padding-top: 1em;
     padding-bottom: 1em;
-    text-shadow: 0 1px 0 lighten($aside-notice-bg, 0%);
+    text-shadow: 0 0px 0 lighten($aside-notice-bg, 0%);
     margin-top: 1.5em;
     margin-bottom: 1.5em;
     background: $aside-notice-bg;
