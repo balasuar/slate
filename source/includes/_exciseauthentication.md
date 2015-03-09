@@ -63,7 +63,18 @@ else
 
 ```
 
-> The above command returns XML structured like this:
+Authenticates the user against the configured membership provider and verifies they have access to the specified company.  If successful, an authentication token is return as a cookie.
+
+**userName:** string, *required*  
+The user's login
+
+**password:** string, *required*  
+The user's password
+
+**companyName:** string, *required*  
+The name of the company to use for the remainder of the session.
+
+#### Login Response
 
 ``` xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -76,22 +87,9 @@ else
 </soap:Envelope>
 ```
 
-Authenticates the user against the configured membership provider and verifies they have access to the specified company.  If successful, an authentication token is return as a cookie.
-
-**userName:** string, *required*
-The user's login
-
-**password:** string, *required*
-The user's password
-
-**companyName:** string, *required*
-The name of the company to use for the remainder of the session.
-
-#### Login Response
-
 **LoginResult:** boolean
 
-### Logout
+#### Logout
 
 > Logging out calls the same endpoint with the 'Logout' SOAP method, and an empty request body.
 
@@ -104,7 +102,7 @@ The name of the company to use for the remainder of the session.
 </soap:Envelope>
 ```
 
-> The above command returns XML structured like this:
+> Logout Response:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

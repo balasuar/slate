@@ -1,15 +1,13 @@
-## Process Transactions
+## ProcessTransactions
 
-### ProcessTransactions Request
-``` csharp
-ProcessTransactions_5_18_0 (Transactions) as ProcessTransactions_5_18_0Response 
-```
-Uses passed in transactions to calculate taxes based on scenarios predefined in the Avalara AvaTax Excise application.
+### ProcessTransactionsRequest
 
-**Versioning**
-The Excise Tax SOAP API currently implements inline explicit versioning. The method name contains the version number. In the example provided, 5_18_0 is the current version of the service. Please replace this when using newer or older versions of the service.
+The ProcessTransactions method uses an array of Transactions to calculate taxes based on scenarios predefined in the Avalara AvaTax Excise application.
 
-### Transactions
+**Transactions:** ArrayOfTransaction_5_18_0, *optional*  
+Container object to hold an array of Transaction_5_18_0
+
+#### Transaction_5_18_0
 
 ```csharp
 
@@ -237,912 +235,364 @@ TransactionResultSummary_5_18_0 processTransactions_5_18_0Result = taxDeterminat
 
 ```
 
-> The above command returns XML structured like this:
-
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-    <soap:Body>
-        <ProcessTransactions_5_18_0Response xmlns="http://taxes.services.fuelquest.com/">
-            <ProcessTransactions_5_18_0Result>
-                <TransactionResults>
-                    <TransactionResult_5_18_0>
-                        <UserTranId />
-                        <TranId>2988728</TranId>
-                        <Status>Success</Status>
-                        <ReturnCode>0</ReturnCode>
-                        <TotalTaxAmount>4726.33</TotalTaxAmount>
-                        <TransactionTaxes>
-                            <TransactionTax_5_18_0>
-                                <TransactionTaxAmounts />
-                                <SequenceId>1</SequenceId>
-                                <TransactionLine>1</TransactionLine>
-                                <InvoiceLine>1</InvoiceLine>
-                                <CountryCode>USA</CountryCode>
-                                <Jurisdiction>US</Jurisdiction>
-                                <LocalJurisdiction>NONE</LocalJurisdiction>
-                                <ProductCategory>1</ProductCategory>
-                                <TaxingLevel>FEDERAL</TaxingLevel>
-                                <TaxType>FUEL</TaxType>
-                                <RateType>TAX</RateType>
-                                <RateSubtype>NONE</RateSubtype>
-                                <CalculationTypeInd>C</CalculationTypeInd>
-                                <TaxRate>0.1840000000</TaxRate>
-                                <TaxQuantity>7743</TaxQuantity>
-                                <TaxAmount>1424.71</TaxAmount>
-                                <TaxExemptionInd>N</TaxExemptionInd>
-                                <DeferredInd>N</DeferredInd>
-                                <SalesTaxBaseAmount>0</SalesTaxBaseAmount>
-                                <LicenseNumber />
-                                <UserReturnedValue />
-                                <ScenarioId>199375</ScenarioId>
-                                <ScenarioTaxGroupId>1279</ScenarioTaxGroupId>
-                                <ScenarioSequence>1</ScenarioSequence>
-                                <RateDescription>Federal Excise Tax - Gasoline</RateDescription>
-                                <Currency>USD</Currency>
-                                <UnitOfMeasure>GLL</UnitOfMeasure>
-                                <SubtotalInd>U</SubtotalInd>
-                                <StatusCode>ACTIVE</StatusCode>
-                                <QuantityInd>B</QuantityInd>
-                                <ReportingTaxAmount xsi:nil="true" />
-                            </TransactionTax_5_18_0>
-                            <TransactionTax_5_18_0>
-                                <TransactionTaxAmounts />
-                                <SequenceId>2</SequenceId>
-                                <TransactionLine>1</TransactionLine>
-                                <InvoiceLine>1</InvoiceLine>
-                                <CountryCode>USA</CountryCode>
-                                <Jurisdiction>IL</Jurisdiction>
-                                <LocalJurisdiction>NONE</LocalJurisdiction>
-                                <ProductCategory>1</ProductCategory>
-                                <TaxingLevel>STATE</TaxingLevel>
-                                <TaxType>FUEL</TaxType>
-                                <RateType>TAX</RateType>
-                                <RateSubtype>NONE</RateSubtype>
-                                <CalculationTypeInd>C</CalculationTypeInd>
-                                <TaxRate>0.1900000000</TaxRate>
-                                <TaxQuantity>7743</TaxQuantity>
-                                <TaxAmount>1471.17</TaxAmount>
-                                <TaxExemptionInd>N</TaxExemptionInd>
-                                <DeferredInd>N</DeferredInd>
-                                <SalesTaxBaseAmount>0</SalesTaxBaseAmount>
-                                <LicenseNumber />
-                                <UserReturnedValue />
-                                <ScenarioId>2904</ScenarioId>
-                                <ScenarioTaxGroupId>435</ScenarioTaxGroupId>
-                                <ScenarioSequence>1</ScenarioSequence>
-                                <RateDescription>Illinois State Gasoline Tax</RateDescription>
-                                <Currency>USD</Currency>
-                                <UnitOfMeasure>GLL</UnitOfMeasure>
-                                <SubtotalInd>U</SubtotalInd>
-                                <StatusCode>ACTIVE</StatusCode>
-                                <QuantityInd>B</QuantityInd>
-                                <ReportingTaxAmount xsi:nil="true" />
-                            </TransactionTax_5_18_0>
-                            <TransactionTax_5_18_0>
-                                <TransactionTaxAmounts />
-                                <SequenceId>3</SequenceId>
-                                <TransactionLine>1</TransactionLine>
-                                <InvoiceLine>1</InvoiceLine>
-                                <CountryCode>USA</CountryCode>
-                                <Jurisdiction>IL</Jurisdiction>
-                                <LocalJurisdiction>NONE</LocalJurisdiction>
-                                <ProductCategory>0</ProductCategory>
-                                <TaxingLevel>STATE</TaxingLevel>
-                                <TaxType>FUEL</TaxType>
-                                <RateType>FEE</RateType>
-                                <RateSubtype>ENV</RateSubtype>
-                                <CalculationTypeInd>C</CalculationTypeInd>
-                                <TaxRate>0.0080000000</TaxRate>
-                                <TaxQuantity>7743</TaxQuantity>
-                                <TaxAmount>61.94</TaxAmount>
-                                <TaxExemptionInd>N</TaxExemptionInd>
-                                <DeferredInd>N</DeferredInd>
-                                <SalesTaxBaseAmount>0</SalesTaxBaseAmount>
-                                <LicenseNumber />
-                                <UserReturnedValue />
-                                <ScenarioId>2904</ScenarioId>
-                                <ScenarioTaxGroupId>435</ScenarioTaxGroupId>
-                                <ScenarioSequence>3</ScenarioSequence>
-                                <RateDescription>Illinois State Environmental Impact Fee</RateDescription>
-                                <Currency>USD</Currency>
-                                <UnitOfMeasure>GLL</UnitOfMeasure>
-                                <SubtotalInd>U</SubtotalInd>
-                                <StatusCode>ACTIVE</StatusCode>
-                                <QuantityInd>B</QuantityInd>
-                                <ReportingTaxAmount xsi:nil="true" />
-                            </TransactionTax_5_18_0>
-                            <TransactionTax_5_18_0>
-                                <TransactionTaxAmounts />
-                                <SequenceId>4</SequenceId>
-                                <TransactionLine>1</TransactionLine>
-                                <InvoiceLine>1</InvoiceLine>
-                                <CountryCode>USA</CountryCode>
-                                <Jurisdiction>IL</Jurisdiction>
-                                <LocalJurisdiction>NONE</LocalJurisdiction>
-                                <ProductCategory>0</ProductCategory>
-                                <TaxingLevel>STATE</TaxingLevel>
-                                <TaxType>FUEL</TaxType>
-                                <RateType>TAX</RateType>
-                                <RateSubtype>UST</RateSubtype>
-                                <CalculationTypeInd>C</CalculationTypeInd>
-                                <TaxRate>0.0030000000</TaxRate>
-                                <TaxQuantity>7743</TaxQuantity>
-                                <TaxAmount>23.23</TaxAmount>
-                                <TaxExemptionInd>N</TaxExemptionInd>
-                                <DeferredInd>N</DeferredInd>
-                                <SalesTaxBaseAmount>0</SalesTaxBaseAmount>
-                                <LicenseNumber />
-                                <UserReturnedValue />
-                                <ScenarioId>2904</ScenarioId>
-                                <ScenarioTaxGroupId>435</ScenarioTaxGroupId>
-                                <ScenarioSequence>5</ScenarioSequence>
-                                <RateDescription>Illinois State Underground Storage Tank Tax</RateDescription>
-                                <Currency>USD</Currency>
-                                <UnitOfMeasure>GLL</UnitOfMeasure>
-                                <SubtotalInd>U</SubtotalInd>
-                                <StatusCode>ACTIVE</StatusCode>
-                                <QuantityInd>B</QuantityInd>
-                                <ReportingTaxAmount xsi:nil="true" />
-                            </TransactionTax_5_18_0>
-                            <TransactionTax_5_18_0>
-                                <TransactionTaxAmounts />
-                                <SequenceId>5</SequenceId>
-                                <TransactionLine>1</TransactionLine>
-                                <InvoiceLine>1</InvoiceLine>
-                                <CountryCode>USA</CountryCode>
-                                <Jurisdiction>IL</Jurisdiction>
-                                <LocalJurisdiction>NONE</LocalJurisdiction>
-                                <ProductCategory>0</ProductCategory>
-                                <TaxingLevel>STATE</TaxingLevel>
-                                <TaxType>SALESUSE</TaxType>
-                                <RateType>TAX</RateType>
-                                <RateSubtype>NONE</RateSubtype>
-                                <CalculationTypeInd>P</CalculationTypeInd>
-                                <TaxRate>0.0625000000</TaxRate>
-                                <TaxQuantity>7743</TaxQuantity>
-                                <TaxAmount>1605.70</TaxAmount>
-                                <TaxExemptionInd>N</TaxExemptionInd>
-                                <DeferredInd>N</DeferredInd>
-                                <SalesTaxBaseAmount>25691.27</SalesTaxBaseAmount>
-                                <LicenseNumber />
-                                <UserReturnedValue />
-                                <ScenarioId>2904</ScenarioId>
-                                <ScenarioTaxGroupId>451</ScenarioTaxGroupId>
-                                <ScenarioSequence>1</ScenarioSequence>
-                                <RateDescription>Illinois State Sales/Use Tax</RateDescription>
-                                <Currency>USD</Currency>
-                                <UnitOfMeasure>GLL</UnitOfMeasure>
-                                <SubtotalInd>U</SubtotalInd>
-                                <StatusCode>ACTIVE</StatusCode>
-                                <QuantityInd>B</QuantityInd>
-                                <ReportingTaxAmount xsi:nil="true" />
-                            </TransactionTax_5_18_0>
-                            <TransactionTax_5_18_0>
-                                <TransactionTaxAmounts />
-                                <SequenceId>6</SequenceId>
-                                <TransactionLine>2</TransactionLine>
-                                <InvoiceLine>2</InvoiceLine>
-                                <CountryCode>USA</CountryCode>
-                                <Jurisdiction>US</Jurisdiction>
-                                <LocalJurisdiction>NONE</LocalJurisdiction>
-                                <ProductCategory>0</ProductCategory>
-                                <TaxingLevel>FEDERAL</TaxingLevel>
-                                <TaxType>FUEL</TaxType>
-                                <RateType>FEE</RateType>
-                                <RateSubtype>LUST</RateSubtype>
-                                <CalculationTypeInd>C</CalculationTypeInd>
-                                <TaxRate>0.0010000000</TaxRate>
-                                <TaxQuantity>860</TaxQuantity>
-                                <TaxAmount>0.86</TaxAmount>
-                                <TaxExemptionInd>N</TaxExemptionInd>
-                                <DeferredInd>N</DeferredInd>
-                                <SalesTaxBaseAmount>0</SalesTaxBaseAmount>
-                                <LicenseNumber />
-                                <UserReturnedValue />
-                                <ScenarioId>199377</ScenarioId>
-                                <ScenarioTaxGroupId>1271</ScenarioTaxGroupId>
-                                <ScenarioSequence>1</ScenarioSequence>
-                                <RateDescription>Federal LUST Fee</RateDescription>
-                                <Currency>USD</Currency>
-                                <UnitOfMeasure>GLL</UnitOfMeasure>
-                                <SubtotalInd>U</SubtotalInd>
-                                <StatusCode>ACTIVE</StatusCode>
-                                <QuantityInd>B</QuantityInd>
-                                <ReportingTaxAmount xsi:nil="true" />
-                            </TransactionTax_5_18_0>
-                            <TransactionTax_5_18_0>
-                                <TransactionTaxAmounts />
-                                <SequenceId>7</SequenceId>
-                                <TransactionLine>2</TransactionLine>
-                                <InvoiceLine>2</InvoiceLine>
-                                <CountryCode>USA</CountryCode>
-                                <Jurisdiction>MO</Jurisdiction>
-                                <LocalJurisdiction>NONE</LocalJurisdiction>
-                                <ProductCategory>0</ProductCategory>
-                                <TaxingLevel>STATE</TaxingLevel>
-                                <TaxType>FUEL</TaxType>
-                                <RateType>FEE</RateType>
-                                <RateSubtype>INSPECT</RateSubtype>
-                                <CalculationTypeInd>C</CalculationTypeInd>
-                                <TaxRate>0.0005000000</TaxRate>
-                                <TaxQuantity>860</TaxQuantity>
-                                <TaxAmount>0.43</TaxAmount>
-                                <TaxExemptionInd>N</TaxExemptionInd>
-                                <DeferredInd>N</DeferredInd>
-                                <SalesTaxBaseAmount>0</SalesTaxBaseAmount>
-                                <LicenseNumber />
-                                <UserReturnedValue />
-                                <ScenarioId>38724</ScenarioId>
-                                <ScenarioTaxGroupId>715</ScenarioTaxGroupId>
-                                <ScenarioSequence>3</ScenarioSequence>
-                                <RateDescription>Missouri State Agriculture Inspection Fee</RateDescription>
-                                <Currency>USD</Currency>
-                                <UnitOfMeasure>GLL</UnitOfMeasure>
-                                <SubtotalInd>U</SubtotalInd>
-                                <StatusCode>ACTIVE</StatusCode>
-                                <QuantityInd>B</QuantityInd>
-                                <ReportingTaxAmount xsi:nil="true" />
-                            </TransactionTax_5_18_0>
-                            <TransactionTax_5_18_0>
-                                <TransactionTaxAmounts />
-                                <SequenceId>8</SequenceId>
-                                <TransactionLine>2</TransactionLine>
-                                <InvoiceLine>2</InvoiceLine>
-                                <CountryCode>USA</CountryCode>
-                                <Jurisdiction>MO</Jurisdiction>
-                                <LocalJurisdiction>NONE</LocalJurisdiction>
-                                <ProductCategory>0</ProductCategory>
-                                <TaxingLevel>STATE</TaxingLevel>
-                                <TaxType>FUEL</TaxType>
-                                <RateType>FEE</RateType>
-                                <RateSubtype>LOAD</RateSubtype>
-                                <CalculationTypeInd>C</CalculationTypeInd>
-                                <TaxRate>0.0025000000</TaxRate>
-                                <TaxQuantity>860</TaxQuantity>
-                                <TaxAmount>2.15</TaxAmount>
-                                <TaxExemptionInd>N</TaxExemptionInd>
-                                <DeferredInd>N</DeferredInd>
-                                <SalesTaxBaseAmount>0</SalesTaxBaseAmount>
-                                <LicenseNumber />
-                                <UserReturnedValue />
-                                <ScenarioId>38724</ScenarioId>
-                                <ScenarioTaxGroupId>715</ScenarioTaxGroupId>
-                                <ScenarioSequence>4</ScenarioSequence>
-                                <RateDescription>Missouri State Transport Load Fee</RateDescription>
-                                <Currency>USD</Currency>
-                                <UnitOfMeasure>GLL</UnitOfMeasure>
-                                <SubtotalInd>U</SubtotalInd>
-                                <StatusCode>ACTIVE</StatusCode>
-                                <QuantityInd>B</QuantityInd>
-                                <ReportingTaxAmount xsi:nil="true" />
-                            </TransactionTax_5_18_0>
-                            <TransactionTax_5_18_0>
-                                <TransactionTaxAmounts />
-                                <SequenceId>9</SequenceId>
-                                <TransactionLine>2</TransactionLine>
-                                <InvoiceLine>2</InvoiceLine>
-                                <CountryCode>USA</CountryCode>
-                                <Jurisdiction>MO</Jurisdiction>
-                                <LocalJurisdiction>NONE</LocalJurisdiction>
-                                <ProductCategory>0</ProductCategory>
-                                <TaxingLevel>STATE</TaxingLevel>
-                                <TaxType>SALESUSE</TaxType>
-                                <RateType>TAX</RateType>
-                                <RateSubtype>NONE</RateSubtype>
-                                <CalculationTypeInd>P</CalculationTypeInd>
-                                <TaxRate>0.0422500000</TaxRate>
-                                <TaxQuantity>860</TaxQuantity>
-                                <TaxAmount>112.78</TaxAmount>
-                                <TaxExemptionInd>N</TaxExemptionInd>
-                                <DeferredInd>N</DeferredInd>
-                                <SalesTaxBaseAmount>2669.44</SalesTaxBaseAmount>
-                                <LicenseNumber />
-                                <UserReturnedValue />
-                                <ScenarioId>38724</ScenarioId>
-                                <ScenarioTaxGroupId>727</ScenarioTaxGroupId>
-                                <ScenarioSequence>1</ScenarioSequence>
-                                <RateDescription>Missouri State Sales/Use Tax</RateDescription>
-                                <Currency>USD</Currency>
-                                <UnitOfMeasure>GLL</UnitOfMeasure>
-                                <SubtotalInd>U</SubtotalInd>
-                                <StatusCode>ACTIVE</StatusCode>
-                                <QuantityInd>B</QuantityInd>
-                                <ReportingTaxAmount xsi:nil="true" />
-                            </TransactionTax_5_18_0>
-                            <TransactionTax_5_18_0>
-                                <TransactionTaxAmounts />
-                                <SequenceId>10</SequenceId>
-                                <TransactionLine>2</TransactionLine>
-                                <InvoiceLine>2</InvoiceLine>
-                                <CountryCode>USA</CountryCode>
-                                <Jurisdiction>MO</Jurisdiction>
-                                <LocalJurisdiction>PHELPS</LocalJurisdiction>
-                                <ProductCategory>0</ProductCategory>
-                                <TaxingLevel>COUNTY</TaxingLevel>
-                                <TaxType>SALESUSE</TaxType>
-                                <RateType>TAX</RateType>
-                                <RateSubtype>NONE</RateSubtype>
-                                <CalculationTypeInd>P</CalculationTypeInd>
-                                <TaxRate>0.0087500000</TaxRate>
-                                <TaxQuantity>860</TaxQuantity>
-                                <TaxAmount>23.36</TaxAmount>
-                                <TaxExemptionInd>N</TaxExemptionInd>
-                                <DeferredInd>N</DeferredInd>
-                                <SalesTaxBaseAmount>2669.44</SalesTaxBaseAmount>
-                                <LicenseNumber />
-                                <UserReturnedValue />
-                                <ScenarioId>38724</ScenarioId>
-                                <ScenarioTaxGroupId>727</ScenarioTaxGroupId>
-                                <ScenarioSequence>2</ScenarioSequence>
-                                <RateDescription>Phelps Co. MO Sales/Use Tax</RateDescription>
-                                <Currency>USD</Currency>
-                                <UnitOfMeasure>GLL</UnitOfMeasure>
-                                <SubtotalInd>U</SubtotalInd>
-                                <StatusCode>ACTIVE</StatusCode>
-                                <QuantityInd>B</QuantityInd>
-                                <ReportingTaxAmount xsi:nil="true" />
-                            </TransactionTax_5_18_0>
-                            <TransactionTax_5_18_0>
-                                <TransactionTaxAmounts />
-                                <SequenceId>11</SequenceId>
-                                <TransactionLine>2</TransactionLine>
-                                <InvoiceLine>2</InvoiceLine>
-                                <CountryCode>USA</CountryCode>
-                                <Jurisdiction>MO</Jurisdiction>
-                                <LocalJurisdiction>ROLLA</LocalJurisdiction>
-                                <ProductCategory>0</ProductCategory>
-                                <TaxingLevel>CITY</TaxingLevel>
-                                <TaxType>SALESUSE</TaxType>
-                                <RateType>TAX</RateType>
-                                <RateSubtype>NONE</RateSubtype>
-                                <CalculationTypeInd>P</CalculationTypeInd>
-                                <TaxRate>0.0000000000</TaxRate>
-                                <TaxQuantity>860</TaxQuantity>
-                                <TaxAmount>0.00</TaxAmount>
-                                <TaxExemptionInd>N</TaxExemptionInd>
-                                <DeferredInd>N</DeferredInd>
-                                <SalesTaxBaseAmount>2669.44</SalesTaxBaseAmount>
-                                <LicenseNumber />
-                                <UserReturnedValue />
-                                <ScenarioId>38724</ScenarioId>
-                                <ScenarioTaxGroupId>727</ScenarioTaxGroupId>
-                                <ScenarioSequence>5</ScenarioSequence>
-                                <RateDescription>Rolla MO City Sales/Use Tax</RateDescription>
-                                <Currency>USD</Currency>
-                                <UnitOfMeasure>GLL</UnitOfMeasure>
-                                <SubtotalInd>U</SubtotalInd>
-                                <StatusCode>ACTIVE</StatusCode>
-                                <QuantityInd>B</QuantityInd>
-                                <ReportingTaxAmount xsi:nil="true" />
-                            </TransactionTax_5_18_0>
-                        </TransactionTaxes>
-                        <TransactionErrors>
-                            <TransactionError_5_18_0>
-                                <SequenceId>1</SequenceId>
-                                <ErrorCode>-897</ErrorCode>
-                                <ErrorMessage>Buyer "1" does not exist or is not active for 1/11/2014.</ErrorMessage>
-                                <ErrorLevelInd>Warning</ErrorLevelInd>
-                            </TransactionError_5_18_0>
-                            <TransactionError_5_18_0>
-                                <SequenceId>2</SequenceId>
-                                <ErrorCode>-898</ErrorCode>
-                                <ErrorMessage>Seller "4375601" does not exist or is not active for 1/11/2014.</ErrorMessage>
-                                <ErrorLevelInd>Warning</ErrorLevelInd>
-                            </TransactionError_5_18_0>
-                            <TransactionError_5_18_0>
-                                <SequenceId>3</SequenceId>
-                                <ErrorCode>-891</ErrorCode>
-                                <ErrorMessage>LASALLE is not a valid county in IL, USA.  Please update the Destination on transaction line 1.</ErrorMessage>
-                                <ErrorLevelInd>Warning</ErrorLevelInd>
-                            </TransactionError_5_18_0>
-                            <TransactionError_5_18_0>
-                                <SequenceId>4</SequenceId>
-                                <ErrorCode>-881</ErrorCode>
-                                <ErrorMessage>No county was provided on the Sale Location for transaction line 1.</ErrorMessage>
-                                <ErrorLevelInd>Warning</ErrorLevelInd>
-                            </TransactionError_5_18_0>
-                            <TransactionError_5_18_0>
-                                <SequenceId>5</SequenceId>
-                                <ErrorCode>-880</ErrorCode>
-                                <ErrorMessage>No city was provided on the Sale Location for transaction line 1.</ErrorMessage>
-                                <ErrorLevelInd>Warning</ErrorLevelInd>
-                            </TransactionError_5_18_0>
-                        </TransactionErrors>
-                        <UserReturnValue />
-                    </TransactionResult_5_18_0>
-                </TransactionResults>
-                <NumberProcessed>1</NumberProcessed>
-                <NumberSuccess>1</NumberSuccess>
-                <NumberFailed>0</NumberFailed>
-            </ProcessTransactions_5_18_0Result>
-        </ProcessTransactions_5_18_0Response>
-    </soap:Body>
-</soap:Envelope>
-```
-
-**Transactions:** ArrayOfTransaction_5_18_0, *optional*
-
-Container object to hold an array of Transaction_5_18_0
-
-### TRANSACTION_5_18_0
-
-**Company:** string[100], *required*
-
+**Company:** string[100], *required*  
 The Name of a company that matches to the name field in the companies table within the Avalara AvaTax Excise application Control Database (eg. Determination Sample)
 
-**EffectiveDate:** Datetime, *required*
-
+**EffectiveDate:** Datetime, *required*  
 The date of the physical product movement (eg. 3/27/2009)
 
-**InvoiceNumber:** string[12], *optional*
-
+**InvoiceNumber:** string[12], *optional*  
 An identifying number of the invoice to be taxed (eg. INV1011)
 
-**InvoiceDate:** Datetime, *optional*
-
+**InvoiceDate:** Datetime, *optional*  
 The date of the invoice to be taxed (eg. 3/27/2009)
 
-**FuelUseCode:** string[3], *optional*
-
+**FuelUseCode:** string[3], *optional*  
 A code to describe the fuel use.  Currently not used but included for future taxation scenarios
 
-**TransactionType:** string[20], *required*
-
+**TransactionType:** string[20], *required*  
 Type of transactions on this invoice (eg, Above, Below, Rack)
 
-**TransportationModeCode:** string[3], *optional*
-
+**TransportationModeCode:** string[3], *optional*  
 Type of transportation mode used to transport fuel between locations (eg, J, PL, R)
 
-**TitleTransferCode:** string[4], *required*
-
+**TitleTransferCode:** string[4], *required*  
 Definition of where the title transfer takes place  (eg, ORIG, DEST)
 
-**Seller:** string[35], *optional*
-
+**Seller:** string[35], *optional*  
 Unique ID for the seller which must match the custom_id field on the business_entities table in the Avalara AvaTax Excise application client database   (eg, Sel321, 7, sel345)
 
-**Buyer:** string[35], *optional*
-
+**Buyer:** string[35], *optional*  
 Unique ID for the buyer which must match the custom_id on the business_ entities table in the Avalara AvaTax Excise application client database (eg, Buy784, 24324, buy97887)
 
-**PreviousSeller:** string[35], *optional*
-
+**PreviousSeller:** string[35], *optional*  
 ID of the Previous Seller (eg, Sel321, 7, sel345)
 
-**NextBuyer:** string[35], *optional*
-
+**NextBuyer:** string[35], *optional*  
 ID of the Next Buyer (eg, Buy784, 24324, buy97887)
 
-**SellerVATNumber:** string[20], *optional*
-
+**SellerVATNumber:** string[20], *optional*  
 Seller VAT Registration Number  (eg, 1234567890123456790)
 
-**BuyerVATNumber:** string[20], *optional*
-
+**BuyerVATNumber:** string[20], *optional*  
 Buyer VAT Registration Number  (eg, 1234567890123456790)
 
-**CustomStatus:** string[30], *optional*
-
+**CustomStatus:** string[30], *optional*  
 Indicates the Customs status for VAT (eg, EUY,EUN)
 
-**FormAPresentedInd:** string[1], *optional*
-
+**FormAPresentedInd:** string[1], *optional*  
 Indicates if Form A is Presented for VAT (eg, Y,N)
 
-**SimplifiedProcedureInd:** string[1], *optional*
-
+**SimplifiedProcedureInd:** string[1], *optional*  
 Indicates if the simplified procedure is used for VAT (eg, Y,N)
 
-**Incoterms:** string[3], *optional*
-
+**Incoterms:** string[3], *optional*  
 International Chamber of Commerce (ICC) rules for the use of domestic and international trade terms (eg, EXW, FCA, FAS, FOB, CFR, CIF, CPT, CIP, DAF, DES, DEQ, DDU, DDP)
 
-**UserData:** string[255], *optional*
-
+**UserData:** string[255], *optional*  
 String to hold any data you may want to pass into a transaction and potentially receive back untouched.  May also be used for customizing calculations based on business rules
 
-**UserTranId:** string[50], *optional*
-
+**UserTranId:** string[50], *optional*  
 A unique Id for the transaction as defined by the calling application (eg, 678, 23823982, 32324)
 
-**SourceSystem:** string[100], *optional*
-
+**SourceSystem:** string[100], *optional*  
 Hard coded string to identify which system is calling the application with this transaction.  Useful when more than a single system is using the application or to separate GUI calls from web service calls (eg, SAAS, iLynx, etc)
 
-**CustomString1:** string[128], *optional*
-
+**CustomString1:** string[128], *optional*  
 String to hold data you want to pass into a transaction to be used for customizing calculations based on business rules.    (eg, TEST, Purple, 111)
 
-**CustomString2:** string[128], *optional*
-
+**CustomString2:** string[128], *optional*  
 String to hold data you want to pass into a transaction to be used for customizing calculations based on business rules.    (eg, TEST, Purple, 111)
 
-**CustomString3:** string[128], *optional*
-
+**CustomString3:** string[128], *optional*  
 String to hold data you want to pass into a transaction to be used for customizing calculations based on business rules.    (eg, TEST, Purple, 111)
 
-**CustomNumeric1:** decimal[28,6], *optional*
-
+**CustomNumeric1:** decimal[28,6], *optional*  
 Decimal to hold data you want to pass into a transaction to be used for customizing calculations based on business rules. (eg, 100, 0.0125, 500000000)
 
-**CustomNumeric2:** decimal[28,6], *optional*
-
+**CustomNumeric2:** decimal[28,6], *optional*  
 Decimal to hold data you want to pass into a transaction to be used for customizing calculations based on business rules. (eg, 100, 0.0125, 500000000)
 
-**CustomNumeric3:** decimal[28,6], *optional*
-
+**CustomNumeric3:** decimal[28,6], *optional*  
 Decimal to hold data you want to pass into a transaction to be used for customizing calculations based on business rules. (eg, 100, 0.0125, 500000000)
 
-**OrderType:** string[50], *optional*
-
+**OrderType:** string[50], *optional*  
 A code to describe the order type.  Currently not used but included for future taxation scenarios.
 
-**TransactionLines:** ArrayOfTransactionLine_5_18_0, *optional*
-
+**TransactionLines:** <a href=#transactionline_5_18_0>TransactionLine_5_18_0[]</a>, *optional*  
 An array of transaction lines which are invoice line items that contain the product and origin and destination information for a transaction
 
-**TransactionExchangeRates:** ArrayOfExchangeRate_5_18_0, *optional*
-
+**TransactionExchangeRates:** <a href=#exchangerate_5_18_0>ExchangeRate_5_18_0[]</a>, *optional*  
 An array of transaction Exchange Rates which are exchange rate definitions to be used to calculate the taxes and return tax amounts.
 
-**SaveTransactionInd:** string[1], *optional*
-
+**SaveTransactionInd:** string[1], *optional*  
 Indicates if the transaction should be saved to the database.  Not saving can have a significant performance improvement. If this value is not defined in the transaction the Saving of Transactions is controlled by the Company Setting in the GUI.  (eg, Y,N, <Not set>) 
 
-**DebugInd:** string[1], *optional*
-
+**DebugInd:** string[1], *optional*  
 Indicates if the transaction should be calculated with debugging enabled.   (eg, Y,N)
 
-**CalculationMethod:** string[20], *optional*
-
+**CalculationMethod:** string[20], *optional*  
 Indicates which company specific configuration should be used when calculating the transaction.     (eg, NORMAL, WITHOUT_COMPANY, PROFILES_ONLY, LICENSES_ONLY)
 
-**TotalDyedUnits:** decimal[28,6], *optional*
-
+**TotalDyedUnits:** decimal[28,6], *optional*  
 The total amount of dyed product purchased by the customer for the month of the transaction.    (eg, 100, 345.3, 4005)
 
-**TotalReportingTaxes:** decimal[28,6], *optional*
-
+**TotalReportingTaxes:** decimal[28,6], *optional*  
 Sum of all resulting taxes from the reporting_tax_amount field  (eg, 2.00, 0.82)
 
-**ReportingCurrency:** string[10], *optional*
-
+**ReportingCurrency:** string[10], *optional*  
 Currency the taxes need to be reported in which may differ from the currency of tax rate    (eg, USD, GBP, EUR)
 
-### TransactionLine
+#### TransactionLine_5_18_0
 
-**InvoiceLine** int, *required*
-
+**InvoiceLine** int, *required*  
 A unique identifier within the transaction for the invoice line item    (eg, 1, 2, 3)
 
-**MovementStartDate** datetime, *optional*
-
+**MovementStartDate** datetime, *optional*  
 The date that the product on the line item begins to be transported from the origin (eg, 3/27/2009)
 
-*MovementEndDate** datetime, *optional*
-
+*MovementEndDate** datetime, *optional*  
 The date that the product on the line item reaches its destination  (eg, 3/27/2009)
 
-**ProductCode** string[10], *required*
-
+**ProductCode** string[10], *required*  
 Identifying code of the product being transported in the line item which needs to match either a product code or an alternate product code in the Avalara AvaTax Excise application client database (eg, 065, E00, 241)
 
-**BlendToProductCode** string[10], *optional*
-
+**BlendToProductCode** string[10], *optional*  
 If used in blending the product code of the final product which needs to match a product code or an alternate product code in the Avalara AvaTax Excise application client database (eg, B10, E10)
 
-**UnitPrice** decimal[28,6], *optional*
-
+**UnitPrice** decimal[28,6], *optional*  
 The price per unit of the product   (eg, 1.37, 2.29, 44.34)
 
-**NetUnits** decimal[28,6], *optional*
-
+**NetUnits** decimal[28,6], *optional*  
 The net units of product    (eg, 100, 345.3, 4005)
 
-**GrossUnits** decimal[28,6], *optional*
-
+**GrossUnits** decimal[28,6], *optional*  
 The gross units of product  (eg, 100, 345.3, 4005)
 
-**BilledUnits** decimal[28,6], *optional*
-
+**BilledUnits** decimal[28,6], *optional*  
 The billed units of product (eg, 100, 345.3, 4005)
 
-**LineAmount** decimal[28,10], *optional*
-
+**LineAmount** decimal[28,10], *optional*  
 The total amount of value of product on the line item calculated by BilledUnits * UnitPrice, If left blank the Avalara AvaTax Excise application calculate  (eg, 137.00, 456.58, 5213.47)
 
-**BillOfLadingNumber**, string[50], *optional*
-
+**BillOfLadingNumber**, string[50], *optional*  
 Bill of lading or Manifest number of the load   (eg, Bol4585, 100458)
 
-**BillOfLadingDate** datetime, *optional*
-
+**BillOfLadingDate** datetime, *optional*  
 Bill of lading or Manifest Date of the load (eg, 3/27/2009)
 
-**OriginCountryCode** string[3], *optional*
-
+**OriginCountryCode** string[3], *optional*  
 ISO standard 3 character country code of the origin location    (eg, USA, CAN)
 
-**OriginJurisdiction** string[10], *optional*
-
+**OriginJurisdiction** string[10], *optional*  
 State or Region code of the originating location of the load    (eg, WI, TX, ID)
 
-**OriginCounty** string[30], *optional*
-
+**OriginCounty** string[30], *optional*  
 County name of the origin location that must match a GNIS defined County name in the local_jurisdictions table of the Avalara AvaTax Excise application Client database;  or a cross reference entry in the common_codes    (eg, Brown, Ada, Marathon)
 
-**OriginCity** string[30], *optional*
-
+**OriginCity** string[30], *optional*  
 City name of the origin location that must match a GNIS defined City name in the local_jurisdictions table of the Avalara AvaTax Excise application client database; or a cross reference entry in the common_codes (eg, Boise, Houston, Milwaukee)
 
-**OriginPostalCode**  string[11], *optional*   
-
+**OriginPostalCode**  string[11], *optional*     
 Postal Code of the origin location that is available here for information purposes only.  Not used in calculation of taxes at this time.    54126, 70012, 80013
 
-**OriginType**  string[10], *optional* 
-
+**OriginType**  string[10], *optional*  
 Type of facility that the product originates from   PIPELINE, REFINERY, TERMINAL, TRUCK
 
-**Origin**  string[35], *optional* 
-
+**Origin**  string[35], *optional*  
 A unique id for the origin location that should match to a custom_id from the locations table in the Avalara AvaTax Excise application client database  Loc4528
 
-**OriginOutCityLimitInd**   string[1], *optional* 
-
+**OriginOutCityLimitInd**   string[1], *optional*  
 Single character that specifies if the origin location resides within or outside of the city limits Y, N
 
 **OriginExciseWarehouse**  string[20], *optional*  
-
 Excise Warehouse Number of the Origin   Free-form
 
 **OriginSpecialJurisdictionInd**   string[1], *optional*  
-
 Indicates if the origin has special jurisdictions.  Y, N
 
-**OriginSpecialJurisdictions**   string[1], *optional*
-
+**OriginSpecialJurisdictions**   string[1], *optional*  
 Array of special jurisdictions for the origin.  N/A
 
-**DestinationCountryCode**   string[3], *optional*
-
+**DestinationCountryCode**   string[3], *optional*  
 ISO standard 3 character country code of the destination location   USA, CAN
 
-**DestinationJurisdiction**  string[10], *optional*
-
+**DestinationJurisdiction**  string[10], *optional*  
 State or Region code of the destination location of the load    WI, TX, ID
 
-**DestinationCounty**  string[30], *optional*
-
+**DestinationCounty**  string[30], *optional*  
 County name of the destination location that must match a GNIS defined County name in the local_jurisdictions table of the Avalara AvaTax Excise application Client database;  or a cross reference entry in the common_codes   Brown, Ada, Marathon
 
-**DestinationCity**  string[30], *optional*
-
+**DestinationCity**  string[30], *optional*  
 City name of the destination location that must match a GNIS defined City name in the local_jurisdictions table of the Avalara AvaTax Excise application client database; or a cross reference entry in the common_codes    Boise, Houston, Milwaukee
 
-**DestinationPostalCode**  string[11], *optional* 
-
+**DestinationPostalCode**  string[11], *optional*   
 Postal Code of the destination location that is available here for information purposes only.  Not used in calculation of taxes at this time.   54126, 70012, 80013
 
-**DestinationType**  string[10], *optional*
-
+**DestinationType**  string[10], *optional*  
 Type of receiving facility for the product  PIPELINE, REFINERY, TERMINAL, TRUCK
 
-**Destination**  string[35], *optional*
-
+**Destination**  string[35], *optional*  
 A unique id for the destination location that should match to a custom_id from the locations table in the Avalara AvaTax Excise application client database Loc4528
 
-**DestinationOutCityLimitInd**   string[1], *optional*
-
+**DestinationOutCityLimitInd**   string[1], *optional*  
 Single character that specifies if the destination location resides within or outside of the city limits    Y, N
 
-**DestinationSpecialJurisdicitonInd**    string[1], *optional*
-
+**DestinationSpecialJurisdicitonInd**    string[1], *optional*  
 Indicates if the destination has special jurisdictions. Y, N
 
-**DestinationSpecialJurisdicitons** **ArrayOfTransactionLineJurisdiction_5_18_0**, *optional*
-
+**DestinationSpecialJurisdictions** <a href=#transactionlinejurisdiction_5_18_0>TransactionLineJurisdiction_5_18_0[]</a>, *optional*  
 Array of special jurisdictions for the destination. N/A
 
-**DestinationExciseWarehouse**  string[20], *optional*
-
+**DestinationExciseWarehouse**  string[20], *optional*  
  Excise Warehouse Number of the Destination  Free-form
 
-**SaleCountryCode**  string[3], *optional*
-
+**SaleCountryCode**  string[3], *optional*  
 ISO standard 3 character country code of the Sale location  USA, CAN
 
-**SaleJurisdiction**    string[10], *optional* 
-
+**SaleJurisdiction**    string[10], *optional*  
 State or Region code of the Sale location of the load   WI, TX, ID
 
-**SaleCounty**   string[30], *optional*
-
+**SaleCounty**   string[30], *optional*  
 County name of the Sale location that must match a GNIS defined County name in the local_jurisdictions table of the Avalara AvaTax Excise application Client database;  or a cross reference entry in the common_codes  Brown, Ada, Marathon
 
-**SaleCity**    string[30], *optional*
-
+**SaleCity**    string[30], *optional*  
  City name of the Sale location that must match a GNIS defined City name in the local_jurisdictions table of the Avalara AvaTax Excise application client database; or a cross reference entry in the common_codes   Boise, Houston, Milwaukee
 
-**SalePostalCode**  string[11], *optional*
-
+**SalePostalCode**  string[11], *optional*  
  Postal Code of the Sale location that is available here for information purposes only.  Not used in calculation of taxes at this time.  54126, 70012, 80013
 
 **SaleType**   string[10], *optional*  
-
 Type of receiving facility for the product  PIPELINE, REFINERY, TERMINAL, TRUCK
 
-**SaleLocation**    string[35], *optional* 
-
+**SaleLocation**    string[35], *optional*  
 A unique id for the Sale location that should match to a custom_id from the locations table in the Avalara AvaTax Excise application client database    Loc4528
 
-**SaleOutCityLimitInd**  string[1], *optional*
-
+**SaleOutCityLimitInd**  string[1], *optional*  
 Single character that specifies if the Sale location resides within or outside of the city limits   Y, N
 
-**SaleExciseWarehouse**  string[20], *optional*
-
+**SaleExciseWarehouse**  string[20], *optional*  
 Excise Warehouse Number of the Sale Location    Free-form
 
-**SaleSpecialJurisdictionInd**  string[1], *optional*
-
+**SaleSpecialJurisdictionInd**  string[1], *optional*  
 Indicates if the sale locaiton has special jurisdictions.   Y, N
 
-**SaleSpecialJurisdictions** **ArrayofTransactionLineJurisdiction_5_18_0**, *optional*
-
+**SaleSpecialJurisdictions** <a href=#transactionlinejurisdictions_5_18_0>TransactionLineJurisdiction_5_18_0[]</a>, *optional*  
 Array of special jurisdictions for the sale location.   N/A
 
-**CounterCountryCode**   string[3], *optional*
-
+**CounterCountryCode**   string[3], *optional*  
 ISO standard 3 character country code of the Counter location   USA, CAN
 
-**CounterJurisdiction**  string[10], *optional*
-
+**CounterJurisdiction**  string[10], *optional*  
 State or Region code of the Counter location of the load    WI, TX, ID
 
-**CounterCounty**    string[30], *optional*
-
+**CounterCounty**    string[30], *optional*  
 County name of the Counter location that must match a GNIS defined County name in the local_jurisdictions table of the Avalara AvaTax Excise application Client database;  or a cross reference entry in the common_codes   Brown, Ada, Marathon
 
-**CounterCity**  string[30], *optional*
-
+**CounterCity**  string[30], *optional*  
 City name of the Counter location that must match a GNIS defined City name in the local_jurisdictions table of the Avalara AvaTax Excise application client database; or a cross reference entry in the common_codes    Boise, Houston, Milwaukee
 
-**CounterPostalCode**   string[11], *optional*
-
+**CounterPostalCode**   string[11], *optional*  
  Postal Code of the Counter location that is available here for information purposes only.  Not used in calculation of taxes at this time.   54126, 70012, 80013
 
-**CounterType**  string[10], *optional*
-
+**CounterType**  string[10], *optional*  
 Type of receiving facility for the product  PIPELINE, REFINERY, TERMINAL, TRUCK
 
-**CounterParty**    string[35], *optional*
-
+**CounterParty**    string[35], *optional*  
  A unique id for the Counter location that should match to a custom_id from the locations table in the Avalara AvaTax Excise application client database Loc4528
 
-**CounterOutCityLimitInd**  string[1], *optional* 
-
+**CounterOutCityLimitInd**  string[1], *optional*   
 Single character that specifies if the Counter location resides within or outside of the city limits    Y, N
 
-**CounterSpecialJurisdicitonInd**   string[1], *optional*
-
+**CounterSpecialJurisdicitonInd**   string[1], *optional*  
  Indicates if the Counter has special jurisdictions. Y, N
 
-**CounterExciseWarehouse**  string[20], *optional*
-
+**CounterExciseWarehouse**  string[20], *optional*  
  Excise Warehouse Number of the Counter  Free-form
 
-**CounterFiscalRepInd**  string[1], *optional*
-
+**CounterFiscalRepInd**  string[1], *optional*  
 Indicates if the Counter is a fiscal rep.   Y, N
 
-**UserData**   string[255], *optional*
-
+**UserData**   string[255], *optional*  
 String to hold any data you may want to pass into a transaction and potentially receive back untouched.  May also be used for customizing calculations based on business rules  
 
-**AlternativeFuelContent** decimal[9,5], *optional*
-
+**AlternativeFuelContent** decimal[9,5], *optional*  
 Numeric value that represents the percentage of alternative fuel contained in the product   0.10, 0.85
 
-**BlendToAltFuelContent** decimal[9,5], *optional*
-
+**BlendToAltFuelContent** decimal[9,5], *optional*  
 Numeric Value that represents the percentage of alternative fuel found in the blend to product  0.10, 0.85
 
-**BlendToInd**  string[1], *optional*
-
+**BlendToInd**  string[1], *optional*  
  Indicates if this record refers to a blended product    Y, N
 
-**Currency**    string[10], *optional*
-
+**Currency**    string[10], *optional*  
  Type of Currency the line item Unit Price and Line Amount are defined in    USD, EUR, GBP
 
-**Unit of Measure**  string[10], *optional*
-
+**Unit of Measure**  string[10], *optional*  
 The Unit of Measure the line item Net, Gross, and Billed units are defined in   BRL, GAL, LTR 
 
-**FreightUnitPrice**  decimal[28,6], *optional*
-
+**FreightUnitPrice**  decimal[28,6], *optional*  
 The price per unit of the freight   1.37, 2.29, 44.34
 
-**FreightType**  string[30], *optional*
-
+**FreightType**  string[30], *optional*  
 The type of freight.    NONE, ITEMIZED_COMMON_CARRIER, NONITEMIZED_NOT_COMMON_CARRIER
 
-**FreightLineAmount**  decimal[28,10], *optional*
-
+**FreightLineAmount**  decimal[28,10], *optional*  
 The total amount of value of product on the line item calculated by BilledUnits * FreightUnitPrice, If left blank the Avalara AvaTax Excise application will calculate  137.00, 456.58, 5213.47
 
-**TransactionLineMeasures** **ArrayOfTransactionLineMeasure_5_18_0**, *optional*
-
+**TransactionLineMeasures** <a href=#transactionlinemeasure_5_18_0>TransactionLineMeasure_5_18_0[]</a>, *optional*  
 Array of Measures to convert the input value to for this transaction line element   N/A
 
-**CustomString1**   string[128], *optional*
-
+**CustomString1**   string[128], *optional*  
 String to hold data you want to pass into a transaction to be used for customizing calculations based on business rules.    TEST, Purple, 111
 
-**CustomString2**   string[128], *optional*
-
+**CustomString2**   string[128], *optional*  
 String to hold data you want to pass into a transaction to be used for customizing calculations based on business rules.    TEST, Purple, 111
 
-**CustomString3**   string[128], *optional*
-
+**CustomString3**   string[128], *optional*  
 String to hold data you want to pass into a transaction to be used for customizing calculations based on business rules.    TEST, Purple, 111
 
-**CustomNumeric1**   decimal[28,6], *optional*
-
+**CustomNumeric1**   decimal[28,6], *optional*  
 Decimal to hold data you want to pass into a transaction to be used for customizing calculations based on business rules.   100, 0.0125, 500000000
 
-**CustomNumeric2**   decimal[28,6], *optional*
-
+**CustomNumeric2**   decimal[28,6], *optional*  
 Decimal to hold data you want to pass into a transaction to be used for customizing calculations based on business rules.   100, 0.0125, 500000000
 
-**CustomNumeric3**   decimal[28,6], *optional*
-
+**CustomNumeric3**   decimal[28,6], *optional*  
  Decimal to hold data you want to pass into a transaction to be used for customizing calculations based on business rules.   100, 0.0125, 500000000
 
-**NthTimeSale**   decimal[2,0], *optional*
-
+**NthTimeSale**   decimal[2,0], *optional*  
 Decimal to tell how many times a product has been sold in the supply chain. 1,2,3
 
-### TransactionLineMeasure
+#### TransactionLineMeasure_5_18_0
 
-**QuantityInd** string[1], *optional*
-
+**QuantityInd** string[1], *optional*  
 Type of Quantity for the Line referencing Billed, Net or Gross Value    B, N, G
 
-**UnitOfMeasure** string[10], *optional*
-
+**UnitOfMeasure** string[10], *optional*  
 The Measurement type the Measure Value is defined in    BRL, GAL, LTR
 
-**MeasureValue** decimal[28,10], *required*
-
+**MeasureValue** decimal[28,10], *required*  
 Numeric  Unit of the Quanity indicator type 100, 200, 300
 
-### TransactionExchangeRate
+#### TransactionExchangeRate_5_18_0
 
-**FromCurrency** string[10], *optional*
-
+**FromCurrency** string[10], *optional*  
 Currency type Value must start with USD, EUR, GBP
 
-**ToCurrency** string[10], *optional*
-
+**ToCurrency** string[10], *optional*  
 Currency type Value will end up as  USD, EUR, GBP
 
-**EffectiveDate** datetime, *required*
-
+**EffectiveDate** datetime, *required*  
 Date the Conversion Factor is valid for 4/23/2009, 5/17/2009
 
-**ConversionFactor** decimal[15,10], *required*
-
+**ConversionFactor** decimal[15,10], *required*  
 Numeric Amount determining the conversion factor between the from and to currencies 0.123234, 4.3245
 
-### TransactionLineJurisdiction
+#### TransactionLineJurisdiction_5_18_0
 
-**SpecialJurisdictionCode** string[30], *required*
-
+**SpecialJurisdictionCode** string[30], *required*  
 The unique code of the special jurisdiction.
 
-**SpecialJurisdictionType** string[30], *required*
-
+**SpecialJurisdictionType** string[30], *required*  
 The local jurisdiction type of the special jurisdiction.
