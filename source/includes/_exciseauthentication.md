@@ -119,36 +119,3 @@ Logs the current user out of the system and clears their authentication cookie.
 
 ### NTLM Authentication
 NTLM authentication does not require calling the AuthenticationService.asmx before calling other web services.  At the beginning of the call to the web service, the user is authenticated, and if successful, the call is processed normally.  The web service will attach a Forms Authentication cookie to the response to improve performance in subsequent calls, but it is not required to use the cookie (the caller can be re-authenticated each time).  The client must keep the TCP connection alive in between calls in order to re-use the cookie while configured to use NTLM.  Each new TCP connection will require re-authentication.
-
-## Load Locations?
-```csharp
-    public static void InvokeLocationsImport()
-    {
-        Login();
-
-        if (_authCookies != null)
-        {
-            _mi.CookieContainer = _authCookies;
-
-            List<Location_2_0_031> locations = new List<Location_2_0_031>();
-
-            Location_2_0_031 location = new Location_2_0_031();
-            location.Description = "ZZ Oil";
-            location.EffectiveDate = new DateTime(2009, 1, 1);
-            location.Address1 = "123 Main St.";
-            location.Address2 = "Suite B.";
-            location.City = "Green Bay";
-            location.Jurisdiction = "WI";
-            location.CountryCode = "USA";
-            location.PostalCode = "54313";
-            location.OutsideCityLimitInd = YesNo.No;
-
-            locations.Add(location);
-
-            LocationImportResultSummary_2_0_031 result =
-                _mi.ImportLocations(locations.ToArray(), "Determination Oil Company", 100, 100, 100, true);
-
-            Dumper.Dump("result", result);
-        }
-    }
-```

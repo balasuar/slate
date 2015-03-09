@@ -12,134 +12,110 @@ The Excise Tax SOAP API currently implements inline explicit versioning. The met
 ### Transactions
 
 ```csharp
-public class MainClass {
+
+TaxDetermination taxDetermination = new TaxDetermination();
+Transaction_5_18_0[] transactions = new Transaction_5_18_0[1];
+Transaction_5_18_0 transactions_0 = new Transaction_5_18_0();
+transactions_0.Company = "Determination Company";
+transactions_0.EffectiveDate = new DateTime(2014, 2, 11);
+transactions_0.InvoiceNumber = "";
+transactions_0.InvoiceDate = new DateTime(2014, 2, 11);
+transactions_0.FuelUseCode = "";
+transactions_0.TransactionType = "BELOW";
+transactions_0.TransportationModeCode = "";
+transactions_0.TitleTransferCode = "ORIG";
+transactions_0.Seller = "";
+transactions_0.Buyer = "";
+transactions_0.PreviousSeller = "";
+transactions_0.NextBuyer = "";
+transactions_0. SellerVatNumber = "";
+transactions_0. BuyerVatNumber = "";
+transactions_0. CustomsStatus = "";
+transactions_0. FormAPresentedInd = "";
+transactions_0. SimplifiedProcedureInd = "";
+transactions_0. Incoterms = "";
+transactions_0.UserData = "UserDataINV";
+transactions_0.UserTranId = "TRN9001";
+transactions_0.SourceSystem = "home";
+transactions_0.SaveTransactionInd = "Y";
+transactions_0.DebugInd = "N";
+transactions_0.CalculationMethod = "NORMAL";
+transactions_0.TotalDyedUnits = 1000;
+TransactionLine_5_18_0[] transactionLines = new TransactionLine_5_18_0[1];
+TransactionLine_5_18_0 transactionLines_0 = new TransactionLine_5_18_0();
+transactionLines_0.InvoiceLine = 1000;
+transactionLines_0.MovementStartDate = new DateTime(2014, 2, 11);
+transactionLines_0.MovementEndDate = new DateTime(2014, 2, 11);
+transactionLines_0.ProductCode = "065";
+transactionLines_0.BlendToProductCode = "";
+transactionLines_0.UnitPrice = 1.29;
+transactionLines_0.NetUnits = 500;
+transactionLines_0.GrossUnits = 500;
+transactionLines_0.BilledUnits = 500;
+transactionLines_0.LineAmount = null;
+transactionLines_0.FreightLineAmount = null;
+transactionLines_0.BillOfLadingNumber = "";
+transactionLines_0.BillOfLadingDate = new DateTime(2014, 2, 11);
+transactionLines_0.OriginCountryCode = "USA";
+transactionLines_0.OriginJurisdiction = "WI";
+transactionLines_0.OriginCounty = "Brown";
+transactionLines_0.OriginCity = "Green Bay";
+transactionLines_0.OriginPostalCode = "54313";
+transactionLines_0.OriginType = "";
+transactionLines_0.Origin = "";
+transactionLines_0.OriginOutCityLimitInd = "";
+transactionLines_0.OriginExciseWarehouse = "";
+transactionLines_0.OriginSpecialJurisdictionInd = "Y";
+transactionLines_0.DestinationCountryCode = "USA";
+transactionLines_0.DestinationJurisdiction = "WI";
+transactionLines_0.DestinationCounty = "Brown";
+transactionLines_0.DestinationCity = "Green Bay";
+transactionLines_0.DestinationPostalCode = "54313";
+transactionLines_0.DestinationType = "";
+transactionLines_0.Destination = "";
+transactionLines_0.DestinationOutCityLimitInd = "";
+transactionLines_0.DestinationSpecialJurisdictionInd = "N";
+transactionLines_0.DestinationExciseWarehouse = "";
+transactionLines_0.SaleCountryCode = "USA";
+transactionLines_0.SaleJurisdiction = "WI";
+transactionLines_0.SaleCounty = "Brown";
+transactionLines_0.SaleCity = "Green Bay";
+transactionLines_0.SalePostalCode = "54313";
+transactionLines_0.SaleType = "";
+transactionLines_0.SaleLocation = "";
+transactionLines_0.SaleOutCityLimitInd = "";
+transactionLines_0.SaleExciseWarehouse = "";
+transactionLines_0.SaleSpecialJurisdictionInd = "N";
+transactionLines_0.CounterCountryCode = "USA";
+transactionLines_0.CounterJurisdiction = "WI";
+transactionLines_0.CounterCounty = "Brown";
+transactionLines_0.CounterCity = "Green Bay";
+transactionLines_0.CounterPostalCode = "54313";
+transactionLines_0.CounterType = "";
+transactionLines_0.Counter = "";
+transactionLines_0.CounterOutCityLimitInd = "";
+transactionLines_0.CounterExciseWarehouse = "";
+transactionLines_0.CounterSpecialJurisdictionInd = "N";
+transactionLines_0.CounterFiscalRepInd = "N";
+
+transactionLines_0.UserData = "UserData0";
+transactionLines_0.AlternativeFuelContent = null;
+transactionLines_0.BlendToAltFuelContent = null;
+transactionLines_0.BlendToInd = "";
+transactionLines_0.FreightUnitPrice = 0.0625;
+transactionLines_0.FreightType = "NON_ITEMIZED_COMMON_CARRIER";
+
+TransactionLineJurisdiction_5_18_0 transactionLineOrigin_0 = new TransactionLineJurisdiction_5_18_0();
+transactionLineOrigin_0.SpecialJurisdictionCode = "SPD1-BROWN";
+transactionLineOrigin_0.SpecialJurisdictionType = "COUNTY";
+transactionLines_0. OriginSpecialJurisdictions = new TransactionLineJurisdiction_5_18_0[1];
+transactionLines_0. OriginSpecialJurisdictions[0] = transactionLineOrigin_0;
+transactionLines[0] = transactionLines_0;
+transactions_0.TransactionLines = transactionLines;
+transactions[0] = transactions_0;
     
-    public static void Main() {
-        InvokeProcessTransactions_5_18_0();
-    }
-    
-    public static void InvokeProcessTransactions_5_18_0() {
-        TaxDetermination taxDetermination = new TaxDetermination();
-        Transaction_5_18_0[] transactions = new Transaction_5_18_0[1];
-        Transaction_5_18_0 transactions_0 = new Transaction_5_18_0();
-        transactions_0.Company = "Determination Company";
-        transactions_0.EffectiveDate = new DateTime(2014, 2, 11);
-        transactions_0.InvoiceNumber = "";
-        transactions_0.InvoiceDate = new DateTime(2014, 2, 11);
-        transactions_0.FuelUseCode = "";
-        transactions_0.TransactionType = "BELOW";
-        transactions_0.TransportationModeCode = "";
-        transactions_0.TitleTransferCode = "ORIG";
-        transactions_0.Seller = "";
-        transactions_0.Buyer = "";
-        transactions_0.PreviousSeller = "";
-        transactions_0.NextBuyer = "";
-        transactions_0. SellerVatNumber = "";
-        transactions_0. BuyerVatNumber = "";
-        transactions_0. CustomsStatus = "";
-        transactions_0. FormAPresentedInd = "";
-        transactions_0. SimplifiedProcedureInd = "";
-        transactions_0. Incoterms = "";
-        transactions_0.UserData = "UserDataINV";
-        transactions_0.UserTranId = "TRN9001";
-        transactions_0.SourceSystem = "home";
-        transactions_0.SaveTransactionInd = "Y";
-        transactions_0.DebugInd = "N";
-        transactions_0.CalculationMethod = "NORMAL";
-        transactions_0.TotalDyedUnits = 1000;
-        TransactionLine_5_18_0[] transactionLines = new TransactionLine_5_18_0[1];
-        TransactionLine_5_18_0 transactionLines_0 = new TransactionLine_5_18_0();
-        transactionLines_0.InvoiceLine = 1000;
-        transactionLines_0.MovementStartDate = new DateTime(2014, 2, 11);
-        transactionLines_0.MovementEndDate = new DateTime(2014, 2, 11);
-        transactionLines_0.ProductCode = "065";
-        transactionLines_0.BlendToProductCode = "";
-        transactionLines_0.UnitPrice = 1.29;
-        transactionLines_0.NetUnits = 500;
-        transactionLines_0.GrossUnits = 500;
-        transactionLines_0.BilledUnits = 500;
-        transactionLines_0.LineAmount = null;
-        transactionLines_0.FreightLineAmount = null;
-        transactionLines_0.BillOfLadingNumber = "";
-        transactionLines_0.BillOfLadingDate = new DateTime(2014, 2, 11);
-        transactionLines_0.OriginCountryCode = "USA";
-        transactionLines_0.OriginJurisdiction = "WI";
-        transactionLines_0.OriginCounty = "Brown";
-        transactionLines_0.OriginCity = "Green Bay";
-        transactionLines_0.OriginPostalCode = "54313";
-        transactionLines_0.OriginType = "";
-        transactionLines_0.Origin = "";
-        transactionLines_0.OriginOutCityLimitInd = "";
-        transactionLines_0.OriginExciseWarehouse = "";
-        transactionLines_0.OriginSpecialJurisdictionInd = "Y";
-        transactionLines_0.DestinationCountryCode = "USA";
-        transactionLines_0.DestinationJurisdiction = "WI";
-        transactionLines_0.DestinationCounty = "Brown";
-        transactionLines_0.DestinationCity = "Green Bay";
-        transactionLines_0.DestinationPostalCode = "54313";
-        transactionLines_0.DestinationType = "";
-        transactionLines_0.Destination = "";
-        transactionLines_0.DestinationOutCityLimitInd = "";
-        transactionLines_0.DestinationSpecialJurisdictionInd = "N";
-        transactionLines_0.DestinationExciseWarehouse = "";
-        transactionLines_0.SaleCountryCode = "USA";
-        transactionLines_0.SaleJurisdiction = "WI";
-        transactionLines_0.SaleCounty = "Brown";
-        transactionLines_0.SaleCity = "Green Bay";
-        transactionLines_0.SalePostalCode = "54313";
-        transactionLines_0.SaleType = "";
-        transactionLines_0.SaleLocation = "";
-        transactionLines_0.SaleOutCityLimitInd = "";
-        transactionLines_0.SaleExciseWarehouse = "";
-        transactionLines_0.SaleSpecialJurisdictionInd = "N";
-        transactionLines_0.CounterCountryCode = "USA";
-        transactionLines_0.CounterJurisdiction = "WI";
-        transactionLines_0.CounterCounty = "Brown";
-        transactionLines_0.CounterCity = "Green Bay";
-        transactionLines_0.CounterPostalCode = "54313";
-        transactionLines_0.CounterType = "";
-        transactionLines_0.Counter = "";
-        transactionLines_0.CounterOutCityLimitInd = "";
-        transactionLines_0.CounterExciseWarehouse = "";
-        transactionLines_0.CounterSpecialJurisdictionInd = "N";
-        transactionLines_0.CounterFiscalRepInd = "N";
+TransactionResultSummary_5_18_0 processTransactions_5_18_0Result = taxDetermination.ProcessTransactions_5_18_0(transactions);
 
-        transactionLines_0.UserData = "UserData0";
-        transactionLines_0.AlternativeFuelContent = null;
-        transactionLines_0.BlendToAltFuelContent = null;
-        transactionLines_0.BlendToInd = "";
-        transactionLines_0.FreightUnitPrice = 0.0625;
-        transactionLines_0.FreightType = "NON_ITEMIZED_COMMON_CARRIER";
-
-        TransactionLineJurisdiction_5_18_0 transactionLineOrigin_0 = new TransactionLineJurisdiction_5_18_0();
-        transactionLineOrigin_0.SpecialJurisdictionCode = "SPD1-BROWN";
-        transactionLineOrigin_0.SpecialJurisdictionType = "COUNTY";
-        transactionLines_0. OriginSpecialJurisdictions = new TransactionLineJurisdiction_5_18_0[1];
-        transactionLines_0. OriginSpecialJurisdictions[0] = transactionLineOrigin_0;
-        transactionLines[0] = transactionLines_0;
-        transactions_0.TransactionLines = transactionLines;
-        transactions[0] = transactions_0;
-            
-        int sum = 0;
-        double seconds = 0;
-        int startTime = Environment.TickCount;
-        TransactionResultSummary_5_18_0 processTransactions_5_18_0Result = taxDetermination.ProcessTransactions_5_18_0(transactions);
-        int elapsed = Environment.TickCount - startTime;
-        sum += elapsed;
-        seconds = elapsed / 1000.0;
-
-        //Display Results
-        Console.WriteLine(DateTime.Now + "\t Completed! Seconds Elapsed: " + seconds + "\r\n");
-        Console.WriteLine(DateTime.Now + "\t Status: " + processTransactions_5_18_0Result.TransactionResults[0].Status + "\r\n");
-        Console.WriteLine(DateTime.Now + "\t Successful: " + processTransactions_5_18_0Result.NumberSuccess.ToString() + "\r\n");
-        Console.WriteLine(DateTime.Now + "\t Failed: " + processTransactions_5_18_0Result.NumberFailed.ToString() + "\r\n");
-        Console.WriteLine(DateTime.Now + "\t Processed: " + processTransactions_5_18_0Result.NumberFailed.ToString() + "\r\n");
-
-        Console.Write("Press any key to exit ");
-        Console.ReadKey();
-
-    }
-}
 ```
 
 ```shell
@@ -685,15 +661,11 @@ public class MainClass {
 </soap:Envelope>
 ```
 
-**Transactions:** *ArrayOfTransaction_5_18_0*, *optional*
+**Transactions:** ArrayOfTransaction_5_18_0, *optional*
 
 Container object to hold an array of Transaction_5_18_0
 
-**ArrayOfTransaction_5_18_0:** *Transaction_5_18_0*, *optional*
-
-Container object to hold an array Transaction_5_18_0. 
-
-### TRANSACTION_5_18_0 FIELDS---:** 
+### TRANSACTION_5_18_0
 
 **Company:** string[100], *required*
 
@@ -840,12 +812,6 @@ Sum of all resulting taxes from the reporting_tax_amount field  (eg, 2.00, 0.82)
 Currency the taxes need to be reported in which may differ from the currency of tax rate    (eg, USD, GBP, EUR)
 
 ### TransactionLine
-
-**ArrayOfTransactionLine_5_18_0:** *TransactionLine_5_18_0*, *required*
-
-Container object to hold an array of TransactionLine_5_18_0 objects. 
-
-**---TRANSACTIONLINE_5_18_0 FIELDS---:** 
 
 **InvoiceLine** int, *required*
 
@@ -1141,12 +1107,6 @@ Decimal to tell how many times a product has been sold in the supply chain. 1,2,
 
 ### TransactionLineMeasure
 
-**ArrayOfTransactionLineMeasure_5_18_0**, **TransactionLineMeasure_5_18_0**, *optional*
-
-Container object to hold an array of TransactionLineMeasure_5_18_0 objects. 
-
-**---TRANSACTIONLINEMEASURE_5_18_0 FIELDS---:** 
-
 **QuantityInd** string[1], *optional*
 
 Type of Quantity for the Line referencing Billed, Net or Gross Value    B, N, G
@@ -1160,12 +1120,6 @@ The Measurement type the Measure Value is defined in    BRL, GAL, LTR
 Numeric  Unit of the Quanity indicator type 100, 200, 300
 
 ### TransactionExchangeRate
-
-**ArrayOfTransactionExchangeRate_5_18_0**, **TransactionExchangeRate_5_18_0**, *optional*
-
-Container object to hold an array of TransactionExchangeRate_5_18_0 objects. 
-
-**---TRANSACTIONEXCHANGERATE_5_18_0 FIELDS---:** 
 
 **FromCurrency** string[10], *optional*
 
@@ -1184,12 +1138,6 @@ Date the Conversion Factor is valid for 4/23/2009, 5/17/2009
 Numeric Amount determining the conversion factor between the from and to currencies 0.123234, 4.3245
 
 ### TransactionLineJurisdiction
-
-**ArrayOfTransactionLineJurisdiction_5_18_0**, **TransactionLineJurisdiction_5_18_0**, *optional*
-
-Container object to hold an array of TransactionExchangeRate_5_18_0 objects. 
-
-**---TRANSACTIONLINEJURISDICTION_5_18_0 FIELDS---:** 
 
 **SpecialJurisdictionCode** string[30], *required*
 
