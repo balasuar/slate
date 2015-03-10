@@ -508,7 +508,7 @@ Standard options:
 * MED1 - US MDET with exempt sales tax
 * MED2 - US MDET with taxable sales tax
 
-**DestinationAddress:** Address, *required*  
+**DestinationAddress:** <a href='#address31'>Address</a>, *required*  
 Address in the collection that will be used as destination or "Ship To" location in the tax calculation.
 
 **DetailLevel:** DetailLevel, *optional*  
@@ -551,7 +551,7 @@ Default is the DocDate if null.
 Exemption or certificate number for the client customer. 
 Note: Any value set in this property will cause the document or line to be exempted from tax calculation.
 
-**Lines:** ArrayOfLine, *required*  
+**Lines:** <a href='#line30'>Line[]</a>, *required*  
 Document line array. There is a limit of 1000 lines per document, but there must be at least one.
 
 **LocationCode:** string [50], *required if outlet-based reporting is needed, otherwise optional*  
@@ -559,7 +559,7 @@ Also referred to as a Store Location, Outlet Id, or Outlet code.
 Location code is a value assigned by some State jurisdictions that identifies a particular store location. 
 These States may require tax liabilities to be broken out separately for each store Location
 
-**OriginAddress:** Address, *optional*  
+**OriginAddress:** <a href='#address31'>Address</a>, *optional*  
 The Address that will be used as the origin or "Shipped From" location in the tax calculation. 
 If no origin address exists at the document level, the destination address will be used in the calculation. 
 Note: if no Origin address is provided at the line level, the Document level origin address will be applied here as well. 
@@ -583,7 +583,7 @@ AvaTaxLocal function - provides the ability to control whether a tax is calculat
 * Local
 * Remote
 
-**TaxOverride:** TaxOverride, *optional*  
+**TaxOverride:** <a href='#taxoverride32'>TaxOverride</a>, *optional*  
 TaxOverride for the document - can be used to manually override components of the tax calculation. See TaxOverride for more information.
 
 #### Line
@@ -1072,10 +1072,10 @@ Flag indicating if a Document has been locked by Avalara's Managed Returns Servi
 **TaxDate:** DateTime  
 Tax Date is the date used to calculate tax on the Document.
 
-**TaxLines:** TaxLine[]  
+**TaxLines:** <a href='#taxline34'>TaxLine[]</a>  
 Tax broken down by individual TaxLine.
 
-**TaxSummary:** TaxDetail[]  
+**TaxSummary:** <a href='#taxdetail35'>TaxDetail[]</a>  
 Summary of the jurisdiction details for all item lines (returned for detail levels Summary and Line).
 
 **Timestamp:** DateTime  
@@ -1102,7 +1102,7 @@ Current version of the document.
 **VolatileTaxRated:** boolean  
 Deprecated.
 
-**TaxAddresses:** TaxAddress[]  
+**TaxAddresses:** <a href='#taxaddress36'>TaxAddress[]</a>  
 Array of resolved addresses used in the tax calculation.
 
 **Messages:** <a href="#errors79">Message[]</a>  

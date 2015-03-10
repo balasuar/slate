@@ -540,13 +540,13 @@ Your customer's purchase order number.
 **ReferenceCode:** string [50], *optional*  
 For returns, refers to the DocCode of the original invoice.
 
-**TaxOverride:** TaxOverride, *optional*  
+**TaxOverride:** <a href='#taxoverride'>TaxOverride</a>, *optional*  
 TaxOverride for the document - can be used to manually override components of the tax calculation. See TaxOverride for more information.
 
-**Addresses:** Address, at least one required  
+**Addresses:** <a href='#address'>Address</a>, at least one required  
 Document address array. Should represent all origin and destination addresses which will be associated with individual lines.
 
-**Lines:** Line, at least one required  
+**Lines:** <a href='#line'>Line</a>, at least one required  
 Document line array. There is a limit of 1000 lines per document.
 
 #### TaxOverride
@@ -878,16 +878,16 @@ This is for informational purposes. The TotalTax will still be used for reportin
 **TaxDate:** date  
 Date used to assess tax rates and jurisdictions.
 
-**TaxLines:** TaxLine[]  
+**TaxLines:** <a href='#taxline'>TaxLine[]</a>  
 Tax calculation details for each item line (returned for detail levels Line and Tax).
 
-**TaxSummary:** TaxDetail[]  
+**TaxSummary:** <a href='#taxdetail'>TaxDetail[]</a>  
 Summary of the jurisdiction details for all item lines (returned for detail levels Summary and Line).
 
-**TaxDetails:** TaxDetail[]  
+**TaxDetails:** <a href='#taxdetail'>TaxDetail[]</a>  
 Tax calculation details for each jurisdiction per line (returned for detail level Tax).
 
-**TaxAddresses:** TaxAddress[]  
+**TaxAddresses:** <a href='#taxaddress'>TaxAddress[]L</a>  
 Addresses used in tax calculations (returned for detail levels Line and Tax).
 
 **ResultCode:** enum as string [see below]  

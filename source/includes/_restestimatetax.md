@@ -134,7 +134,7 @@ Total effective tax rate
 **Tax:** decimal  
 Total calculated tax amount
 
-**TaxDetails:** TaxDetail[]  
+**TaxDetails:** <a href='#taxdetail'>TaxDetail[]</a>  
 Tax calculation details for each jurisdiction.
 
 **ResultCode:** enum as string [see below]  
