@@ -8,7 +8,7 @@ language_tabs:
   - php
 
 toc_footers:
-  - <a href='http://developer.avalara.com/getting-started' target="_parent">Sign Up for a Developer Key</a>
+  - <a href='http://developer.avalara.com' target="_parent">Developer Network Home</a>
 
 includes:
   - introduction
