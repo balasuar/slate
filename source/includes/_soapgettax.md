@@ -223,7 +223,9 @@ require('../../AvaTax4PHP/AvaTax.php');
 new ATConfig('Development', array(
     'url' => 'https://development.avalara.net',
     'account' => '1234567890',
-    'license' => 'A1B2C3D4E5F6G7H8')
+    'license' => 'A1B2C3D4E5F6G7H8',
+    'client'=>'AvaTaxSample',
+    'name'=>'Development')
 );
 
 $taxSvc = new TaxServiceSoap('Development');
