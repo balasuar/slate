@@ -3,6 +3,23 @@
 Retrieves tax rate details for the supplied geographic coordinates and sale amount.
 Since the REST API does not provide an explicit ping function, this method can also be used to test connectivity to the service.
 
+##### URL and Method
+
+Development: `GET https://development.avalara.net/1.0/tax/<location>/get?<saleamount>`  
+Production: `GET https://avatax.avalara.net/1.0/tax/<location>/get?<saleamount>`
+    
+<aside class='notice'>
+    To get an XML response, use `GET /1.0/tax/<location>/get.xml?<saleamount>`
+</aside>
+
+##### Headers
+
+**Authorization:** header, *required*  
+In the format "Basic [account number]:[license key]" encoded to <a href="http://en.wikipedia.org/wiki/Base64" target="_parent">Base64</a>, as per <a href="http://en.wikipedia.org/wiki/Basic_access_authentication" target="_parent">basic access authentication</a>.  
+e.g.: `Basic a2VlcG1vdmluZzpub3RoaW5nMnNlZWhlcmU=`
+
+### EstimateTax Request
+
 ```shell
 curl --user 1234567890:A1B2C3D4E5F6G7H8 \
 "https://development.avalara.net/1.0/tax/47.627935,-122.51702/get?saleamount=10"
@@ -69,14 +86,23 @@ EstimateTaxResult::parseResult($curl_response);
 ?>    
 ```
 
+**Latitude:** decimal, *required*  
+The latitude of the geographic coordinates to get tax for based on the sale amount
 
-> The above command returns JSON structured like this:
+**Longitude:** decimal, *required*  
+The longitude of the geographic coordinates to get tax for based on the sale amount
+
+**SaleAmount:** decimal, *required*  
+The amount of sale requiring tax calculation, in decimal format
+
+### EstimateTax Result
 
 ```json
 {
-    "Rate": 0.087,
-    "Tax": 0.87,
-    "TaxDetails": [
+"Rate": 0.087,
+"Tax": 0.87,
+"ResultCode": "Success",
+"TaxDetails": [
         {
             "Country": "US",
             "Region": "WA",
@@ -95,115 +121,54 @@ EstimateTaxResult::parseResult($curl_response);
             "JurisName": "BAINBRIDGE ISLAND",
             "TaxName": "WA CITY TAX"
         }
-    ],
-    "ResultCode": "Success"
+    ]
 }
+
 ```
 
-### URL and Method
+Output for EstimateTax showing the retrieved tax details and calculation.
 
-URL: /1.0/tax/get GET
-
-For development, 
-	https://development.avalara.net
-	/1.0/tax/get
-    
-For production, 
-	https://avatax.avalara.net
-	/1.0/tax/get
-    
-Note that xml-encoded requests should use /1.0/tax/get.xml
-
-### Headers
-
-**Authorization:** header, *required*
-
-In the format "Basic [account number]:[license key]" encoded to <a href="http://en.wikipedia.org/wiki/Base64" target="_parent">Base64</a>, as per <a href="http://en.wikipedia.org/wiki/Basic_access_authentication" target="_parent">basic access authentication</a>.
-
-Sample: Basic a2VlcG1vdmluZzpub3RoaW5nMnNlZWhlcmU=
-
-**Content Type:** header, *required*
-
-Standard content type header, indicating the content type of the request content.
-
-**Content Length:** header, *required*
-
-Standard content length header, indicating the size of the request content.
-
-### EstimateTax Request
-
-Retrieves tax rate details for the supplied US geographic coordinates and sale amount.
-
-#### Properties
-
-**Latitude:** decimal, *required*
-
-The latitude of the geographic coordinates to get tax for based on the sale amount
-
-**Longitude:** decimal, *required*
-
-The longitude of the geographic coordinates to get tax for based on the sale amount
-
-**SaleAmount:** decimal, *required*
-
-The amount of sale requiring tax calculation, in decimal format
-
-### EstimateTax Result
-
-Output for tax/get GET showing the retrived tax details and calculation.
-
-#### Properties
-
-**Rate:** decimal
-
+**Rate:** decimal  
 Total effective tax rate
 
-**Tax:** decimal
-
+**Tax:** decimal  
 Total calculated tax amount
 
-**TaxDetails:** TaxDetail[]
-
+**TaxDetails:** <a href='#taxdetail'>TaxDetail[]</a>  
 Tax calculation details for each jurisdiction.
 
-**ResultCode:** SeverityLevel
+**ResultCode:** enum as string [see below]  
+Classifies severity of message. One of:
 
-SeverityLevel as per <a title="Common Response Format" href="http://developer.avalara.com/api-docs/soap/shared-formats-and-methods#CommonResponseFormat" target="_parent">Common Response Format</a>
+* Success
+* Error
+* Warning
+* Exception
 
-**Messages:** Message[]
+**Messages:** <a href='#errors'>Message[]</a>
+Human-readable description of any warning, error, or exception that occured.
 
-As per <a title="Common Response Format" href="http://developer.avalara.com/api-docs/soap/shared-formats-and-methods#CommonResponseFormat" target="_parent">Common Response Format</a>
-
-### TaxDetail
+#### TaxDetail
 
 Tax details by jurisdiction.
 
-#### Properties
-
-**Country:** string [2]
-
+**Country:** string [2]  
 Country of tax jurisdiction
 
-**JurisName:** string [200]
-
+**JurisName:** string [200]  
 Name of tax jurisdiction
 
-**JurisType:** string [9]
-
+**JurisType:** string [9]  
 Regional type of tax jurisdiction
 
-**Rate:** decimal
-
+**Rate:** decimal  
 Effective tax rate for tax jurisdiction
 
-**Region:** string [3]
-
+**Region:** string [3]  
 Region of tax jurisdiction
 
-**Tax:** decimal
-
+**Tax:** decimal  
 Tax amount
 
-**TaxName:** string [75]
-
+**TaxName:** string [75]  
 Tax name

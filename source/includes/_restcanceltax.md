@@ -1,5 +1,32 @@
 ## CancelTax
 
+Voids or deletes and existing transaction record from the AvaTax system.
+
+##### URL and Method
+
+`POST /1.0/tax/cancel`
+
+Development: https://development.avalara.net/1.0/tax/cancel  
+Production:	https://avatax.avalara.net/1.0/tax/cancel
+    
+<aside class='notice'>
+    Note that xml-encoded requests should use the same URL (`POST /1.0/tax/cancel`), but should set the Content-Type header to `text/xml`.
+</aside>
+
+##### Headers
+
+**Authorization:** header, *required*  
+In the format "Basic [account number]:[license key]" encoded to <a href="http://en.wikipedia.org/wiki/Base64" target="_parent">Base64</a>, as per <a href="http://en.wikipedia.org/wiki/Basic_access_authentication" target="_parent">basic access authentication</a>.  
+e.g.: `Basic a2VlcG1vdmluZzpub3RoaW5nMnNlZWhlcmU=`
+
+**Content Type:** header, *required*  
+Standard content type header, indicating the content type of the request content. Either `text/json` or `text/xml`.
+
+**Content Length:** header, *required*  
+Standard content length header, indicating the size of the request content.
+
+### CancelTaxRequest
+
 ```shell
 curl --user 1234567890:A1B2C3D4E5F6G7H8 \
 --header "Content-Type: text/json" \
@@ -121,75 +148,22 @@ CancelTaxResult::parseResult($curl_response);
 ?>
 ```
 
-> The above command returns JSON structured like this:
-
-```json
-{
-"CancelTaxResult": {
-"TransactionId": 437966608,
-"ResultCode": "Success",
-"DocId": "34067366"}
-}
-```
-
-Voids or deletes and existing transaction record from the AvaTax system.
-
-### URL and Method
-
-URL: /1.0/tax/cancel POST
-
-For development, 
-	https://development.avalara.net
-	/1.0/tax/cancel
-    
-For production, 
-	https://avatax.avalara.net
-	/1.0/tax/cancel
-    
-Note that xml-encoded requests should use /1.0/tax/cancel.xml
-
-### Headers
-
-**Authorization:** header, *required*
-
-In the format "Basic [account number]:[license key]" encoded to <a href="http://en.wikipedia.org/wiki/Base64" target="_parent">Base64</a>, as per <a href="http://en.wikipedia.org/wiki/Basic_access_authentication" target="_parent">basic access authentication</a>.
-
-Sample: Basic a2VlcG1vdmluZzpub3RoaW5nMnNlZWhlcmU=
-
-**Content Type:** header, *required*
-
-Standard content type header, indicating the content type of the request content.
-
-**Content Length:** header, *required*
-
-Standard content length header, indicating the size of the request content.
-
-### CancelTaxRequest
-
-Input for CancelTax indicating the document that should be cancelled and the reason for the operation.
-
-#### Properties
-
-**CompanyCode:** string [25], *required*
-
+**CompanyCode:** string [25], *required*  
 Client application company reference code.  Not required if the document is identified by DocId.
 
-**DocType:** string, *required*
-
-Value describing what type of tax document is being cancelled. One of:
+**DocType:** string, *required*  
+Value describing what type of tax document is being cancelled. One of:  
 
 * SalesInvoice
 * ReturnInvoice
-* PurchaseInvoice
+* PurchaseInvoice  
 
 Not required if the document is identified by DocId.
 
-**DocCode:** string [50], *required*
-
+**DocCode:** string [50], *required*  
 Client application identifier describing this tax transaction (i.e. invoice number, sales order number, etc.).  Not required if the document is identified by DocId.
 
-**CancelCode:** string, *required*
-
+**CancelCode:** string, *required*  
 The reason for cancelling the tax record. 
 
 * Unspecified
@@ -200,26 +174,33 @@ The reason for cancelling the tax record.
 
 For more information, see <a href="http://developer.avalara.com/api-docs/designing-your-integration/canceltax" target="_parent">Voiding Documents</a>.
 
-**DocId:** string, *optional*
-
+**DocId:** string, *optional*  
 Avatax-assigned unique Document Id, can be used in place of DocCode, DocType, and CompanyCode
 
 ### CancelTaxResult
 
-#### Properties
+```json
+{
+"CancelTaxResult": {
+"TransactionId": 437966608,
+"ResultCode": "Success",
+"DocId": "34067366"}
+}
+```
 
-**TransactionId:** string
-
+**TransactionId:** string  
 The unique numeric identifier of the API operation assigned by the AvaTax service.
 
-**DocId:** string
-
+**DocId:** string  
 The unique numeric identifier (Document ID) assigned to the tax document in question by the AvaTax Service.
 
-**ResultCode:** SeverityLevel
+**ResultCode:** enum as string [see below]  
+Classifies severity of message. One of:
 
-SeverityLevel as per <a title="Common Response Format" href="http://developer.avalara.com/api-docs/soap/shared-formats-and-methods#CommonResponseFormat" target="_parent">Common Response Format</a>
+* Success
+* Error
+* Warning
+* Exception
 
-**Messages:** Message[]
-
-As per <a title="Common Response Format" href="http://developer.avalara.com/api-docs/soap/shared-formats-and-methods#CommonResponseFormat" target="_parent">Common Response Format</a>
+**Messages:** <a href='#errors'>Message[]</a>
+Human-readable description of any warning, error, or exception that occured.

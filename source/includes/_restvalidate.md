@@ -2,6 +2,23 @@
 
 Normalizes a single US or Canadian address, providing a non-ambiguous address match.
 
+##### URL and Method
+
+Development: `GET https://development.avalara.net/1.0/address/validate?<address>`  
+Production: `GET https://avatax.avalara.net/1.0/address/validate?<address>`
+    
+<aside class='notice'>
+    To get an XML response, use `GET /1.0/address/validate.xml?<address>`
+</aside>
+
+##### Headers
+
+**Authorization:** header, *required*  
+In the format "Basic [account number]:[license key]" encoded to <a href="http://en.wikipedia.org/wiki/Base64" target="_parent">Base64</a>, as per <a href="http://en.wikipedia.org/wiki/Basic_access_authentication" target="_parent">basic access authentication</a>.  
+e.g.: `Basic a2VlcG1vdmluZzpub3RoaW5nMnNlZWhlcmU=`
+
+### Validate Request
+
 ```shell
 curl --user 1234567890:A1B2C3D4E5F6G7H8 \
 "https://development.avalara.net/1.0/address/validate?Line1=118+N+Clark+St&Line2=Suite+100&Line3=ATTN+Accounts+Payable&City=Chicago&Region=IL&PostalCode=60602&Country=US"
@@ -94,125 +111,73 @@ $result = curl_exec($curl);
 ValidateResult::parseResult($result);
 ?>
 ```
-> The above command returns JSON structured like this:
+
+Input to normalize a single US or Canadian address, providing a non-ambiguous address match.
+
+**Line1:** string [50], *required*  
+Address line 1
+
+**Line2:** string [50], *optional*  
+Address line 2
+
+**Line3:** string [50], *optional*  
+Address line 3
+
+**City:** string [50], *optional unless PostalCode is not specified*  
+City name
+
+**Region:** string [3], *optional unless PostalCode is not specified*  
+State, province, or region name
+
+**Country:** string [50], *optional*  
+Country code
+
+**PostalCode:** string [11], *optional unless City and Region are not specified*  
+Postal or ZIP code
+
+### ValidateResult
 
 ```json
 {
 "ResultCode": "Success",
 "Address": {
-"Line1": "ATTN Accounts Payable",
-"City": "Chicago",
-"Region": "IL",
-"PostalCode": "60602-1304",
-"Country": "US",
-"County": "Cook",
-"FipsCode": "1703100000",
-"CarrierRoute": "C012",
-"PostNet": "606021304990",
-"AddressType": "H",
-"Line2": "118 N Clark St Ste 100"}
+    "Line1": "ATTN Accounts Payable",
+    "City": "Chicago",
+    "Region": "IL",
+    "PostalCode": "60602-1304",
+    "Country": "US",
+    "County": "Cook",
+    "FipsCode": "1703100000",
+    "CarrierRoute": "C012",
+    "PostNet": "606021304990",
+    "AddressType": "H",
+    "Line2": "118 N Clark St Ste 100"
+    }
 }
 ```
 
-### URL and Method
-
-URL: /1.0/address/validate GET
-
-For development, 
-	https://development.avalara.net
-	/1.0/address/validate
-    
-For production, 
-	https://avatax.avalara.net
-	/1.0/address/validate
-    
-Note that xml-encoded requests should use /1.0/address/validate.xml
-
-### Headers
-
-**Authorization:** header, *required*
-
-In the format "Basic [account number]:[license key]" encoded to <a href="http://en.wikipedia.org/wiki/Base64" target="_parent">Base64</a>, as per <a href="http://en.wikipedia.org/wiki/Basic_access_authentication" target="_parent">basic access authentication</a>.
-
-Sample: Basic a2VlcG1vdmluZzpub3RoaW5nMnNlZWhlcmU=
-
-**Content Type:** header, *required*
-
-Standard content type header, indicating the content type of the request content.
-
-**Content Length:** header, *required*
-
-Standard content length header, indicating the size of the request content.
-
-
-### Validate Request
-
-Input to normalize a single US or Canadian address, providing a non-ambiguous address match.
-
-#### Properties
-
-**Line1:** string [50], *required*
-
-Address line 1
-
-**Line2:** string [50], *optional*
-
-Address line 2
-
-**Line3:** string [50], *optional*
-
-Address line 3
-
-**City:** string [50], *optional unless PostalCode is not specified*
-
-City name
-
-**Region:** string [3], *optional unless PostalCode is not specified*
-
-State, province, or region name
-
-**Country:** string [50], *optional*
-
-Country code
-
-**PostalCode:** string [11], *optional unless City and Region are not specified*
-
-Postal or ZIP code
-
-### ValidateResult
-
 Output for address/validate showing the validated address match or address validation errors.
 
-#### Properties
-
-**Line1:** string [50]
-
+**Line1:** string [50]  
 Address line 1
 
-**Line2:** string [50]
-
+**Line2:** string [50]  
 Address line 2
 
-**Line3:** string [50]
-
+**Line3:** string [50]  
 Address line 3
 
-**City:** string [50]
-
+**City:** string [50]  
 City name
 
-**Region:** string [3]
-
+**Region:** string [3]  
 State, province or region name
 
-**Country:** string [2]
-
+**Country:** string [2]  
 Country code as ISO 3166-1 (Alpha-2) country code (e.g. “US”)
 
-**AddressType:** string [1]
-
+**AddressType:** string [1]  
 Address type code.
-
 
 * F - Firm or company address
 * G - General Delivery address
@@ -221,26 +186,21 @@ Address type code.
 * R - Rural route address
 * S - Street or residential address
 
-**PostalCode:** string [11]
-
+**PostalCode:** string [11]  
 Postal or ZIP code
 
-**County:** string [50]
-
+**County:** string [50]  
 County name
 
-**FipsCode:** string [10]
-
-FIPSCode is a unique 10-digit code representing each geographic combination of state, county, and city. The code is made up of the Federal Information Processing Code (FIPS) that uniquely identifies each state, county, and city in the U.S. Returned for US addresses only.
-
+**FipsCode:** string [10]  
+FIPSCode is a unique 10-digit code representing each geographic combination of state, county, and city. The code is made up of the Federal Information Processing Code (FIPS) that uniquely identifies each state, county, and city in the U.S. Returned for US addresses only.  
 Digits represent jurisdiction codes:
 
 * 1-2 State code
 * 3-5 County code
 * 6-10 City code
 
-**CarrierRoute:** string [4]
-
+**CarrierRoute:** string [4]  
 CarrierRoute is a four-character string representing a US postal carrier route. The first character of this property, the term, is always alphabetic, and the last three numeric. For example, "R001" or "C027" would be typical carrier routes. The alphabetic letter indicates the type of delivery associated with this address. Returned for US addresses only.
 
 * B - PO Box
@@ -249,12 +209,10 @@ CarrierRoute is a four-character string representing a US postal carrier route. 
 * H - Highway contract
 * R - Rural route
 
-**TaxRegionId:** string
-
+**TaxRegionId:** string  
 AvaTax tax region identifier
 
-**PostNet:** string [12]
-
+**PostNet:** string [12]  
 POSTNet is a 12-digit barcode containing the ZIP Code, ZIP+4 Code, and the delivery point code, used by the USPS to direct mail. Returned for US addresses only digits represent delivery information:
 
 * 1-5 ZIP code
@@ -262,10 +220,13 @@ POSTNet is a 12-digit barcode containing the ZIP Code, ZIP+4 Code, and the deliv
 * 10-11 Delivery point
 * 12 Check digit
 
-**ResultCode:** SeverityLevel
+**ResultCode:** enum as string [see below]  
+Classifies severity of message. One of:
 
-SeverityLevel as per <a title="Common Response Format" href="http://developer.avalara.com/api-docs/soap/shared-formats-and-methods#CommonResponseFormat" target="_parent">Common Response Format</a>
+* Success
+* Error
+* Warning
+* Exception
 
-**Messages:** Message[]
-
-As per <a title="Common Response Format" href="http://developer.avalara.com/api-docs/soap/shared-formats-and-methods#CommonResponseFormat" target="_parent">Common Response Format</a>
+**Messages:** <a href='#errors'>Message[]</a>
+Human-readable description of any warning, error, or exception that occured.
