@@ -37,6 +37,10 @@ includes:
   - exciseauthentication
   - exciseprocesstransactions
   - exciseprocesstransactionsresponse
+  - tngintroduction
+  - tngcalculations
+  - tngtransactions
+  - tngtaxdocumentformat
 
 search: true
 ---
