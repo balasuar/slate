@@ -887,7 +887,7 @@ Summary of the jurisdiction details for all item lines (returned for detail leve
 **TaxDetails:** <a href='#taxdetail'>TaxDetail[]</a>  
 Tax calculation details for each jurisdiction per line (returned for detail level Tax).
 
-**TaxAddresses:** <a href='#taxaddress'>TaxAddress[]L</a>  
+**TaxAddresses:** <a href='#taxaddress'>TaxAddress[]</a>  
 Addresses used in tax calculations (returned for detail levels Line and Tax).
 
 **ResultCode:** enum as string [see below]  
