@@ -8,6 +8,7 @@ language_tabs:
   - php
 
 toc_footers:
+  - <a href='http://developer.avalara.com/api-docs/api-sample-code' target="_parent">Sample Code</a>
   - <a href='http://developer.avalara.com' target="_parent">Developer Network Home</a>
 
 includes:
