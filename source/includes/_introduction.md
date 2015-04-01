@@ -6,6 +6,6 @@ The <a href="#taxrates-api">**Avalara TaxRates**</a> API provides an easy way fo
 
 The <a href="#excise-api">**Avalara AvaTax Excise**</a> API is a SOAP web service that is the external programmatic interface into the Avalara AvaTax Excise application.   It provides for a platform independent mechanism to obtain tax calculation information.  This document defines the object structure, and an introduction on how to consume the web service.
 
-<aside class="alert"> The following APIs are in beta release only. </aside>
+<aside class="alert"> *The following APIs are in beta release only.* 
 
-The <a href="#tng-api">**TNG**</a> API is used to calculate tax and record transactions for tax purposes.
+The <a href="#tng-api">**TNG**</a> API is used to calculate tax and record transactions for tax purposes. </aside>
