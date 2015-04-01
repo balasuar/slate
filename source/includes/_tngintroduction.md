@@ -8,6 +8,9 @@ There are two kinds of records managed by this API: `Calculations` and `Transact
 
 The request and response formats for both resources is the same, and the response simply adds tax calculation and resolution information to the request format. All formats are documented in the TaxDocument Format section.
 
+When working with this API, care should be taken to reflect your expected document workflow as part of the integration process. The expected workflow and associated calls are diagrammed here:
+<img src="images/tng_document_flow.jpg" alt="TNG Document Flow">
+
 ## Headers
 
 ```plaintext
@@ -29,4 +32,4 @@ The content type header is used by the client to tell the server how to interpre
 Standard content type header, indicating the content type of the request content.
 
 **User-Agent:** *required*  
-The user agent header is used to indicate the technology of the client application (or connector). This is a string that is built into a connector or issued to an SDK partner when they sign up to use the SDK.
+The user agent header is used to indicate the technology of the client application (or connector). This is a string that is built into a connector or issued to a development partner.
