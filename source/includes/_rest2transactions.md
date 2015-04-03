@@ -7,10 +7,10 @@ The request and response formats for both resources is the same, and the respons
 
 ### Create a Transaction
 
-`POST https://tax.api.avalara.com/calculations`
+`POST https://tax.api.avalara.com/transactions`
 
 To create a transaction, AvaTax requires a TaxDocument request body.
-Making multiple POSTs to the /transactions service with the same companyCode and documentCode will result in the creation of a calculation record on the first call and then updates to that transaction record on subsequent calls.
+Making multiple POSTs to the /transactions service with the same companyCode and documentCode will result in the creation of a transaction record on the first call and then updates to that transaction record on subsequent calls.
 
 #### Request
 
@@ -144,13 +144,13 @@ curl --include \
 This string is a UUID issued by Avalara to identify the Avalara account that owns the company identified by the companyCode.
 
 **companyCode:** URL encoded string, *required*  
-Identifies the company profile/legal entity with which the calculation is associated. This is set when the company is created in the AvaTax system, and is an original parameter of the `POST /transactions` call used to create the calculation record. It is unique within the context of an Account.
+Identifies the company profile/legal entity with which the transaction is associated. This is set when the company is created in the AvaTax system, and is an original parameter of the `POST /transactions` call used to create the transaction record. It is unique within the context of an Account.
 
 **transactionType:** URL encoded string, *required*  
 Indicates the type of transaction. Must be one of "Sale", "Purchase" or "Transfer", as identified on the original `POST /transactions` call used to create the transaction record.
 
 **documentCode:** URL encoded string, *required*  
-Typically an invoice number, receipt number, returned merchandise authorization number, etc. maintained by the client application to uniquely identify the transaction. Determined by the value passed on the original `POST /transactions` call used to create the calculation record.
+Typically an invoice number, receipt number, returned merchandise authorization number, etc. maintained by the client application to uniquely identify the transaction. Determined by the value passed on the original `POST /transactions` call used to create the transaction record.
 
 #### Response
 
@@ -193,10 +193,10 @@ Retrieves a set of transaction records that fall within the specified filter cri
 This string is a UUID issued by Avalara to identify the Avalara account that owns the company identified by the companyCode.
 
 **companyCode:** URL encoded string, *required*  
-Identifies the company profile/legal entity with which the calculation is associated. This is set when the company is created in the AvaTax system, and is an original parameter of the `POST /transactions` call used to create the calculation record. It is unique within the context of an Account.
+Identifies the company profile/legal entity with which the transaction is associated. This is set when the company is created in the AvaTax system, and is an original parameter of the `POST /transactions` call used to create the trasnsaction record. It is unique within the context of an Account.
 
 **transactionType:** URL encoded string, *required*  
-Indicates the type of transaction. Must be one of "Sale", "Purchase" or "Transfer", as identified on the original `POST /transactions` call used to create the calculation record.
+Indicates the type of transaction. Must be one of "Sale", "Purchase" or "Transfer", as identified on the original `POST /transactions` call used to create the transaction record.
 
 **limit:** integer, *optional*  
 The maximum number of records that should be returned. Records are ordered by TransactionDate and then by ModifiedDate.
@@ -304,7 +304,7 @@ This string is a UUID issued by Avalara to identify the Avalara account that own
 Identifies the company profile/legal entity with which the transaction is associated. This is set when the company is created in the AvaTax system, and is an original parameter of the `POST /transactions` call used to create the transaction record. It is unique within the context of an Account.
 
 **transactionType:** string 
-Indicates the type of transaction. Must be one of "Sale", "Purchase" or "Transfer", as identified on the original `POST /calculations` call used to create the transaction record.
+Indicates the type of transaction. Must be one of "Sale", "Purchase" or "Transfer", as identified on the original `POST /transactions` call used to create the transaction record.
 
 **documentCode:** string 
 Typically an invoice number, receipt number, returned merchandise authorization number, etc. maintained by the client application to uniquely identify the transaction. Determined by the value passed on the original `POST /transactions` call used to create the transaction record.
@@ -352,13 +352,13 @@ It may be necessary to retrieve a record of the original, unaltered inputs that 
 This string is a UUID issued by Avalara to identify the Avalara account that owns the company identified by the companyCode.
 
 **companyCode:** URL encoded string, *required*  
-Identifies the company profile/legal entity with which the calculation is associated. This is set when the company is created in the AvaTax system, and is an original parameter of the `POST /transactions` call used to create the calculation record. It is unique within the context of an Account.
+Identifies the company profile/legal entity with which the transaction is associated. This is set when the company is created in the AvaTax system, and is an original parameter of the `POST /transactions` call used to create the transaction record. It is unique within the context of an Account.
 
 **transactionType:** URL encoded string, *required*  
 Indicates the type of transaction. Must be one of "Sale", "Purchase" or "Transfer", as identified on the original `POST /transactions` call used to create the transaction record.
 
 **documentCode:** URL encoded string, *required*  
-Typically an invoice number, receipt number, returned merchandise authorization number, etc. maintained by the client application to uniquely identify the transaction. Determined by the value passed on the original `POST /transactions` call used to create the calculation record.
+Typically an invoice number, receipt number, returned merchandise authorization number, etc. maintained by the client application to uniquely identify the transaction. Determined by the value passed on the original `POST /transactions` call used to create the transaction record.
 
 
 #### Response

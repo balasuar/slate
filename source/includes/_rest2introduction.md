@@ -1,4 +1,4 @@
-# TNG API
+# REST v2 API
 
 <aside class="alert"> This API is currently in beta release only. </aside>
 
@@ -15,7 +15,7 @@ When working with this API, care should be taken to reflect your expected docume
 
 ```plaintext
 Authorization: AvalaraAuth : MmVhZDk4YzEtZWNiZi00NzA4LThkODYtYjAxYWY4YmMxM2U1
-Accept: application/json; tax-version=1
+Accept: application/json; document-version=1
 Content-Type: application/json
 User-Agent: Drupal Connector v6.2
 ```
@@ -26,7 +26,7 @@ The following headers are required for all calls to the service.
 The Authorization header is used to identify the actor (person or system) making the request. The value is of the format "AvalaraAuth : access info", where access info is the Base64 encoding of the string "id:key" for the actor making the call. The access info is issued by avalara.com when the user registers for an access to a service.
 
 **Accept:** *required*  
-The content type header is used by the client to tell the server how to interpret the message body. We set this to application/json, but we also add a parameter called "tax-version" indicating the version of the tax transaction record format. This parameter is required. If this parameter is not specified an error will be returned by the service. 
+The content type header is used by the client to tell the server how to interpret the message body. We set this to application/json, but we also add a parameter called "document-version" indicating the version of the tax document record format. This parameter is required. If this parameter is not specified an error will be returned by the service. 
 
 **Content Type:** *required for requests with payloads*  
 Standard content type header, indicating the content type of the request content.

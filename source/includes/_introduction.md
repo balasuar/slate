@@ -8,4 +8,4 @@ The <a href="#excise-api">**Avalara AvaTax Excise**</a> API is a SOAP web servic
 
 <aside class="alert"> *The following APIs are in beta release only.* 
 
-The <a href="#tng-api">**TNG**</a> API is used to calculate tax and record transactions for tax purposes. </aside>
+The <a href="#rest-v2-api">**REST v2**</a> API is used to calculate tax and record transactions for tax purposes. </aside>

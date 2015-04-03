@@ -38,11 +38,11 @@ includes:
   - exciseauthentication
   - exciseprocesstransactions
   - exciseprocesstransactionsresponse
-  - tngintroduction
-  - tngcalculations
-  - tngtransactions
-  - tngtaxdocumentrequest
-  - tngtaxdocumentresponse
+  - rest2introduction
+  - rest2calculations
+  - rest2transactions
+  - rest2taxdocumentrequest
+  - rest2taxdocumentresponse
 
 search: true
 ---
