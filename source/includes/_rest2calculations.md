@@ -33,7 +33,7 @@ curl --include \
      --header "Content-Type: application/json" \
      --header "Accept: application/json; tax-version=1" \
      --header "User-Agent: Agent X Connector v12" \
-     --header "Authorization: AvalaraAuth : MmVhZDk4YzEtZWNiZi00NzA4LThkODYtYjAxYWY4YmMxM2U1" \
+     --header "Authorization: AvalaraAuth MmVhZDk4YzEtZWNiZi00NzA4LThkODYtYjAxYWY4YmMxM2U1" \
      --@/Docs/taxDocument.json
      'https://tax.api.avalara.com/calculations'
 ```
@@ -80,7 +80,7 @@ TBD
 curl --include \
      --header "Accept: application/json; tax-version=1" \
      --header "User-Agent: "QBO v12"" \
-     --header "Authorization: AvalaraAuth : MmVhZDk4YzEtZWNiZi00NzA4LThkODYtYjAxYWY4YmMxM2U1" \
+     --header "Authorization:  AvalaraAuth MmVhZDk4YzEtZWNiZi00NzA4LThkODYtYjAxYWY4YmMxM2U1" \
   'https://tax.api.avalara.com/calculations/account/98723878-2323-8742-2387-639826739098/company/Default/Sale/1233122'
 ```
 
@@ -124,7 +124,7 @@ TBD
 curl --include \
      --header "Accept: application/json; tax-version=1" \
      --header "User-Agent: NetDynamics Connector v12" \
-     --header "Authorization: AvalaraAuth : MmVhZDk4YzEtZWNiZi00NzA4LThkODYtYjAxYWY4YmMxM2U1" \ 'https://tax.api.avalara.com/calculations/account/98723878-2323-8742-2387-639826739098/company/Argosy%20Cruises/Sale?limit=100&startCode=Invoice123&startDate=2014-06-10&endDate=2014-06-12'
+     --header "Authorization:  AvalaraAuth MmVhZDk4YzEtZWNiZi00NzA4LThkODYtYjAxYWY4YmMxM2U1" \ 'https://tax.api.avalara.com/calculations/account/98723878-2323-8742-2387-639826739098/company/Argosy%20Cruises/Sale?limit=100&startCode=Invoice123&startDate=2014-06-10&endDate=2014-06-12'
 ```
 
 `GET https://tax.api.avalara.com/calculations/account/<accountId>/company/<companyCode>/<transactionType>?<filterCriteria>`
