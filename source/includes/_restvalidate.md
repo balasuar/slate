@@ -209,9 +209,6 @@ CarrierRoute is a four-character string representing a US postal carrier route. 
 * H - Highway contract
 * R - Rural route
 
-**TaxRegionId:** string  
-AvaTax tax region identifier
-
 **PostNet:** string [12]  
 POSTNet is a 12-digit barcode containing the ZIP Code, ZIP+4 Code, and the delivery point code, used by the USPS to direct mail. Returned for US addresses only digits represent delivery information:
 
