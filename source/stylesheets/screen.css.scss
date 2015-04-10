@@ -92,10 +92,16 @@ html, body {
   // This is the logo at the top of the ToC
   &>img {
     display: block;
+    padding: 8px 0px 15px 15px;
+  }
+  &>a {
+    display: block;
+    padding: 8px 0px 15px 15px;
   }
 
   &>.search {
     position: relative;
+    border-top: 1px solid $nav-footer-border-color;
 
     input {
       background: $nav-bg;
@@ -151,6 +157,7 @@ html, body {
       &:hover {
         text-decoration: underline;
       }
+
     }
   }
 
@@ -222,7 +229,7 @@ html, body {
   .toc-footer {
     padding: 1em 0;
     margin-top: 1em;
-    border-top: 1px dashed $nav-footer-border-color;
+    border-top: 1px solid $nav-footer-border-color;
 
     li,a {
       color: $nav-text;
@@ -234,8 +241,8 @@ html, body {
     }
 
     li {
-      font-size: 0.8em;
-      line-height: 1.7;
+      font-size: 1em;
+      line-height: 28px;
       text-decoration: none;
     }
   }
@@ -379,10 +386,10 @@ html, body {
     font-size: 30px;
     padding-top: 0.5em;
     padding-bottom: 0.5em;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #ff6600;
     margin-bottom: $h1-margin-bottom;
     margin-top: 2em;
-    border-top: 1px solid #ddd;
+    border-top: 0px solid #ff6600;
     @include background-image(
       linear-gradient(top, $h1-gradient-start, $h1-gradient-end)
     );

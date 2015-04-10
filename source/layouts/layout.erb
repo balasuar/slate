@@ -30,6 +30,8 @@ under the License.
     '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-MKB5LP');</script>
     <!-- End Google Tag Manager -->
+    <script src="//use.typekit.net/vbw5upc.js"></script>
+    <script>try{Typekit.load();}catch(e){}</script>
     
     
     <title><%= current_page.data.title || "API Documentation" %></title>
@@ -56,11 +58,13 @@ under the License.
     <a href="#" id="nav-button">
       <span>
         NAV
+        <div class="toc-logo">
         <%= image_tag('navbar.png') %>
+        </div>
       </span>
     </a>
     <div class="tocify-wrapper">
-      <%# = image_tag "logo.png" %>
+      <%= link_to(image_tag("logo.png"), "http://developer.avalara.com") %>
       <% if language_tabs %>
         <div class="lang-selector">
           <% language_tabs.each do |lang| %>
