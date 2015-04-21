@@ -1175,7 +1175,7 @@ Jurisdiction Code for the taxing jurisdiction
 Gets the jurisdiction name.
 
 **JurisType:** JurisdictionType  
-Jurisdiction Type
+Jurisdiction Type. One of: Country, Composite, State, County, City, Special.
 
 **NonTaxable:** decimal  
 The portion of the detail that is not subject to taxes.
