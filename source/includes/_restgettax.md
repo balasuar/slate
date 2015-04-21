@@ -952,7 +952,7 @@ State assigned code identifying the jurisdiction. Note that this is not necessar
 Name of tax jurisdiction
 
 **JurisType:** string [9]  
-Regional type of tax jurisdiction
+Regional type of tax jurisdiction. One of: Country, Composite, State, County, City, Special.
 
 **Rate:** decimal  
 Effective tax rate for tax jurisdiction
