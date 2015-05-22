@@ -30,16 +30,16 @@ curl "https://api.taxrates.avalara.com/address?Line1=435+Ericksen+Ave+NE&City=Ba
 first line of the address e.g.: "1101 Alaskan Way" 
 
 **city** string, *optional*    
-city of the address e.g.: "Seattle", "Montreal", "Bournemouth" 
+city of the address e.g.: "Seattle"
 
 **state** string, *required*  
-state  or region of the address e.g.: "WA", "QC", "Washington", "Quebec" 
+state  or region of the address e.g.: "WA", Washington"
 
 **country** string, *required*  
-country code in ISO 3166-1 alpha-3 format e.g.: "USA", "CAN", "GBR"  
+country code in ISO 3166-1 alpha-3 format e.g.: "USA"
     
 **postal** string, *optional*  
-zip code of the address e.g.: "98101", "V8X 3X4", "BH1 1AA" 
+zip code of the address e.g.: "98101"
 
 
 ### Response
