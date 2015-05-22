@@ -25,10 +25,10 @@ curl "https://api.taxrates.avalara.com/address?country=USA&postal=98101" \
 ```
 
 **country** string, *required*   
-country code in ISO 3166-1 alpha-3 format e.g.: "USA", "CAN", "GBR"  
+country code in ISO 3166-1 alpha-3 format e.g.: "USA",
     
 **postal** string, *required*   
-zip code of the address e.g.: "98101", "V8X 3X4", "BH1 1AA" 
+zip code of the address e.g.: "98101",
 
 
 ### Response
