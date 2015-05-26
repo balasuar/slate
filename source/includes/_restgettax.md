@@ -518,8 +518,8 @@ While this is an optional field, serious consideration should be given to using 
 **DocDate:** DateTime, *required*  
 The date on the invoice, purchase order, etc. Format YYYY-MM-DD.
 
-**DocType:** DocumentType  
-The document type specifies the category of the document and affects how the document is treated after a tax calculation.
+**DocType:** DocumentType, *optional*  
+The document type specifies the category of the document and affects how the document is treated after a tax calculation. If no DocType is specified in the request, SalesOrder will be used.
 
  - SalesOrder: This is a temporary document type and is not saved in tax history. GetTaxResult will return with a DocStatus of Temporary.
  - SalesInvoice: The document is a permanent invoice; document and tax calculation results are saved in the tax history. GetTaxResult will return with a DocStatus of Saved.
