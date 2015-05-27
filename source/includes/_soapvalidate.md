@@ -5,6 +5,10 @@ Normalizes a single US or Canadian address, providing a non-ambiguous address ma
 ### Validate Request
 
 ```shell
+curl -X POST --header "Content-Type: text/xml" 
+--header "SOAPAction: \"http://avatax.avalara.com/services/Validate\"" 
+--data-binary @validateRequest.xml https://development.avalara.net/address/addresssvc.asmx​
+
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://avatax.avalara.com/services">
     <SOAP-ENV:Header>
