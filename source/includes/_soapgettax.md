@@ -554,7 +554,7 @@ Exemption or certificate number for the client customer.
 Note: Any value set in this property will cause the document or line to be exempted from tax calculation.
 
 **Lines:** <a href='#line30'>Line[]</a>, *required*  
-Document line array. There is a limit of 1000 lines per document, but there must be at least one.
+Document line array. There is a limit of 15000 lines per document, but there must be at least one.
 
 **LocationCode:** string [50], *required if outlet-based reporting is needed, otherwise optional*  
 Also referred to as a Store Location, Outlet Id, or Outlet code. 

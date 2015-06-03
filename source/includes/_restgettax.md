@@ -547,7 +547,7 @@ TaxOverride for the document - can be used to manually override components of th
 Document address array. Should represent all origin and destination addresses which will be associated with individual lines.
 
 **Lines:** <a href='#line'>Line</a>, at least one required  
-Document line array. There is a limit of 1000 lines per document.
+Document line array. There is a limit of 15000 lines per document.
 
 #### TaxOverride
 
