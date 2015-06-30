@@ -47,6 +47,12 @@ includes:
   - rest2transactions
   - rest2taxdocumentrequest
   - rest2taxdocumentresponse
+  - onboardingintroduction
+  - onboardingaccounts
+  - onboardingcompanies
+  - onboardinglocations
+  - onboardingnexus
+  - onboardingerrors
 
 search: true
 ---
