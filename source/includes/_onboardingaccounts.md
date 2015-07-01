@@ -68,16 +68,28 @@ curl --include \
 TBD
 ```
 **ProductRatePlans** array of ProductRatePlan string, *required*  
-Rate plans to be used for the account. This is an Avalara-specific value that determines at what billable rate the client will be charged. For free trial accounts, only a single array element is required (e.g. "SDK - Free Trial - Non-Developer"). For paid accounts, two array elements are expected: one to describe the standard rate plan and one to describe the overage rate plan.  Possible rate plan combinations are:
+Rate plans to be used for the account. This is an Avalara-specific value that determines at what billable rate the client will be charged. For paid accounts, multiple array elements are expected: one to describe the standard rate plan and one to describe the overage rate plan, as well as any additional elements required by the partner contract arrangement.  Possible rate plan values are:  
 
-- "QBOSC - 300 -  Pro - Annual", "QBOSC - 300 - Pro (Usage)"
-- "QBOSC - 300 -  Pro - Monthly", "QBOSC - 300 - Pro (Usage)"
-- "QBOSC - 1000 -  Pro - Annual", "QBOSC - 1000 - Pro (Usage)"
-- "QBOSC - 1000 -  Pro - Monthly", "QBOSC - 1000 - Pro (Usage)"
-- "QBOSC - 3000 -  Pro - Annual", "QBOSC - 3000 - Pro (Usage)"
-- "QBOSC - 3000 -  Pro - Monthly", "QBOSC - 3000 - Pro (Usage)"
+* ZT - 250 - Pro – Monthly
+* ZT - 250 - Pro - Annual
+* ZT - 250 - Pro (Usage)
+* ZT - 500 - Pro – Monthly
+* ZT - 500 - Pro - Annual
+* ZT - 500 - Pro (Usage)
+* ZT - 1000 - Pro – Monthly
+* ZT - 1000 - Pro – Annual
+* ZT - 1000 - Pro (Usage)
+* ZT - 1500 -  Pro - Monthly
+* ZT - 1500 -  Pro - Annual
+* ZT - 1500 - Pro (Usage)
+* ZT - 2000 -  Pro - Monthly
+* ZT - 2000 -  Pro - Annual
+* ZT - 2000 - Pro (Usage)
+* ZT - 2500 -  Pro - Monthly
+* ZT - 2500 -  Pro - Annual
+* ZT - 2500 - Pro (Usage)
 
-A third element may be included for paid accounts to indicate filing services ("QBOSC Pay As You Go").
+An additional element may be included for paid accounts to indicate filing services (e.g. "QBOSC Pay As You Go").
 
 **ConnectorName** string, *required*  
 The connector that will be the primary method of access used to call the account created.

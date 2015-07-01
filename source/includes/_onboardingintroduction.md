@@ -12,6 +12,8 @@ To call this service in a sandbox environment, use the base service URL `https:/
 In the format "Basic [username]:[password]" encoded to <a href="http://en.wikipedia.org/wiki/Base64" target="_parent">Base64</a>, as per <a href="http://en.wikipedia.org/wiki/Basic_access_authentication" target="_parent">basic access authentication</a>. Note that username and password must be used for this service, and calls cannot be authenticated with account number/license key.  
 e.g.: `Basic a2VlcG1vdmluZzpub3RoaW5nMnNlZWhlcmU=`
 
+<aside class="notice"> If you are testing this API and do not wish to create actual client accounts, be sure to prefix your username with `TEST/` before constructing and encoding the Authorization header string. </aside>
+
 **Accept:** header, *required*  
 Determines the format of response data. Either `application/json` or `application/xml`.
 
