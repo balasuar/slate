@@ -461,7 +461,7 @@ WebResponse response = request.GetResponse();
 Input for GetTax describing the document on which tax should be calculated.
 
 **BusinessIdentificationNo:** string [25], *optional, unless the user needs VAT calculated*  
-The buyer's VAT id. Using this value will force VAT rules to be considered for the transaction. This may be set on the document or the line.
+The buyer's VAT id. Using this value will force VAT rules to be considered for the transaction. This may be set on the document or the line. Note that this must be a valid VAT number, and this field should not be used for any other purpose.
 
 **Commit:** bool, *optional*  
 Default is false. Setting this value to true will prevent further document status changes, except voiding with CancelTax.
@@ -470,16 +470,16 @@ Default is false. Setting this value to true will prevent further document statu
 An identifier of software client generating the API call.
 
 **CompanyCode:** string [25], *optional*  
-The code that identifies the company in the AvaTax account in which the document should be posted. This code is declared during the company setup in the <a href="https://admin-development.avalara.net/" target="_parent">AvaTax Admin Console</a>. If no value is passed, the document will be assigned to the default company.
+The case-sensitive code that identifies the company in the AvaTax account in which the document should be posted. This code is declared during the company setup in the <a href="https://admin-development.avalara.net/" target="_parent">AvaTax Admin Console</a>. If no value is passed, the document will be assigned to the default company. If a value is passed that does not match any company on on the account, an error is returned.
 
 **CustomerCode:** string [50], *required*  
-The client application customer reference code. This is required since it is the key to the Exemption Certificate Management Service in the Admin Console.
+The case-sensitive client application customer reference code. This is required since it is the key to the Exemption Certificate Management Service in the Admin Console.
 
 **CurrencyCode:** string [3], *optional*  
-3 character ISO 4217 compliant currency code.
+3 character ISO 4217 compliant currency code. If unspecified, a default of USD will be used.
 
 **CustomerUsageType:** string [25], *optional*  
-The client application customer or usage type.  
+The client application customer or usage type. More information about this value is available in the <a href="https://help.avalara.com/kb/001/What_are_the_Entity_Use_Codes_used_for_Avalara_AvaTax%3F">Avalara Help Center.</a>   
 The standard values for the CustomerUsageType are:
 
  - A - Federal Government
@@ -510,7 +510,7 @@ Specifies the level of detail to return.
  - Tax - document, line and jurisdiction detail
  
  **Discount:** decimal, *optional*  
-The discount amount to apply to the document. This may be used along with the line attribute Discounted in order to distribute a set discount amount proportionally across the applicable document lines.
+The discount amount to apply to the document. This may be used along with the line attribute Discounted in order to distribute a set discount amount proportionally across the applicable document lines. This should be an amount, not a percent.
 
 **DocCode:** string [50], *optional*  
 While this is an optional field, serious consideration should be given to using it. If no value is sent, AvaTax assigns a GUID value to keep the document unique. This can make reconciliation a challenge.
@@ -593,7 +593,7 @@ Your item identifier, SKU, or UPC. Strongly recommended.
 Product taxability code of the line item. Can be an AvaTax system tax code, or a custom-defined tax code.
 
 **CustomerUsageType:** string [25], *optional*  
-The client application customer or usage type. CustomerUsageType determines the exempt status of the transaction based on the exemption tax rules for the jurisdictions involved. Can also be referred to as Entity/Use Code.
+The client application customer or usage type. CustomerUsageType determines the exempt status of the transaction based on the exemption tax rules for the jurisdictions involved. Can also be referred to as Entity/Use Code. More information about this value is available in the <a href="https://help.avalara.com/kb/001/What_are_the_Entity_Use_Codes_used_for_Avalara_AvaTax%3F">Avalara Help Center.</a>  
 
 **BusinessIdentificationNo:** string [25], *optional, unless the user needs VAT calculated*  
 The buyer's VAT id. Using this value will force VAT rules to be considered for the transaction. This may be set on the document or the line.

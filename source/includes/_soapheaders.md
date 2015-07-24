@@ -101,7 +101,7 @@ Your AvaTax Admin Console password.
 Reference to a named profile
 
 **Client:** string [50], *required*  
-Client application name and version
+Client application name and version. This should unique identify the software client that is calling the AvaTax service, and should be consistent across all deployments of that client version. e.g. "Drupal Commerce 5.7"
 
 **Adapter:** string [50], *required*  
 Name and version of the adapter. 

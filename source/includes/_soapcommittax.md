@@ -121,7 +121,7 @@ Value describing what type of tax document is being committed. One of:
 **DocCode:** string [50], *required*  
 Client application identifier describing this tax transaction (i.e. invoice number, sales order number, etc.).  *Not required if the document is identified by DocId.*
 
-**DocId:** bigint as string, *optional*  
+**DocId:** string [19], *optional*  
 Avatax-assigned unique Document Id, can be used in place of CompanyCode, DocType and DocCode.
 
 ### CommitTax Result
@@ -147,7 +147,7 @@ Indicates success or failure. One of:
 * Error
 * Exception
 
-**TransactionId:** bigint as string  
+**TransactionId:** string [19]   
 The unique transaction ID assigned by AvaTax to this request/response set. This value need only be retained for troubleshooting.
 
 The unique transaction ID assigned by AvaTax to this request/response set. This value need only be retained for troubleshooting.

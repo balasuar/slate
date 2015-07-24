@@ -148,20 +148,6 @@ CancelTaxResult::parseResult($curl_response);
 ?>
 ```
 
-**CompanyCode:** string [25], *required*  
-Client application company reference code.  Not required if the document is identified by DocId.
-
-**DocType:** string, *required*  
-Value describing what type of tax document is being cancelled. One of:  
-
-* SalesInvoice
-* ReturnInvoice
-* PurchaseInvoice  
-
-Not required if the document is identified by DocId.
-
-**DocCode:** string [50], *required*  
-Client application identifier describing this tax transaction (i.e. invoice number, sales order number, etc.).  Not required if the document is identified by DocId.
 
 **CancelCode:** string, *required*  
 The reason for cancelling the tax record. 
@@ -174,8 +160,25 @@ The reason for cancelling the tax record.
 
 For more information, see <a href="http://developer.avalara.com/api-docs/designing-your-integration/canceltax" target="_parent">Voiding Documents</a>.
 
+**CompanyCode:** string [25], *required*  
+Client application company reference code.  Not required if the document is identified by DocId.
+
+**DocCode:** string [50], *required*  
+Client application identifier describing this tax transaction (i.e. invoice number, sales order number, etc.).  Not required if the document is identified by DocId.
+
 **DocId:** string, *optional*  
 Avatax-assigned unique Document Id, can be used in place of DocCode, DocType, and CompanyCode
+
+
+**DocType:** string, *required*  
+Value describing what type of tax document is being cancelled. One of:  
+
+* SalesInvoice
+* ReturnInvoice
+* PurchaseInvoice  
+
+Not required if the document is identified by DocId.
+
 
 ### CancelTaxResult
 

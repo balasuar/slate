@@ -107,7 +107,7 @@ GetTaxHistoryResult getTaxHistoryResult = taxSvc.getTaxHistory(getTaxHistoryRequ
 Input for GetTaxHistory indicating the document for which history should be retrieved. The request must specify all of CompanyCode, DocCode, and DocType in order to uniquely identify the document.
 
 **CompanyCode:** string [25], *required*  
-Gets or sets the client application company reference code.
+The client application company reference code.
 
 **DocCode:** string [50], *required*  
 Gets or sets the Document Code, i.e. the internal reference code used by the client application.
@@ -117,6 +117,12 @@ The original document's type, such as Sales Invoice or Purchase Invoice
 
 **DetailLevel:** DetailLevel, *required*  
 Specifies the level of detail to return.
+
+ - Summary - summarizes document and jurisdiction detail with no line breakout
+ - Document - only document detail
+ - Line - document and line detail
+ - Tax - document, line and jurisdiction detail
+ 
 
 ### GetTaxHistory Result
 
@@ -515,5 +521,5 @@ Indicates success or failure. One of:
 * Error
 * Exception
 
-**TransactionId:** bigint as string  
+**TransactionId:** string [19]
 The unique transaction ID assigned by AvaTax to this request/response set. This value need only be retained for troubleshooting.

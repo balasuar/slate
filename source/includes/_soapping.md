@@ -91,7 +91,7 @@ Ping allows you to check the availability of our web service at any given time. 
 Result data returned from Ping.
 
 **Version:** string [15]  
-The date and time at which your AvaTax account will expire.
+The service version of the AvaTax service.
 
 **Messages:** <a href="#errors79">Message[]</a>  
 If ResultCode is Success, Messages is null. Otherwise, it describes any warnings, errors, or exceptions encountered while processing the request.
@@ -104,5 +104,5 @@ Indicates success or failure. One of:
 * Error
 * Exception
 
-**TransactionId:** bigint as string  
+**TransactionId:** string [19]  
 The unique transaction ID assigned by AvaTax to this request/response set. This value need only be retained for troubleshooting.

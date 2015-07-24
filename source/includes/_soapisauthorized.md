@@ -99,7 +99,7 @@ Result data returned from IsAuthorized.
 The date and time at which your AvaTax account will expire.
 
 **Operations:** string [255]  
-The operations that the current user is authorized to use. Determined from the list provided in the IsAuthorized call.
+The operations that the current user is authorized to use. Determined from the list provided in the IsAuthorized call. Possible operations are: Ping, IsAuthorized, GetTax, PostTax, CommitTax, CancelTax, AdjustTax, GetTaxHistory, Validate.
 
 **Messages:** <a href="#errors79">Message[]</a>  
 If ResultCode is Success, Messages is null. Otherwise, it describes any warnings, errors, or exceptions encountered while processing the request.
@@ -112,5 +112,5 @@ Indicates success or failure. One of:
 * Error
 * Exception
 
-**TransactionId:** bigint as string  
+**TransactionId:** string [19]   
 The unique transaction ID assigned by AvaTax to this request/response set. This value need only be retained for troubleshooting.

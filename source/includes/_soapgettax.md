@@ -471,23 +471,22 @@ Input for GetTax describing the document on which tax should be calculated.
 
 **BusinessIdentificationNo:** string [25], *optional, unless the user needs VAT calculated*  
 The buyer's VAT id. Using this value will force VAT rules to be considered for the transaction. 
-This may be set on the document or the line.
+This may be set on the document or the line. Note that this must be a valid VAT number, and this field should not be used for any other purpose.
 
 **Commit:** bool, *optional*  
 Default is false. Setting this property to True will prevent any further document state changes except CancelTax which changes the state to Voided.
 
-**CompanyCode:** string [25], *required*  
-The code that identifies the company in the AvaTax account in which the document should be posted. This code is declared during the company setup in the 
-<a href="https://admin-development.avalara.net/" target="_parent">AvaTax Admin Console</a>. If no value is passed, the document will be assigned to the default company.
+**CompanyCode:** string [25], *optional*  
+The case-sensitive code that identifies the company in the AvaTax account in which the document should be posted. This code is declared during the company setup in the <a href="https://admin-development.avalara.net/" target="_parent">AvaTax Admin Console</a>. If no value is passed, the document will be assigned to the default company. If a value is passed that does not match any company on on the account, an error is returned.
 
 **CurrencyCode:** string [3], *optional*  
-3 character ISO 4217 compliant currency code
+3 character ISO 4217 compliant currency code. If unspecified, a default of USD will be used.
 
 **CustomerCode:** string [50], *required*  
-The client application customer reference code. This is required since it is the key to the Exemption Certificate Management Service in the Admin Console.
+The case-sensitive client application customer reference code. This is required since it is the key to the Exemption Certificate Management Service in the Admin Console.
 
 **CustomerUsageType:** string [25], *optional*  
-The client customer or usage type (or Entity Use Code). 
+The client customer or usage type (or Entity Use Code). More information about this value is available in the <a href="https://help.avalara.com/kb/001/What_are_the_Entity_Use_Codes_used_for_Avalara_AvaTax%3F">Avalara Help Center.</a>  
 
 Standard options:
 
@@ -523,7 +522,7 @@ Specifies the level of tax detail returned in the GetTaxResult.
 * Diagnostic: In addition to Tax level details, indicates that the server should return information about how the tax was calculated. Intended for use only while the SDK is in a development environment. 
 
 **Discount:** decimal, *optional*  
-The total discount to be applied to the line or lines identified by the Lines.Discounted property.
+The total discount to be applied to the line or lines identified by the Lines.Discounted property.  This may be used along with the line attribute Discounted in order to distribute a set discount amount proportionally across the applicable document lines. This should be an amount, not a percent.
 
 **DocCode:** string [50], *optional*  
 While this is an optional field, serious consideration should be given to using it. If no value is sent, AvaTax assigns a GUID value to keep the document unique. This can make reconciliation a challenge.
@@ -595,10 +594,10 @@ Input property of the GetTaxRequest describing item lines.
 **No:** string [50], *required*  
 Uniquely identifies the line item row.
 
-**OriginCode** string [int MAX_VALUE], *at least one of OriginCode or DestinationCode must be declared either here or at document-level*  
+**OriginCode** string [255], *at least one of OriginCode or DestinationCode must be declared either here or at document-level*  
 The line-level code that refers to the origin address. Line-level address codes will take precedence over document-level address codes if both are present.
 
-**DestinationCode** string [int MAX_VALUE], *at least one of OriginCode or DestinationCode must be declared either here or at document-level*  
+**DestinationCode** string [255], *at least one of OriginCode or DestinationCode must be declared either here or at document-level*  
 The line-level code that refers to the destination address. Line-level address codes will take precedence over document-level address codes if both are present.
 
 **ItemCode** string [50], *optional*  
@@ -608,7 +607,7 @@ Your item identifier, SKU, or UPC.
 AvaTax system tax code or custom tax code
 
 **CustomerUsageType** string [25], *optional*  
-Same as document-level CustomerUsageType. See code options above in the GetTaxRequest elements.
+Same as document-level CustomerUsageType. See code options above in the GetTaxRequest elements. More information about this value is available in the <a href="https://help.avalara.com/kb/001/What_are_the_Entity_Use_Codes_used_for_Avalara_AvaTax%3F">Avalara Help Center.</a>
 
 **ExemptionNo:** string [25], *optional*  
 Exemption or certificate number for the client customer. 
@@ -642,7 +641,7 @@ Same as document-level TaxOverride. Use this if you only need to override indivi
 
 Input property of GetTaxRequest representing addresses needed for tax calculations.
 
-**AddressCode:** string [int MAX_VALUE], *required*  
+**AddressCode:** string [255], *required*  
 Reference code uniquely identifying this address instance.
 
 **Line1:** string [50], *required*  
@@ -1118,7 +1117,7 @@ Indicates success or failure. One of:
 * Error
 * Exception
 
-**TransactionId:** bigint as string  
+**TransactionId:** string [19]   
 The unique transaction ID assigned by AvaTax to this request/response set. This value need only be retained for troubleshooting.
 
 #### TaxLine
