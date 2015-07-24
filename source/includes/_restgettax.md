@@ -50,7 +50,7 @@ curl --user 1234567890:A1B2C3D4E5F6G7H8 \
         "TaxOverrideType": "TaxDate",
         "Reason": "Adjustment for return",
         "TaxDate": "2013-07-01",
-        "TaxAmount": "0",
+        "TaxAmount": "0"
     },
     "PurchaseOrderNo": "PO123456",
     "ReferenceCode": "ref123456",
