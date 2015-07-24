@@ -161,7 +161,7 @@ The total tax for the document.
 
 Result data returned from PostTax.
 
-**DocId:** bigint as string  
+**DocId:** string [19]  
 The unique document ID assigned by AvaTax to the document modified. This value need only be retained for troubleshooting.
 
 **Messages:** <a href="#errors79">Message[]</a>  
@@ -175,5 +175,5 @@ Indicates success or failure. One of:
 * Error
 * Exception
 
-**TransactionId:** bigint as string  
+**TransactionId:** string [19]   
 The unique transaction ID assigned by AvaTax to this request/response set. This value need only be retained for troubleshooting.
