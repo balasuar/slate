@@ -153,8 +153,6 @@ For each input location, there will be an array element representing the status 
 **LocationId** string  
 The unique, Avatax-assigned LocationId of the created location. 
 
-<aside class="warning"> NOTE: I assume this is the value in the curent return payload?</aside>
-
 
 ### Get a Location
 Retrieves a single specified location entry.

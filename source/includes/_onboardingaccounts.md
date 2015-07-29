@@ -247,7 +247,6 @@ The username associated with the primary Account Admin user.
 ```plaintext
 GET https://onboarding.api.avalara.com/v1/accounts/{accountId}
 ```
-<aside class="warning"> NOTE: It looks like this has the SOAP filters hardcoded to leave out Company and User data, and the access level doesn't allow subscription information to be shown, which leaves this call pretty meaningless? Is there a particular use case you're addressing with this? Or can we change the default filters to include Company and User data on the response? </aside>
 
 Retrieves the account details for a single specified account.
 
