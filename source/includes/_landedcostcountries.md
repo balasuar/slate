@@ -109,10 +109,10 @@ Content-type: application/json
 ```
 
 **export** system  
-The system of export between the source and destination countries specified.
+The system of export classification between the source and destination countries specified.
 
 **import** system  
-The system of import between the source and destination countries specified.
+The system of import classification between the source and destination countries specified.
 
 **system** string  
 The classification system. One of: 

@@ -55,6 +55,7 @@ includes:
   - onboardingerrors
   - landedcostintroduction
   - landedcostcountries
+  - landedcostharmonizedcodes
 
 search: true
 ---
