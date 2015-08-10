@@ -18,4 +18,4 @@ where `{apikey}` is replaced with your personal API key.
 You can pass the API key in the querystring as one of the parameters instead of 
 passing it in a header. i.e:
 
- `https://api.taxrates.avalara.com/address?Line1=435+Ericksen+Ave+NE&City=Bainbridge%20Island&Region=WA&PostalCode=98110&apikey={apikey}`
+ `https://taxrates.api.avalara.com/address?Line1=435+Ericksen+Ave+NE&City=Bainbridge%20Island&Region=WA&PostalCode=98110&apikey={apikey}`

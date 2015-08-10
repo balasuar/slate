@@ -1,13 +1,14 @@
 ## Rates by Street Address
+```html
+GET http://taxrates.api.avalara.com/address?<address>
+```
 
 Retrieves the composite and local jurisdictional standard sales tax rates for a given street address.
-
-`GET http://api.taxrates.avalara.com/address?<address>`
 
 ### Request
 
 ```shell
-curl "https://api.taxrates.avalara.com/address?Line1=435+Ericksen+Ave+NE&City=Bainbridge%20Island&Region=WA&PostalCode=98110" \
+curl "https://taxrates.api.avalara.com/address?Line1=435+Ericksen+Ave+NE&City=Bainbridge%20Island&Region=WA&PostalCode=98110" \
   -H "Authorization: AvalaraApiKey {apikey}"
 ```
 

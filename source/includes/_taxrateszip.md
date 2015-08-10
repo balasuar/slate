@@ -1,13 +1,13 @@
 ## Rates by Zip Code
-
+```html
+GET http://taxrates.api.avalara.com/postal?<address>
+```
 Retrieves the composite and local jurisdictional standard sales tax rates for a given zip5 location.
-
-`GET http://api.taxrates.avalara.com/postal?<address>`
 
 ### Request
     
 ```shell
-curl "https://api.taxrates.avalara.com/address?country=USA&postal=98101" \
+curl "https://taxrates.api.avalara.com/address?country=USA&postal=98101" \
   -H "Authorization: AvalaraApiKey {apikey}" \
   -H "Accept: text/json"
 ```
