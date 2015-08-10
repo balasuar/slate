@@ -1,22 +1,23 @@
 ## EstimateTax
-
+```html
+Development: GET https://development.avalara.net/1.0/tax/<location>/get?<saleamount> 
+Production: GET https://avatax.avalara.net/1.0/tax/<location>/get?<saleamount>
+``` 
 Retrieves tax rate details for the supplied geographic coordinates and sale amount.
 Since the REST API does not provide an explicit ping function, this method can also be used to test connectivity to the service.
-
-##### URL and Method
-
-Development: `GET https://development.avalara.net/1.0/tax/<location>/get?<saleamount>`  
-Production: `GET https://avatax.avalara.net/1.0/tax/<location>/get?<saleamount>`
-    
+  
 <aside class='notice'>
     To get an XML response, use `GET /1.0/tax/<location>/get.xml?<saleamount>`
 </aside>
 
 ##### Headers
+```plaintext
+Authorization: Basic a2VlcG1vdmluZzpub3RoaW5nMnNlZWhlcmU=
+```
 
 **Authorization:** header, *required*  
 In the format "Basic [account number]:[license key]" encoded to <a href="http://en.wikipedia.org/wiki/Base64" target="_parent">Base64</a>, as per <a href="http://en.wikipedia.org/wiki/Basic_access_authentication" target="_parent">basic access authentication</a>.  
-e.g.: `Basic a2VlcG1vdmluZzpub3RoaW5nMnNlZWhlcmU=`
+
 
 ### EstimateTax Request
 
