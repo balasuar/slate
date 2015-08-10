@@ -1,10 +1,10 @@
-# REST v2 API
+# AvaTax 16 API
 
-<aside class="alert"> This API is currently in beta release only. </aside>
+<aside class="alert"> This API is currently in beta release only. Please contact Avalara for credentials.</aside>
 
 The Tax API is used to calculate tax and record transactions for tax purposes. Tax can be calculated (and transactions can be recorded) on sales, purchaes, and internal transfer transactions.
 
-There are two kinds of records managed by this API: `Calculations` and `Transactions`. When you want to just calculate tax but not include that calculate on a future filing (e.g. to present tax on a quote or pre-sale order), you should use the `Calculations` resource. When you want to record that sale for filing and reporting, you should call the `Transactions` resource.
+There are two kinds of records managed by this API: `Calculations` and `Transactions`. When you want to just calculate tax but not include that calculation on a future filing (e.g. to present tax on a quote or pre-sale order), you should use the `Calculations` resource. When you want to record that sale for filing and reporting, you should call the `Transactions` resource.
 
 The request and response formats for both resources is the same, and the response simply adds tax calculation and resolution information to the request format. All formats are documented in the TaxDocument Format section.
 

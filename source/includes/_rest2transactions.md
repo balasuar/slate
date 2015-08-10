@@ -6,23 +6,14 @@ To calculate tax but not include that calculation on a future filing (e.g. to pr
 The request and response formats for both resources is the same, and the response simply adds tax calculation and resolution information to the request format. All formats are documented in the TaxDocument Format section.
 
 ### Create a Transaction
-
-`POST https://tax.api.avalara.com/transactions`
+```html
+POST https://tax.api.avalara.com/transactions
+```
 
 To create a transaction, AvaTax requires a TaxDocument request body.
 Making multiple POSTs to the /transactions service with the same companyCode and documentCode will result in the creation of a transaction record on the first call and then updates to that transaction record on subsequent calls.
 
 #### Request
-
-```csharp
-TBD
-```
-```java
-TBD
-```
-``php
-TBD
-```
 ```shell
 curl --include \
      --request POST \
@@ -33,6 +24,16 @@ curl --include \
      --@/Docs/taxDocument.json
      'https://tax.api.avalara.com/transactions'
 ```
+```csharp
+TBD
+```
+```java
+TBD
+```
+```php
+TBD
+```
+
 
 > See <a href="#tax-document-response">TaxDocument Request</a> for an example JSON payload.
 
@@ -53,7 +54,9 @@ Creating a transaction uses the standard <a href="#tax-document-response">TaxDoc
 
 ### Create a Transaction from a Calculation
 
-`POST https://tax.api.avalara.com/calculations/account/<accountId>/company/<companyCode>/<transactionType>/<documentCode>/transactions`
+```html
+POST https://tax.api.avalara.com/calculations/account/<accountId>/company/<companyCode>/<transactionType>/<documentCode>/transactions
+```
 
 It may sometimes be convenient to create a tax transaction record directly from a previous tax calculation record, e.g. an unchanged order is now to be invoiced. Tax transaction records can be created from tax calculation records either with a recalculation of the tax (this should be the most common situation) or without recalculation of the tax (this is unusual).
 
@@ -113,7 +116,7 @@ The location header in the response contains the address of the new tax trasacti
 
 ### Get a Transaction
 
-```plaintext
+```html
 GET https://tax.api.avalara.com/transactions/account/<accountId>/company/<companycode>/<transactionType>/<documentCode>
 ```
 Retrieves the most recent version of a single transaction record.
@@ -164,8 +167,13 @@ Retrieving a single transaction results in a response that is identical to that 
 
 
 ### Get a List of Transactions
-#### Request
+```html
+GET
+https://tax.api.avalara.com/transactions/account/<accountId>/company/<companyCode>/<transactionType>?<filterCriteria>
+```
+Retrieves a set of transaction records that fall within the specified filter criteria.
 
+#### Request
 ```csharp
 TBD
 ```
@@ -184,10 +192,6 @@ curl --include \
      --header "User-Agent: NetDynamics Connector v12" \
      --header "Authorization:  AvalaraAuth MmVhZDk4YzEtZWNiZi00NzA4LThkODYtYjAxYWY4YmMxM2U1" \ 'https://tax.api.avalara.com/transactions/account/98723878-2323-8742-2387-639826739098/company/Argosy%20Cruises/Sale?limit=100&startCode=Invoice123&startDate=2014-06-10&endDate=2014-06-12'
 ```
-
-`GET https://tax.api.avalara.com/transactions/account/<accountId>/company/<companyCode>/<transactionType>?<filterCriteria>`
-
-Retrieves a set of transaction records that fall within the specified filter criteria.
 
 **accountId:** URL encoded string, *required*  
 This string is a UUID issued by Avalara to identify the Avalara account that owns the company identified by the companyCode.
@@ -211,7 +215,10 @@ This is the first TransactionDate to include in the search.
 Not Implemented
 
 #### Response
-
+```plaintext
+200
+Location: https://tax.api.avalara.com/transactions/account/2ead98c1-ecbf-4708-8d86-b01af8bc13e5/company/MyCo2/Sale/%3A12345
+```
 ```json
 [
   {
@@ -331,7 +338,7 @@ Amount of tax due for this transaction.
 
 ##### processingInfo
 **transactionState** string  
-State of the transaction in the Avalara systems. Available values are: ????????
+State of the transaction in the Avalara systems. 
 
 **modifiedDate** string, date in ISO 8601.
 The timestamp of the most recent update to the document.
@@ -341,7 +348,7 @@ If the document was processed in a batch, this identifies the most recent batch 
 
 ### Get a Transaction Input
 
-```plaintext
+```html
 GET https://tax.api.avalara.com//transactions/account/<accountId>/company/<companyCode>/<transactionType>/<documentCode>/source
 ```
 It may be necessary to retrieve a record of the original, unaltered inputs that resulted in a transaction record. This resource allows for retrieval of such input, which will reflect the original user input. The most recent version of the transaction request is retrieved.
@@ -373,7 +380,7 @@ Retrieving a trsanction input responds with the standard <a href="#tax-document-
 
 ### Transition a Transaction State
 
-```plaintext
+```html
 POST https://tax.api.avalara.com/transactions/account/<accountId>/company/<companyCode>/<transactionType>/<documentCode>/stateTransitions
 ```
 

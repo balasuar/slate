@@ -5,8 +5,9 @@ To calculate tax but not include that calculation on a future filing (e.g. to pr
 The request and response formats for both resources is the same, and the response simply adds tax calculation and resolution information to the request format. All formats are documented in the TaxDocument Format section.
 
 ### Create a Calculation
-
-`POST https://tax.api.avalara.com/calculations`
+```html
+POST https://tax.api.avalara.com/calculations
+```
 
 To calculate tax, AvaTax requires a TaxDocument request body.
 Making multiple POSTs to the /calculations service with the same companyCode and documentCode will result in the creation of a calculation record on the first call and then updates to that calculation record on subsequent calls.
@@ -105,6 +106,10 @@ Content-Type: application/json
 Retrieving a single calculation results in a response that is identical to that created when generating a calculation. See <a href="#tax-document-response">that format</a> for more detail.
 
 ### Get a List of Calculations
+```html
+GET https://tax.api.avalara.com/calculations/account/<accountId>/company/<companyCode>/<transactionType>?<filterCriteria>
+```
+Retrieves a set of calculation records that fall within the specified filter criteria.
 
 #### Request
 
@@ -126,10 +131,6 @@ curl --include \
      --header "User-Agent: NetDynamics Connector v12" \
      --header "Authorization:  AvalaraAuth MmVhZDk4YzEtZWNiZi00NzA4LThkODYtYjAxYWY4YmMxM2U1" \ 'https://tax.api.avalara.com/calculations/account/98723878-2323-8742-2387-639826739098/company/Argosy%20Cruises/Sale?limit=100&startCode=Invoice123&startDate=2014-06-10&endDate=2014-06-12'
 ```
-
-`GET https://tax.api.avalara.com/calculations/account/<accountId>/company/<companyCode>/<transactionType>?<filterCriteria>`
-
-Retrieves a set of calculation records that fall within the specified filter criteria.
 
 **accountId:** URL encoded string, *required*  
 This string is a UUID issued by Avalara to identify the Avalara account that owns the company identified by the companyCode.
@@ -273,7 +274,7 @@ Amount of tax due for this transaction.
 
 ##### processingInfo
 **transactionState** string  
-State of the transaction in the Avalara systems. Available values are: ????????
+State of the transaction in the Avalara systems. 
 
 **modifiedDate** string, date in ISO 8601.
 The timestamp of the most recent update to the document.

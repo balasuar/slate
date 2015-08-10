@@ -1,4 +1,9 @@
 ## Tax Document Response
+```plaintext
+200
+Content-Type: application/json
+Location: https://tax.api.avalara.com/calculations/account/2ead98c1-ecbf-4708-8d86-b01af8bc13e5/company/MyCo2/Sale/%3A12345
+```
 ### header
 ```json
 {
@@ -9,47 +14,37 @@
       "shipFrom": {
         "address": {
           "line1": "1101 Alaskan Way",
-          "line3": "",
           "city": "Seattle",
           "state": "WA",
           "country": "US",
-          "postalCode": "98101-2981",
           "zipcode": "98101-2981",
-          "municipality": "Seattle",
-          "town": "Seattle",
-          "province": "WA",
-          "postcode": "98101-2981"
+          "province": "WA"
         },
         "latlong": {
           "latitude": 47.604751,
           "longitude": -122.339483
-        }
+        },
+        "resolutionQuality": "Rooftop"
       },
       "shipTo": {
         "address": {
-          "line1": "1100 2nd Avenue",
-          "line2": "",
-          "line3": "",
+          "line1": "2601 W Marina Pl",
           "city": "Seattle",
           "state": "WA",
           "country": "US",
-          "postalCode": "98101-2908",
-          "zipcode": "98101-2908",
-          "municipality": "Seattle",
-          "town": "Seattle",
-          "province": "WA",
-          "postcode": "98101-2908"
+          "zipcode": "98199-4331"
         },
         "latlong": {
-          "latitude": 47.605984,
-          "longitude": -122.335772
-        }
+          "latitude": 47.630896,
+          "longitude": -122.391601
+        },
+        "resolutionQuality": "Rooftop"
       }
     },
     "totalTaxOverrideAmount": 0,
     "transactionType": "sale",
     "companyCode": "MyCo2",
-    "customerCode": "ArgosyCruises",
+    "customerCode": "FishermansWharf",
     "transactionDate": "2014-11-11",
     "currency": "USD",
     "taxCalculationDate": "2014-11-11",
@@ -60,129 +55,287 @@
   },
   "lines": [
     {
-      "calculatedTax": {
-        "appliedTax": 3.09,
-        "subtotalTaxable": 32.5,
-        "subtotalExempt": 0,
-        "taxAuthorities": [
-          {
-            "jurisdictionName": "KING",
-            "jurisdictionType": "County",
-            "details": [
-              {
-                "taxType": "Sales",
-                "rateType": "General",
-                "subtotalTaxable": 32.5,
-                "subtotalExempt": 0,
-                "rate": 0,
-                "tax": 0,
-                "exempt": false,
-                "exemptionReason": "",
-                "originLocation": "shipFrom",
-                "destinationLocation": "shipTo"
-              }
-            ]
-          },
-          {
-            "jurisdictionName": "SEATTLE",
-            "jurisdictionType": "City",
-            "details": [
-              {
-                "taxType": "Sales",
-                "rateType": "General",
-                "subtotalTaxable": 32.5,
-                "subtotalExempt": 0,
-                "rate": 0.03,
-                "tax": 0.98,
-                "exempt": false,
-                "exemptionReason": "",
-                "originLocation": "shipFrom",
-                "destinationLocation": "shipTo"
-              }
-            ]
-          },
-          {
-            "jurisdictionName": "WASHINGTON",
-            "jurisdictionType": "State",
-            "details": [
-              {
-                "taxType": "Sales",
-                "rateType": "General",
-                "subtotalTaxable": 32.5,
-                "subtotalExempt": 0,
-                "rate": 0.065,
-                "tax": 2.11,
-                "exempt": false,
-                "exemptionReason": "",
-                "originLocation": "shipFrom",
-                "destinationLocation": "shipTo"
-              }
-            ]
-          }
-        ]
-      },
       "lineCode": "1",
-      "itemCode": "22456366",
-      "quantity": 1,
-      "extendedAmount": 32.5,
+      "itemCode": "CK0001",
+      "avalaraGoodsAndServicesType": "PF050112",
+      "avalaraGoodsAndServicesModifierType": "Title",
+      "quantity": 500,
+      "extendedAmount": 2500,
       "taxIncluded": false,
-      "itemDescription": "Mens adidas FREEFOOTBALL JANEIRINHA Soccer Shoes",
+      "itemDescription": "Personalized 8oz coke bottle",
       "locations": {
         "shipFrom": {
           "address": {
             "line1": "1101 Alaskan Way",
-            "line3": "",
             "city": "Seattle",
             "state": "WA",
             "country": "US",
-            "postalCode": "98101-2981",
-            "zipcode": "98101-2981",
-            "municipality": "Seattle",
-            "town": "Seattle",
-            "province": "WA",
-            "postcode": "98101-2981"
+            "zipcode": "98101-2981"
           },
           "latlong": {
             "latitude": 47.604751,
             "longitude": -122.339483
-          }
+          },
+          "resolutionQuality": "Rooftop"
         },
         "shipTo": {
           "address": {
-            "line1": "1100 2nd Avenue",
-            "line2": "",
-            "line3": "",
+            "line1": "2601 W Marina Pl",
             "city": "Seattle",
             "state": "WA",
             "country": "US",
-            "postalCode": "98101-2908",
-            "zipcode": "98101-2908",
-            "municipality": "Seattle",
-            "town": "Seattle",
-            "province": "WA",
-            "postcode": "98101-2908"
+            "zipcode": "98199-4331"
           },
           "latlong": {
-            "latitude": 47.605984,
-            "longitude": -122.335772
-          }
+            "latitude": 47.630896,
+            "longitude": -122.391601
+          },
+          "resolutionQuality": "Rooftop"
         }
       },
       "metadata": {
         "ref1": "ABC",
         "ref2": "DEF"
+      },
+      "calculatedTax": {
+        "taxByType": {
+          "Sales": {
+            "tax": 240
+          }
+        },
+        "tax": 240,
+        "details": [
+          {
+            "jurisdictionName": "KING",
+            "jurisdictionType": "County",
+            "taxType": "Sales",
+            "rateType": "General",
+            "scenario": "Simple Retail",
+            "subtotalTaxable": 2500,
+            "subtotalExempt": 0,
+            "rate": 0,
+            "tax": 0,
+            "exempt": false,
+            "exemptionReason": "",
+            "significantLocations": [
+              "shipFrom",
+              "shipTo"
+            ]
+          },
+          {
+            "jurisdictionName": "SEATTLE",
+            "jurisdictionType": "City",
+            "taxType": "Sales",
+            "rateType": "General",
+            "scenario": "Simple Retail",
+            "subtotalTaxable": 2500,
+            "subtotalExempt": 0,
+            "rate": 0.031,
+            "tax": 77.5,
+            "exempt": false,
+            "exemptionReason": "",
+            "significantLocations": [
+              "shipFrom",
+              "shipTo"
+            ]
+          },
+          {
+            "jurisdictionName": "WASHINGTON",
+            "jurisdictionType": "State",
+            "taxType": "Sales",
+            "rateType": "General",
+            "scenario": "Simple Retail",
+            "subtotalTaxable": 2500,
+            "subtotalExempt": 0,
+            "rate": 0.065,
+            "tax": 162.5,
+            "exempt": false,
+            "exemptionReason": "",
+            "significantLocations": [
+              "shipFrom",
+              "shipTo"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "lineCode": "2",
+      "itemCode": "CK0001",
+      "avalaraGoodsAndServicesType": "PF050112",
+      "avalaraGoodsAndServicesModifierType": "Title",
+      "quantity": 100,
+      "extendedAmount": 500,
+      "taxIncluded": false,
+      "itemDescription": "Personalized 8oz coke bottle",
+      "locations": {
+        "shipFrom": {
+          "address": {
+            "line1": "1101 Alaskan Way",
+            "city": "Seattle",
+            "state": "WA",
+            "ry": "US",
+            "zipcode": "98101-2981"
+          },
+          "latlong": {
+            "latitude": 47.604751,
+            "longitude": -122.339483
+          },
+          "resolutionQuality": "Rooftop"
+        },
+        "shipTo": {
+          "address": {
+            "line1": "611 Avenida Victoria",
+            "city": "San Clemente",
+            "state": "CA",
+            "country": "US",
+            "zipcode": "92672-5301"
+          },
+          "latlong": {
+            "latitude": 33.419719,
+            "longitude": -117.619558
+          },
+          "resolutionQuality": "Rooftop"
+        }
+      },
+      "metadata": {
+        "ref1": "ABC",
+        "ref2": "DEF"
+      },
+      "calculatedTax": {
+        "taxByType": {
+          "Sellers Use": {
+            "tax": 40.4
+          },
+          "Beverage Container": {
+            "tax": 5
+          }
+        },
+        "tax": 45.4,
+        "details": [
+          {
+            "jurisdictionName": "ORANGE",
+            "jurisdictionType": "y",
+            "taxType": "Sellers Use",
+            "rateType": "General",
+            "scenario": "Simple Retail",
+            "subtotalTaxable": 505,
+            "subtotalExempt": 0,
+            "rate": 0.01,
+            "tax": 5.05,
+            "exempt": false,
+            "exemptionReason": "",
+            "significantLocations": [
+              "shipFrom",
+              "shipTo"
+            ]
+          },
+          {
+            "jurisdictionName": "Orange County District Tax Sp",
+            "jurisdictionType": "Special",
+            "taxType": "Sellers Use",
+            "rateType": "General",
+            "scenario": "Simple Retail",
+            "subtotalTaxable": 505,
+            "subtotalExempt": 0,
+            "rate": 0.005,
+            "tax": 2.53,
+            "exempt": false,
+            "exemptionReason": "",
+            "significantLocations": [
+              "shipFrom",
+              "shipTo"
+            ]
+          },
+          {
+            "jurisdictionName": "CALIFORNIA",
+            "jurisdictionType": "State",
+            "taxType": "Sellers Use",
+            "rateType": "General",
+            "scenario": "Simple Retail",
+            "subtotalTaxable": 505,
+            "subtotalExempt": 0,
+            "rate": 0.065,
+            "tax": 32.83,
+            "exempt": false,
+            "exemptionReason": "",
+            "significantLocations": [
+              "shipFrom",
+              "shipTo"
+            ]
+          },
+          {
+            "jurisdictionName": "CALIFORNIA",
+            "jurisdictionType": "State",
+            "taxType": "Beverage Container",
+            "rateType": "General",
+            "scenario": "Simple Retail",
+            "subtotalTaxable": 500,
+            "subtotalExempt": 0,
+            "rate": 0.05,
+            "tax": 5,
+            "exempt": false,
+            "exemptionReason": "",
+            "significantLocations": [
+              "shipTo"
+            ]
+          }
+        ]
       }
     }
   ],
   "calculatedTaxSummary": {
-    "numberOfTaxableLines": 1,
-    "numberOfExemptLines": 0,
-    "numberOfLines": 1,
-    "subtotalTaxable": 32.5,
-    "subtotalExempt": 0,
-    "subtotal": 32.5,
-    "tax": 3.09,
-    "grandTotal": 35.59
+    "numberOfLines": 2,
+    "taxByType": {
+      "Sales": {
+        "tax": 240,
+        "jurisdictions": [
+          {
+            "jurisdictionName": "WASHINGTON",
+            "jurisdictionType": "State",
+            "tax": 200
+          },
+          {
+            "jurisdictionName": "King County",
+            "jurisdictionType": "County",
+            "tax": 40
+          }
+        ]
+      },
+      "Sellers Use": {
+        "tax": 40.4,
+        "jurisdictions": [
+          {
+            "jurisdictionName": "WASHINGTON",
+            "jurisdictionType": "State",
+            "tax": 0.4
+          },
+          {
+            "jurisdictionName": "KING",
+            "jurisdictionType": "County",
+            "tax": 40
+          }
+        ]
+      },
+      "Beverage Container": {
+        "tax": 5,
+        "jurisdictions": [
+          {
+            "jurisdictionName": "WASHINGTON",
+            "jurisdictionType": "State",
+            "tax": 2
+          },
+          {
+            "jurisdictionName": "KING",
+            "jurisdictionType": "County",
+            "tax": 3
+          }
+        ]
+      }
+    },
+    "subtotal": 3000,
+    "totalTax": 285.4,
+    "grandTotal": 3285.4
   },
   "processingInfo": {
     "transactionState": "Recorded",
@@ -194,8 +347,6 @@
   }
 }
 ```
-
-
 **accountId:** string  
 This string is a UUID issued by Avalara to identify the Avalara account that owns the company identified by the companyCode.
 
@@ -217,7 +368,7 @@ Alias of customerCode, offered to improve readability on Purchase Invoice type t
 **transactionDate** string: date in ISO 8601 format  
 The reporting date of the transaction. Note that this may differ from the date the transaction is recorded and/or the date the effective tax date of the calculation.
 
-**currencyCode:** string: currency in ISO 4217:2008 format  
+**currency:** string: currency in ISO 4217:2008 format  
 Not currently supported.
 
 **totalTaxOverrideAmount:** decimal, *optional*
@@ -238,22 +389,22 @@ Not currently supported. An identifier issued by a tax authority that identifies
 **defaultEntityUseType:** string, *optional*
 The type of customer or type of use. Used to apply particular customer group taxability behavior. If set, will apply to all lines in the transaction that do not override it. Valid values are:
 
-- A - Federal Government,
-- B - State/Local Govt.
-- C - Tribal Government
-- D - Foreign Diplomat
-- E - Charitable Organization
-- F - Religious/Education
-- G - Resale
-- H - Agricultural Production
-- I - Industrial Prod/Mfg.
-- J - Direct Pay Permit
-- K - Direct Mail
-- L - Other
-- N - Local Government
-- P - Commercial Aquaculture (Canada)
-- Q - Commercial Fishery (Canada)
-- R - Non-resident (Canada)
+- `A` Federal Government,
+- `B` State/Local Govt.
+- `C` Tribal Government
+- `D` Foreign Diplomat
+- `E` Charitable Organization
+- `F` Religious/Education
+- `G` Resale
+- `H` Agricultural Production
+- `I` Industrial Prod/Mfg.
+- `J` Direct Pay Permit
+- `K` Direct Mail
+- `L` Other
+- `N` Local Government
+- `P` Commercial Aquaculture (Canada)
+- `Q` Commercial Fishery (Canada)
+- `R` Non-resident (Canada)
 
 **purchaseOrderNumber:** string  
 A purchase order number which might be used to look up a single use tax exemption certification
@@ -289,17 +440,17 @@ Not currently supported. The unit of measure associated with this line item. The
 **locations** enum, *required if not specified at the header*  
 A dictionary of locations such as the ShipFrom and ShipTo addresses to be associated with this line. These locations may override those specified in a transaction header. The key for each location in the dictionary is the location "purpose". Valid location purposes are:
 
-- "ShipFrom"
-- "ShipTo"
-- "POS"
-- "POM"
-- "POO"
-- "BillingLocation"
-- "CallPlaced"
-- "CallReceived"
-- "ServiceRendered"
-- "POA"
-- "FirstUse". 
+- `ShipFrom`
+- `ShipTo`
+- `POS`
+- `POM`
+- `POO`
+- `BillingLocation`
+- `CallPlaced`
+- `CallReceived`
+- `ServiceRendered`
+- `POA`
+- `FirstUse` 
 
 There can only be one location of a given purpose in the dictionary.
 
@@ -309,22 +460,22 @@ Not currently supported. a code issued by a tax authority to identify a party (t
 **entityUseType** string  
 Not currently supported. This string captures the type of customer or type of use associated with this line in the transaction. Valid values are:
 
-- A - Federal Government
-- B - State/Local Govt. 
-- C - Tribal Government
-- D - Foreign Diplomat 
-- E - Charitable Organization 
-- F - Religious/Education 
-- G - Resale
-- H - Agricultural Production 
-- I - Industrial Prod/Mfg. 
-- J - Direct Pay Permit 
-- K - Direct Mail 
-- L - Other 
-- N - Local Government 
-- P - Commercial Aquaculture (Canada) 
-- Q - Commercial Fishery (Canada) 
-- R - Non-resident (Canada)
+- `A` Federal Government,
+- `B` State/Local Govt.
+- `C` Tribal Government
+- `D` Foreign Diplomat
+- `E` Charitable Organization
+- `F` Religious/Education
+- `G` Resale
+- `H` Agricultural Production
+- `I` Industrial Prod/Mfg.
+- `J` Direct Pay Permit
+- `K` Direct Mail
+- `L` Other
+- `N` Local Government
+- `P` Commercial Aquaculture (Canada)
+- `Q` Commercial Fishery (Canada)
+- `R` Non-resident (Canada)
 
 **taxOverrideAmount** decimal  
 Not currently supported. A Tax Override Amount which overrides the tax for the line. This may used for imported transactions, returns, and layaways where the tax has already been calculated either by AvaTax or another means.
@@ -335,15 +486,62 @@ Not currently supported. Indicates whether the extendedPrice includes tax or not
 **metadata** metadataItem  
 A collection of MetadataItems (string pairs) which exists to allow callers of the API to set arbitrary information that will be returned in the tax calculation response and which can be used during reporting
 
-**calculatedTax** calculatedTax   
+**calculatedTax** calculatedTax  
 Contains the calculated tax information for this line item. This element is created by the tax service and overwritten if it exists in a request.
 
-### calculatedTaxSummary
-**numberOfTaxableLines** integer   
-Number of lines that were determined to have tax due on them
+#### calculatedTax
+The tax calculated information for this line item.
 
-**numberOfExemptLines**	integer   
-Number of lines that were determined to not have any tax due on them
+**taxByType** array
+An array of tax types that apply to this line item. Each distinct type is keyed by taxtype, and contains a single `tax` decimal element.
+
+**tax** decimal  
+Total tax applicable for this line
+
+**details** details
+List of tax authorities that apply to this line.
+
+##### details
+**jurisdictionName** string  
+The name of the taxing jurisdiction
+
+**jurisdictionType** string  
+The type of taxing jurisdiction
+
+**taxType** string  
+The type of the tax
+
+**rateType** string  
+The type of rate used
+
+**scenario** string  
+The transaction scenario used to calculate the tax for this tax type. Scenarios are specific to the tax type. This field provides information about how the tax engine interpreted the transaction information that was passed in.
+
+**subtotalTaxable** decimal  
+How much of the extendedAmount was taxable by this tax
+
+**subtotalExempt** decimal  
+How much of the extendedAmount was non-taxed. This is simply the extended amount minus the subtotal taxed.
+
+**rate** decimal  
+The tax rate for this tax
+
+**tax** decimal  
+The total tax applicable for this tax type for this jurisdiction for this document
+
+**exempt** boolean  
+A flag indicating that the customer is exempt from this tax for this transaction
+
+**exemptionReason** string  
+An explanatory audit message for exempt transactions. If the line is not exempt from tax in this jurisdiction on this calculation, this will be empty.
+
+**significantLocations** string[]  
+List of locations that contributed to the tax determination. Elements in the list will be a subset of the locations associated with this line (i.e.: one or more of "ShipFrom", "CallPlaced", "POM", "POA", "DropShip", "POS", "ShipTo", "POO", "BillingLocation", "CallReceived", "ServiceRendered", "FirstUse"    
+
+**comment** string  
+Captures any special instructions for interpreting the values here. Sometimes, for example, jurisdictions will impose a cap on how much of a given taxtype can be charged for a single transaction. In that case, the tax at the line level may not add up to the tax at the document level. e.g.: "Alabama state imposes a cap on sales tax for lumber"
+
+### calculatedTaxSummary
 
 **numberOfLines** integer  
 Number of lines in the transaction
@@ -351,17 +549,37 @@ Number of lines in the transaction
 **subtotal** decimal  
 Subtotal for this transaction
 
-**subtotalTaxable**	decimal  
-Amount that had tax applied to it
-
-**subtotalExempt** decimal  
-Amount of this transaction that was not taxed.
-
-**tax** decimal  
+**totalTax** decimal  
 Amount of tax due for this transaction.
 
-**grandTotal** decimal  
-Total due to be paid by the purchaser to the seller including tax.
+**taxByType** taxByType  
+Breaks out the tax for this line by tax type.
+
+#### taxByType
+A list of tax types applied to a document, keyed on tax type. Each element represents the total tax each type of tax that applied to this document. 
+
+**tax** decimal  
+The total tax applicable for this tax type for this document.
+
+**jurisdictions** details  
+List of jurisdictions that defined this tax type for this transaction. See `details` below for more information.
+
+**comment** string  
+captures any special instructions for interpreting the values here. Sometimes, for example, jurisdictions will impose a cap on how much of a given taxtype can be charged for a single transaction. In that case, the tax at the line level may not add up to the tax at the document level. e.g.: "Alabama state imposes a cap on sales tax for lumber"
+
+#### details
+
+**jurisdictionName** string  
+The name of the taxing jurisdiction
+
+**jurisdictionType** string  
+The type of taxing jurisdiction
+
+**tax** decimal  
+The total tax applicable for this tax type for this jurisdiction for this document
+
+**comment** string  
+Captures any special instructions for interpreting the values here. Sometimes, for example, jurisdictions will impose a cap on how much of a given taxtype can be charged for a single transaction. In that case, the tax at the line level may not add up to the tax at the document level. e.g.: "Alabama state imposes a cap on sales tax for lumber"
 
 ### processingInfo
 
@@ -379,7 +597,7 @@ Server-assigned unique identifier for the tax calculation.
 The format of this transaction, which may be useful for support queries.
 
 **duration** decimal  
-The number of seconds taken to process the tax calculation.
+The number of milliseconds taken to process the tax calculation.
 
 **modifiedDate** string  
 The date, in ISO 8601 format, on which the most recent update to this document was posted
@@ -393,18 +611,6 @@ Avalara versionId of the original transaction that created the entry.
 **message** string  
 Allows Avalara to pass information back to the caller. e.g. "Warning: format 3 as used in this transaction is deprecated by format 4 and may not be supported in the future."
 
-### feedback
-**latencyData** latencyInfo  
-The feedback element allows clients to inform Avalara of the total roundtrip latency of calls, allowing Avalara support to better understand how well we're serving our customers.
-
-#### latencyInfo
-**latency** integer  
-The latency in miliseconds for a previous call from the client perspective.
-
-**versionId** string  
-The versionId (returned to the client in the processingInfo.versionId field) of the transaction for which latency is being passed.
-
-
 ### location
 Locations capture the physical locations associated with a transaction, identifying each point with a locationType enumerated in the table below.
 To calculate tax for a line in a transaction, the tax calculation engine may need to know about the "origin" and the "destination" of the transaction. Sometimes determining these locations is straight forward, as in the case of an item purchased in person at a retail store for immediate consumption (a single POS address would suffice to indicate the origin and destination of the transaction). Other cases are only slightly more complicated, such as when a product is purchased over the phone and shipped from a warehouse to the customer's house. In this second case, a Ship-from location would serve as the origin, and a Ship-to location would serve as the destination.
@@ -415,19 +621,22 @@ The type of location identified by the element. Each distinct type can be used a
 
 taxLocationPurpose | Category | Description
 -----|-----|-----
-ShipFrom | origin | shipping origin of the transaction or line item
-CallPlaced | origin | point of origin of a phone call
-POM | origin | point of manufacture of an item
-POA | origin | point of access to an item
-Dropship | origin | drop shipment location of an item
-POS | origin & destination | point of sale of an item
-ShipTo | destination | ship to location of an item
-POO | destination | point of order origin of an item
-BillingLocation | destination | billing location of an item
-CallReceived | destination |  destination of a phone call
-ServiceRendered | destination | location a service item was rendered
-FirstUse | destination | location of first use of an item
-
+`ShipFrom` | origin | shipping origin of the transaction or line item
+`CallPlaced` | origin | point of origin of a phone call
+`POM` | origin | point of manufacture of an item
+`POA`| origin | point of access to an item
+`Dropship` | origin | drop shipment location of an item
+`POS` | origin & destination | point of sale of an item
+`ShipTo` | destination | ship to location of an item
+`POO` | destination | point of order origin of an item
+`BillingLocation` | destination | billing location of an item
+`CallReceived` | destination |  destination of a phone call
+`ServiceRendered` | destination | location a service item was rendered
+`FirstUse` | destination | location of first use of an item
+`PointOfOrderAcceptance` | origin | point of access to an item 
+`PointOfSale`     | origin & destination | point of sale of an item 
+`PointOfOrderOrigin` | destination | point of order origin of an item 
+`Assumed Possession` | destination | assumed location of possession of an item 
 
 **address**	address  
 This element contains a street or shipping address. The tax calculation service will convert this to a lat/long. See address format below.
@@ -438,8 +647,24 @@ This element contains a latitude and longitude.	See latlong format below.
 **locationCode** string  
 Not currently supported. The identity of a pre-configured location unique to the company.	
 
-**IpAddress** string  
+**ipAddress** string  
 Not currently supported. An IP address for digital distribution. This field is not currently supported.
+
+**resolutionQuality** string
+An indication of how precisely the location information was able to be translated into a latitude / longitude. It will contain one of the following values:
+
+- `NotCoded` location was not geocoded
+- `External` location was already geocoded on the request
+- `CountryCentroid` Avalara-defined country centroid
+- `egionCentroid` Avalara-defined state / province centroid
+- `PartialCentroid` geocoded at a level more coarse than a PostalCentroid1
+- `PostalCentroidGood` largest postal code (zip5 in US, left three in CA, etc
+- `PostalCentroidBetter` better postal code (zip7 in US) 
+- `PostalCentroidBest` best postal code (zip9 in US, complete postal code elsewhere)
+- `Intersection` nearest intersection
+- `Interpolated` interpolated to rooftop
+- `Rooftop` assumed to be rooftop level, non-interpolated
+- `Constant` pulled from a static list of geocodes for specific jurisdictions
 
 **addressTaxPayerCode** string  
 Not currently supported. This taxPayerCode overrides any taxPayerCode that may have been specified in the header or line item if this address is determined to govern the selection of tax rules (i.e.: if the transaction is sourced to this address).
@@ -447,22 +672,22 @@ Not currently supported. This taxPayerCode overrides any taxPayerCode that may h
 **addressEntityUseType** string  
 Not currently supported. This entityUseType overrides any entityUseType that may have been specified in the header or line item if this address is determined to govern the selection of tax rules (i.e.: if the transaction is sourced to this address). Valid values are:
 
-- A - Federal Government
-- B - State/Local Govt. 
-- C - Tribal Government
-- D - Foreign Diplomat 
-- E - Charitable Organization 
-- F - Religious/Education 
-- G - Resale
-- H - Agricultural Production 
-- I - Industrial Prod/Mfg. 
-- J - Direct Pay Permit 
-- K - Direct Mail 
-- L - Other 
-- N - Local Government 
-- P - Commercial Aquaculture (Canada) 
-- Q - Commercial Fishery (Canada) 
-- R - Non-resident (Canada)
+- `A` Federal Government,
+- `B` State/Local Govt.
+- `C` Tribal Government
+- `D` Foreign Diplomat
+- `E` Charitable Organization
+- `F` Religious/Education
+- `G` Resale
+- `H` Agricultural Production
+- `I` Industrial Prod/Mfg.
+- `J` Direct Pay Permit
+- `K` Direct Mail
+- `L` Other
+- `N` Local Government
+- `P` Commercial Aquaculture (Canada)
+- `Q` Commercial Fishery (Canada)
+- `R` Non-resident (Canada)
 
 #### latlong
 
@@ -503,61 +728,13 @@ For example:
 `"comment":"this was done to compensate for a previous customer satisfaction issue",`
 `"PurchaseOrder":"PO1232", "SalesPersonCode":"21123"`
 
-### calculatedTax
+### feedback
+**latencyData** latencyInfo  
+The feedback element allows clients to inform Avalara of the total roundtrip latency of calls, allowing Avalara support to better understand how well we're serving our customers.
 
-**appliedTax** decimal  
-The total tax applicable for this line.
+#### latencyInfo
+**latency** integer  
+The latency in miliseconds for a previous call from the client perspective.
 
-**subtotalTaxable** decimal  
-How much of the extendedAmount was taxable. The subtotal taxable may vary from jurisdiction to jurisdiction and from tax to tax, and this number represents the highest amount taxed from any tax in any jurisdiction.
-
-**subtotalExempt** decimal  
-How much of the extendedAmount was non-taxed. This is simply the extended amount minus the subtotal taxed.
-
-**taxAuthorities** taxAuthorities  
-A list of elements breaking out the tax authorities that apply to this line.
-
-#### taxAuthorities
-
-**jurisdictionName** string  
-The name of the taxing jurisdiction.
-
-**jurisdictionType** string  
-The type of taxing jurisdiction.
-
-**details** details  
-A list of elements capturing the types and amounts of tax imposed by this jurisdiction.
-
-##### details
-
-Note that sometimes a single tax may be banded, meaning that it applies at different rates depending on the extendedAmount (or individual amount) of the item. Each band will have its own detail in the list.
-
-**taxType**	string 
-The type of the tax, e.g. "sales"
-
-**rateType** string  
-The type of the rate used
-
-**subtotalTaxable**	decimal  
-How much of the extendedAmount was taxable by this tax
-
-**subtotalExempt** decimal  
-How much of the extendedAmount was non-taxed. This is simply the extended amount minus the subtotal taxed.
-
-**rate** decimal  
-The tax rate for this tax.
-
-**tax** decimal  
-The product of subtotalTaxable and rate.
-
-**exempt** boolean  
-Used to indicate that this customer is exempt from this tax for this transaction.
-
-**exemptionReason** string  
-A required reason if the exempt flag is present and set to true.
-
-**originLocation** location  
-This element captures the location determined to be the "origin" for this tax detail based on the locations associated with this line. One of "ShipFrom", "CallPlaced", "POM", "POA", "DropShip", "POS"	"ShipFrom".
-
-**destinationLocation** location  
-This element captures the location determined to be the "destination" for this tax detail based on the locations associated with this line. One of "POS", "ShipTo", "POO", "BillingLocation", "CallReceived", "ServiceRendered", "FirstUse"	"ShipTo".
+**versionId** string  
+The versionId (returned to the client in the processingInfo.versionId field) of the transaction for which latency is being passed.

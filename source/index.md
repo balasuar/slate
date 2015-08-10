@@ -47,6 +47,7 @@ includes:
   - rest2transactions
   - rest2taxdocumentrequest
   - rest2taxdocumentresponse
+  - rest2resolveaddress
   - onboardingintroduction
   - onboardingaccounts
   - onboardingcompanies

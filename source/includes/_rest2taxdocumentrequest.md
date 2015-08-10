@@ -2,66 +2,91 @@
 ### header
 ```json
 {
-  "header": {
-    "accountId": "2ead98c1-ecbf-4708-8d86-b01af8bc13e5",
-    "companyCode": "MyCo2",
-    "transactionType": "Sale",
-    "documentCode": "#12345",
-    "vendorCode": "VENDOR",
-    "currency": "USD",
-    "customerCode": "ArgosyCruises",
-    "transactionDate": "2014-11-11",
-    "purchaseOrderNumber": "32323",
-    "metadata": {
-      "Ref1": "ABC",
-      "Ref2": "DEF"
+    "header": {
+        "accountId": "2ead98c1-ecbf-4708-8d86-b01af8bc13e5",
+        "companyCode": "MyCo2",
+        "transactionType": "Sale",
+        "documentCode": "#12345",
+        "vendorCode": "VENDOR",
+        "currency": "USD",
+        "customerCode": "FishermansWharf",
+        "transactionDate": "2014-11-11",
+        "purchaseOrderNumber": "32323",
+        "metadata": {
+            "Ref1": "ABC",
+            "Ref2": "DEF"
+        },
+        "defaultLocations": {
+            "ShipTo": {
+                "address": {
+                    "line1": "2601 West Marina Place",
+                    "line2": "",
+                    "line3": "",
+                    "city": "Seattle",
+                    "state": "WA",
+                    "zipcode": "98199",
+                    "country": "USA"
+                }
+            },
+            "ShipFrom": {
+                "address": {
+                    "line1": "1101 Alaskan Way",
+                    "city": "Seattle",
+                    "state": "WA",
+                    "zipcode": "98101",
+                    "country": "USA"
+                }
+            }
+        }
     },
-    "defaultLocations": {
-      "ShipTo": {
-        "address": {
-          "line1": "1100 2nd Ave",
-          "line2": "",
-          "line3": "",
-          "city": "Seattle",
-          "state": "WA",
-          "zipcode": "98101",
-          "country": "USA"
+    "lines": [
+        {
+            "lineCode": "1",
+            "itemCode": "CK0001",
+            "quantity": 500,
+            "extendedAmount": 2500,
+            "itemDescription": "Personalized 8oz coke bottle",
+            "taxIncluded": "false",
+            "metadata": {
+                "Ref1": "ABC",
+                "Ref2": "DEF"
+            }
+        },
+        {
+            "lineCode": "2",
+            "locations": {
+                "ShipTo": {
+                    "address": {
+                        "line1": "611 Avenida Victoria",
+                        "line2": "",
+                        "line3": "",
+                        "city": "San Clemente",
+                        "state": "CA",
+                        "zipcode": "92672",
+                        "country": "USA"
+                    }
+                }
+            }
+            "itemCode": "CK0001",
+            "quantity": 100,
+            "extendedAmount": 500,
+            "itemDescription": "Personalized 8oz coke bottle",
+            "taxIncluded": "false",
+            "metadata": {
+                "Ref1": "ABC",
+                "Ref2": "DEF"
+            }
         }
-      },
-      "ShipFrom": {
-        "address": {
-          "line1": "1101 Alaskan Way",
-          "city": "Seattle",
-          "state": "WA",
-          "zipcode": "98101",
-          "country": "USA"
-        }
-      }
+
+    ],
+    "feedback": {
+        "latencyData": [
+            {
+                "latency": 100,
+                "versionId": "023897420394782308947230987"
+            }
+        ]
     }
-  },
-  "lines": [
-    {
-      "lineCode": "1",
-      "itemCode": "22456366",
-      "quantity": 1,
-      "avalaraGoodsAndServicesType": "P0000000",
-      "extendedAmount": 32.5,
-      "itemDescription": "Mens adidas FREEFOOTBALL JANEIRINHA Soccer Shoes",
-      "taxIncluded": "false",
-      "metadata": {
-        "Ref1": "ABC",
-        "Ref2": "DEF"
-      }
-    }
-  ],
-  "feedback": {
-    "latencyData": [
-      {
-        "latency": 100,
-        "versionId": "023897420394782308947230987"
-      }
-    ]
-  }
 }
 ```
 
@@ -86,7 +111,7 @@ Alias of customerCode, offered to improve readability on Purchase Invoice type t
 **transactionDate** string: date in ISO 8601 format, *required*  
 The reporting date of the transaction. Note that this may differ from the date the transaction is recorded and/or the date the effective tax date of the calculation.
 
-**currencyCode:** string: currency in ISO 4217:2008 format, *optional*  
+**currency:** string: currency in ISO 4217:2008 format, *optional*  
 Not currently supported.
 
 **totalTaxOverrideAmount:** decimal, *optional*
@@ -178,22 +203,22 @@ Not currently supported. a code issued by a tax authority to identify a party (t
 **entityUseType** string, *optional*  
 Not currently supported. This string captures the type of customer or type of use associated with this line in the transaction. Valid values are:
 
-- A - Federal Government
-- B - State/Local Govt. 
-- C - Tribal Government
-- D - Foreign Diplomat 
-- E - Charitable Organization 
-- F - Religious/Education 
-- G - Resale
-- H - Agricultural Production 
-- I - Industrial Prod/Mfg. 
-- J - Direct Pay Permit 
-- K - Direct Mail 
-- L - Other 
-- N - Local Government 
-- P - Commercial Aquaculture (Canada) 
-- Q - Commercial Fishery (Canada) 
-- R - Non-resident (Canada)
+- `A` Federal Government,
+- `B` State/Local Govt.
+- `C` Tribal Government
+- `D` Foreign Diplomat
+- `E` Charitable Organization
+- `F` Religious/Education
+- `G` Resale
+- `H` Agricultural Production
+- `I` Industrial Prod/Mfg.
+- `J` Direct Pay Permit
+- `K` Direct Mail
+- `L` Other
+- `N` Local Government
+- `P` Commercial Aquaculture (Canada)
+- `Q` Commercial Fishery (Canada)
+- `R` Non-resident (Canada)
 
 **taxOverrideAmount** decimal, *optional*  
 Not currently supported. A Tax Override Amount which overrides the tax for the line. This may used for imported transactions, returns, and layaways where the tax has already been calculated either by AvaTax or another means.
@@ -227,20 +252,24 @@ Exactly which locations are required for a given transaction depends on the cont
 **taxLocationPurpose** enum, *required*  
 The type of location identified by the element. Each distinct type can be used as a destination or origin address depending on the sale type, as outlined in the table below:
 
-taxLocationPurpose | Category | Description
+axLocationPurpose | Category | Description
 -----|-----|-----
-ShipFrom | origin | shipping origin of the transaction or line item
-CallPlaced | origin | point of origin of a phone call
-POM | origin | point of manufacture of an item
-POA | origin | point of access to an item
-Dropship | origin | drop shipment location of an item
-POS | origin & destination | point of sale of an item
-ShipTo | destination | ship to location of an item
-POO | destination | point of order origin of an item
-BillingLocation | destination | billing location of an item
-CallReceived | destination |  destination of a phone call
-ServiceRendered | destination | location a service item was rendered
-FirstUse | destination | location of first use of an item
+`ShipFrom` | origin | shipping origin of the transaction or line item
+`CallPlaced` | origin | point of origin of a phone call
+`POM` | origin | point of manufacture of an item
+`POA`| origin | point of access to an item
+`Dropship` | origin | drop shipment location of an item
+`POS` | origin & destination | point of sale of an item
+`ShipTo` | destination | ship to location of an item
+`POO` | destination | point of order origin of an item
+`BillingLocation` | destination | billing location of an item
+`CallReceived` | destination |  destination of a phone call
+`ServiceRendered` | destination | location a service item was rendered
+`FirstUse` | destination | location of first use of an item
+`PointOfOrderAcceptance` | origin | point of access to an item 
+`PointOfSale`     | origin & destination | point of sale of an item 
+`PointOfOrderOrigin` | destination | point of order origin of an item 
+`Assumed Possession` | destination | assumed location of possession of an item 
 
 
 **address**	address, *optional*  
@@ -261,22 +290,22 @@ Not currently supported. This taxPayerCode overrides any taxPayerCode that may h
 **addressEntityUseType** string, *optional*  
 Not currently supported. This entityUseType overrides any entityUseType that may have been specified in the header or line item if this address is determined to govern the selection of tax rules (i.e.: if the transaction is sourced to this address). Valid values are:
 
-- A - Federal Government
-- B - State/Local Govt. 
-- C - Tribal Government
-- D - Foreign Diplomat 
-- E - Charitable Organization 
-- F - Religious/Education 
-- G - Resale
-- H - Agricultural Production 
-- I - Industrial Prod/Mfg. 
-- J - Direct Pay Permit 
-- K - Direct Mail 
-- L - Other 
-- N - Local Government 
-- P - Commercial Aquaculture (Canada) 
-- Q - Commercial Fishery (Canada) 
-- R - Non-resident (Canada)
+- `A` Federal Government,
+- `B` State/Local Govt.
+- `C` Tribal Government
+- `D` Foreign Diplomat
+- `E` Charitable Organization
+- `F` Religious/Education
+- `G` Resale
+- `H` Agricultural Production
+- `I` Industrial Prod/Mfg.
+- `J` Direct Pay Permit
+- `K` Direct Mail
+- `L` Other
+- `N` Local Government
+- `P` Commercial Aquaculture (Canada)
+- `Q` Commercial Fishery (Canada)
+- `R` Non-resident (Canada)
 
 #### latlong
 
