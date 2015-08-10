@@ -1,4 +1,4 @@
-# Landed Costs API 
+# Landed Cost API 
 
 Landed Cost API provides duty rates, duty calculations and item harmonization information through a RESTful API. 
 
