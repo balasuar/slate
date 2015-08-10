@@ -1,5 +1,8 @@
 # TaxRates API
-The TaxRates API provides a free rates lookup tool to allow merchants to retreive tax rates by location. You can use this REST API to get the sales tax rate for a five digit zip code in the United State or get the sales tax rate for a specific street address in the United States. <a href="http://taxratesapi.avalara.com/" target="_parent">Register for an API Key</a> to get started.
+
+> <a href="http://taxratesapi.avalara.com/" target="_parent">Register for an API Key</a> to get started.
+
+The TaxRates API provides a free rates lookup tool to allow merchants to retreive tax rates by location. You can use this REST API to get the sales tax rate for a five digit zip code in the United State or get the sales tax rate for a specific street address in the United States. 
 
 <aside class='notice'> To ensure that the service is available for as many people as possible, we have a rate limit of 15 tax rate requests every 1 minute. If you get a response that you've exceeded the rate limit, we suggest waiting 60 seconds before making your next request. </aside>
 

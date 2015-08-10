@@ -1,29 +1,27 @@
 ## CancelTax
-
+```html
+Development: POST https://development.avalara.net/1.0/tax/cancel  
+Production:	POST ttps://avatax.avalara.net/1.0/tax/cancel
+```
 Voids or deletes and existing transaction record from the AvaTax system.
-
-##### URL and Method
-
-`POST /1.0/tax/cancel`
-
-Development: https://development.avalara.net/1.0/tax/cancel  
-Production:	https://avatax.avalara.net/1.0/tax/cancel
     
 <aside class='notice'>
     Note that xml-encoded requests should use the same URL (`POST /1.0/tax/cancel`), but should set the Content-Type header to `text/xml`.
 </aside>
 
 ##### Headers
-
+```plaintext
+Authorization: Basic a2VlcG1vdmluZzpub3RoaW5nMnNlZWhlcmU=
+Content-Type: text/json
+```
 **Authorization:** header, *required*  
 In the format "Basic [account number]:[license key]" encoded to <a href="http://en.wikipedia.org/wiki/Base64" target="_parent">Base64</a>, as per <a href="http://en.wikipedia.org/wiki/Basic_access_authentication" target="_parent">basic access authentication</a>.  
-e.g.: `Basic a2VlcG1vdmluZzpub3RoaW5nMnNlZWhlcmU=`
 
 **Content Type:** header, *required*  
 Standard content type header, indicating the content type of the request content. Either `text/json` or `text/xml`.
 
 **Content Length:** header, *required*  
-Standard content length header, indicating the size of the request content.
+Standard content length header, indicating the size of the request content. This is typically set automatically by the calling client.
 
 ### CancelTaxRequest
 

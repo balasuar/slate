@@ -1,21 +1,22 @@
 ## Validate
-
+```html
+Development: GET https://development.avalara.net/1.0/address/validate?<address>  
+Production: GET https://avatax.avalara.net/1.0/address/validate?<address>
+```
 Normalizes a single US or Canadian address, providing a non-ambiguous address match.
-
-##### URL and Method
-
-Development: `GET https://development.avalara.net/1.0/address/validate?<address>`  
-Production: `GET https://avatax.avalara.net/1.0/address/validate?<address>`
     
 <aside class='notice'>
     To get an XML response, use `GET /1.0/address/validate.xml?<address>`
 </aside>
 
 ##### Headers
+```plaintext
+Authorization: Basic a2VlcG1vdmluZzpub3RoaW5nMnNlZWhlcmU=
+```
 
 **Authorization:** header, *required*  
 In the format "Basic [account number]:[license key]" encoded to <a href="http://en.wikipedia.org/wiki/Base64" target="_parent">Base64</a>, as per <a href="http://en.wikipedia.org/wiki/Basic_access_authentication" target="_parent">basic access authentication</a>.  
-e.g.: `Basic a2VlcG1vdmluZzpub3RoaW5nMnNlZWhlcmU=`
+
 
 ### Validate Request
 
@@ -135,7 +136,7 @@ Country code
 **PostalCode:** string [11], *optional unless City and Region are not specified*  
 Postal or ZIP code
 
-### ValidateResult
+### Validate Result
 
 ```json
 {
