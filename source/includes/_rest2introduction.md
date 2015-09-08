@@ -9,7 +9,7 @@ There are two kinds of records managed by this API: `Calculations` and `Transact
 The request and response formats for both resources is the same, and the response simply adds tax calculation and resolution information to the request format. All formats are documented in the TaxDocument Format section.
 
 When working with this API, care should be taken to reflect your expected document workflow as part of the integration process. The expected workflow and associated calls are diagrammed here:
-<img src="images/tng_document_flow.jpg" alt="TNG Document Flow">
+<a href='images/tng_document_flow.jpg'><img src="images/tng_document_flow.jpg" alt="TNG Document Flow"></a>
 
 ## Headers
 

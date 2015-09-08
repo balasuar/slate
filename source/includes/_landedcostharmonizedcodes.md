@@ -2,7 +2,7 @@
 
 ### Browse Harmonized Codes
 
-Presents the all available Harmonized Codes as a browseable tree. Each request specifies a parent node, and the response lists all child nodes of that parent.
+Presents the all available Harmonized Codes as a browseable tree. Each request specifies a parent node, and the response lists all child nodes of that parent. If no parent node is specified, all root-level nodes will be returned.
 
 #### Request
 ```plaintext
