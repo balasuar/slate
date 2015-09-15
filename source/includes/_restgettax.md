@@ -551,7 +551,7 @@ Document line array. There is a limit of 15000 lines per document.
 
 #### TaxOverride
 
-Nested object describing any tax override applied to the document. TaxOverride only needs to be included when there is need to override our tax calculation. Most commonly on ReturnInvoices. For each document, this may be done at either the document or line level, but not both on the same document. 
+Nested object describing any tax override applied to the document. TaxOverride only needs to be included when there is need to override our tax calculation. ; most commonly on <a href="http://developer.avalara.com/api-docs/designing-your-integration/handling-return-invoices">product returns</a>. For each document, this may be done at either the document or line level, but not both on the same document. 
 
 This will probably be handled within some conditional statement like:
 
