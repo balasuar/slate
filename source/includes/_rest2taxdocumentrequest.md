@@ -43,8 +43,8 @@
         {
             "lineCode": "1",
             "itemCode": "CK0001",
-            "quantity": 500,
-            "extendedAmount": 2500,
+            "numberOfItems": 500,
+            "lineAmount": 2500,
             "itemDescription": "Personalized 8oz coke bottle",
             "taxIncluded": "false",
             "metadata": {
@@ -68,8 +68,8 @@
                 }
             }
             "itemCode": "CK0001",
-            "quantity": 100,
-            "extendedAmount": 500,
+            "numberOfItems": 100,
+            "lineAmount": 500,
             "itemDescription": "Personalized 8oz coke bottle",
             "taxIncluded": "false",
             "metadata": {
@@ -129,25 +129,31 @@ This element contains a dictionary of locations such as the origin and destinati
 **defaultTaxPayerCode:** string, *optional*  
 Not currently supported. An identifier issued by a tax authority that identifies the transacting party (typically the customer associated with the customerCodefiled) as tax exempt for this transaction type. If set, will apply to all lines in this transaction that do not override it.
 
-**defaultEntityUseType:** string, *optional*
-The type of customer or type of use. Used to apply particular customer group taxability behavior. If set, will apply to all lines in the transaction that do not override it. Valid values are:
+**defaultBuyerType:** string, *optional*  
+The type of buyer. Used to apply particular customer group taxability behavior. If set, will apply to all lines in the transaction that do not override it. Valid values are:
 
-- A - Federal Government,
+- A - Federal Government
 - B - State/Local Govt.
 - C - Tribal Government
 - D - Foreign Diplomat
 - E - Charitable Organization
 - F - Religious/Education
+- L - Other
+- N - Local Government
+- R - Non-resident (Canada)
+
+**defaultUseType:** string, *optional*  
+The type of use. Used to apply particular use type taxability behavior. If set, will apply to all lines in the transaction that do not override it. Valid values are:
+
 - G - Resale
 - H - Agricultural Production
 - I - Industrial Prod/Mfg.
 - J - Direct Pay Permit
 - K - Direct Mail
 - L - Other
-- N - Local Government
 - P - Commercial Aquaculture (Canada)
 - Q - Commercial Fishery (Canada)
-- R - Non-resident (Canada)
+
 
 **purchaseOrderNumber:** string, *optional*  
 A purchase order number which might be used to look up a single use tax exemption certification
@@ -168,11 +174,11 @@ Identifies a category of products for tax purposes. It will likely be one of Ava
 **avalaraGoodsAndServicesModifierType** string, *optional*  
 Not currently supported. A goods and services modifier to be used for this line. The Avalara goods and services type determines the specific type of goods or services associated with a particular line in the transaction. The Avalara goods and services modifier determines variations on the goods and services type. For example, if the goods were a type of food, the modifier might be "dine in" or "take out". If the goods and services were a "bicycle" the modifier might be "rental" versus "title".
 
-**quantity** decimal, *optional*  
+**numberOfItems** decimal, *optional*  
 The number of individual units represented by this line. Digits after the decimal point are optional.
 
-**extendedAmount** decimal, *required*  
-The total cost of this line. In its simplest form extendedAmount = unit price * quantity.
+**lineAmount** decimal, *required*  
+The total cost of this line. In its simplest form lineAmount = unit price * numberOfItems.
 
 **itemDescription** string, *optional*  
 Description of the item represented by this line
@@ -200,25 +206,30 @@ There can only be one location of a given purpose in the dictionary.
 **taxPayerCode** string, *optional*  
 Not currently supported. a code issued by a tax authority to identify a party (typically the customer associated with the customerId field) that is exempt from tax for this type of transaction. This value will override any value set at the transaction level.
 
-**entityUseType** string, *optional*  
-Not currently supported. This string captures the type of customer or type of use associated with this line in the transaction. Valid values are:
+**buyerType:** string, *optional*  
+The type of buyer. Used to apply particular customer group taxability behavior. If set, will apply to this line only, and will override any defaultBuyerType. Valid values are:
 
-- `A` Federal Government,
-- `B` State/Local Govt.
-- `C` Tribal Government
-- `D` Foreign Diplomat
-- `E` Charitable Organization
-- `F` Religious/Education
-- `G` Resale
-- `H` Agricultural Production
-- `I` Industrial Prod/Mfg.
-- `J` Direct Pay Permit
-- `K` Direct Mail
-- `L` Other
-- `N` Local Government
-- `P` Commercial Aquaculture (Canada)
-- `Q` Commercial Fishery (Canada)
-- `R` Non-resident (Canada)
+- A - Federal Government
+- B - State/Local Govt.
+- C - Tribal Government
+- D - Foreign Diplomat
+- E - Charitable Organization
+- F - Religious/Education
+- L - Other
+- N - Local Government
+- R - Non-resident (Canada)
+
+**useType:** string, *optional*  
+The type of use. Used to apply particular use type taxability behavior. If set, will apply to this line only, and will override any defaultUseType. Valid values are:
+
+- G - Resale
+- H - Agricultural Production
+- I - Industrial Prod/Mfg.
+- J - Direct Pay Permit
+- K - Direct Mail
+- L - Other
+- P - Commercial Aquaculture (Canada)
+- Q - Commercial Fishery (Canada)
 
 **taxOverrideAmount** decimal, *optional*  
 Not currently supported. A Tax Override Amount which overrides the tax for the line. This may used for imported transactions, returns, and layaways where the tax has already been calculated either by AvaTax or another means.
@@ -287,25 +298,30 @@ Not currently supported. An IP address for digital distribution. This field is n
 **addressTaxPayerCode** string, *optional*  
 Not currently supported. This taxPayerCode overrides any taxPayerCode that may have been specified in the header or line item if this address is determined to govern the selection of tax rules (i.e.: if the transaction is sourced to this address).
 
-**addressEntityUseType** string, *optional*  
-Not currently supported. This entityUseType overrides any entityUseType that may have been specified in the header or line item if this address is determined to govern the selection of tax rules (i.e.: if the transaction is sourced to this address). Valid values are:
+**addressBuyerType:** string, *optional*  
+The type of buyer. Used to apply particular customer group taxability behavior. If set, will apply to this address only, and will override any defaultBuyerType. Valid values are:
 
-- `A` Federal Government,
-- `B` State/Local Govt.
-- `C` Tribal Government
-- `D` Foreign Diplomat
-- `E` Charitable Organization
-- `F` Religious/Education
-- `G` Resale
-- `H` Agricultural Production
-- `I` Industrial Prod/Mfg.
-- `J` Direct Pay Permit
-- `K` Direct Mail
-- `L` Other
-- `N` Local Government
-- `P` Commercial Aquaculture (Canada)
-- `Q` Commercial Fishery (Canada)
-- `R` Non-resident (Canada)
+- A - Federal Government
+- B - State/Local Govt.
+- C - Tribal Government
+- D - Foreign Diplomat
+- E - Charitable Organization
+- F - Religious/Education
+- L - Other
+- N - Local Government
+- R - Non-resident (Canada)
+
+**addressUseType:** string, *optional*
+The type of use. Used to apply particular use type taxability behavior. If set, will apply to this address only, and will override any defaultUseType. Valid values are:
+
+- G - Resale
+- H - Agricultural Production
+- I - Industrial Prod/Mfg.
+- J - Direct Pay Permit
+- K - Direct Mail
+- L - Other
+- P - Commercial Aquaculture (Canada)
+- Q - Commercial Fishery (Canada)
 
 #### latlong
 

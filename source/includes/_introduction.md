@@ -10,7 +10,7 @@ The <a href="#excise-api">**Avalara AvaTax Excise**</a> API is a SOAP web servic
 
 <aside class="alert"> *The following APIs are in beta release only.* 
 
-The <a href="#rest-v2-api">**REST v2**</a> API is used to calculate tax and record transactions for tax purposes. 
+The <a href="#avatax-16-api">**AvaTax 16**</a> API is used to calculate tax and record transactions for tax purposes. 
 
 The <a href="#onboarding-api">Onboarding API</a> is available for a limited number of partners to provide automated account provisioning and company profile setup for their customers.
 
