@@ -28,12 +28,13 @@ curl --include \
 ```json
 { 
   "ProductRatePlan":[ 
-      "ZT - 500 - Pro - Monthly",
-      "ZT - 500 - Pro (Usage)",
-      "ZT - Pay As You Go"
+    "ZT - Free - Pro",
+    "ZT - Free - Pro (Usage)",
+    "ZT - Free - Returns"
   ],
   "ConnectorName":"QuickBooks Online",
   "CampaignId":"70141000001LVUZ",
+  "PaymentMethodId": "2c92a0f9420cdf1201421069235e1d19",
   "LeadSourceMostRecent":"test",
   "EffDate":"2015-01-01",
   "EndDate":"2018-04-12",
@@ -70,6 +71,9 @@ TBD
 **ProductRatePlans** array of ProductRatePlan string, *required*  
 Rate plans to be used for the account. This is an Avalara-specific value that determines at what billable rate the client will be charged. For paid accounts, multiple array elements are expected: one to describe the standard rate plan and one to describe the overage rate plan, as well as any additional elements required by the partner contract arrangement.  Possible rate plan values are:  
 
+* ZT - Free - Pro
+* ZT - Free - Pro (Usage)
+* ZT - Free - Returns
 * ZT - 250 - Pro – Monthly
 * ZT - 250 - Pro - Annual
 * ZT - 250 - Pro (Usage)
@@ -96,6 +100,9 @@ The connector that will be the primary method of access used to call the account
 
 **CampaignId** string, *required*  
 SalesForce campaign ID under which the new account is being created. This is provided per connector by Avalara.
+
+**PaymentMethodId** string, *required*  
+Zuora-generated Payment ID to which the new account should be associated. For free trial accounts, an empty string is acceptable.
 
 **LeadSourceMostRecent** string, *required*  
 Most recent lead source; will associate the specified Avalara-internal SalesForce record for the newly created account.
