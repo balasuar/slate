@@ -6,6 +6,8 @@ The <a href="#avatax-rest-api" target="_self">**Avalara AvaTax**</a> APIs allow 
 
 The <a href="#taxrates-api">**Avalara TaxRates**</a> REST API provides an easy way for developers to use sales tax rates in their project. Our API is powered by our tax rule content, and rates are updated as tax rules change to stay current. You can use this API to get the sales tax rate for a five digit zip code in the United State or get the sales tax rate for a specific street address in the United States. <a href="http://taxratesapi.avalara.com/" target="_parent">Register</a> for an API Key to get started.
 
+The <a href="#certcapture-api">**CertCapture**</a> API enables you to retrieve or update exemption certificate or other document data from a remote application. This allows applications to interact with customer and certificate records, and to send automated certificate requests to customers. CertCapture may be used as a stand-alone certificate management solution, or in conjunction with AvaTax.
+
 The <a href="#excise-api">**Avalara AvaTax Excise**</a> API is a SOAP web service that is the external programmatic interface into the Avalara AvaTax Excise application.   It provides for a platform independent mechanism to obtain tax calculation information.  This document defines the object structure, and an introduction on how to consume the web service.
 
 <aside class="alert"> *The following APIs are in beta release only.* 

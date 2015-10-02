@@ -38,10 +38,8 @@ includes:
   - taxratesaddress
   - taxrateszip
   - taxrateserrors
-  - exciseintroduction
-  - exciseauthentication
-  - exciseprocesstransactions
-  - exciseprocesstransactionsresponse
+  - certcaptureintroduction
+  - certcapturecertificates
   - rest2introduction
   - rest2calculations
   - rest2transactions
