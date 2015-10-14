@@ -856,7 +856,7 @@ The document code, if not supplied in the request the returned value is a GUID.
 Date of invoice, sales order, purchase order, etc.
 
 **TimeStamp:** DateTime  
-Server timestamp of request.
+Server timestamp of request (UTC).
 
 **TotalAmount:** decimal  
 Sum of all line Amount values.

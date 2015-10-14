@@ -1082,7 +1082,7 @@ Tax broken down by individual TaxLine.
 Summary of the jurisdiction details for all item lines (returned for detail levels Summary and Line).
 
 **Timestamp:** DateTime  
-Server timestamp of the request.
+Server timestamp of the request (UTC).
 
 **TotalAmount:** decimal  
 Sum of all line Amount values.
