@@ -564,7 +564,7 @@ This provides the reason for a tax override for audit purposes. Typical reasons 
 **TaxOverrideType:** string, *required*
 
  - None: Default
- - TaxAmount: The TaxAmount overrides the total tax for the document. This is used for imported documents, returns, and layaways where the tax has already been calculated either by AvaTax or another means.
+ - TaxAmount: The TaxAmount overrides the total tax for the document. This is used for imported documents, returns, and layaways where the tax has already been calculated either by AvaTax or another means. This is not a percentage, but an actual amount.
  - Exemption: Exemption certificates are overridden making the document taxable. This may be used for situations where a normally exempt entity needs to be treated as not exempt.
  - TaxDate: The TaxDate overrides the DocDate as the effective date used for tax calculation. This may effect rates, rules and other factors.
 
@@ -572,7 +572,7 @@ This provides the reason for a tax override for audit purposes. Typical reasons 
 The override tax date to use. This is used when the tax has been previously calculated as in the case of a layaway, return or other reason indicated by the Reason element. If the date is not overridden, then it should be set to the same as the DocDate.
 
 **TaxAmount:** string, *must be numeric, required if TaxOverrideType is TaxAmount*  
-The overriding amount of tax to apply. This is distributed across all taxable rows.
+The overriding amount of tax to apply. This is not a percentage, but an actual amount of tax being overridden, and is distributed across all taxable rows.
 
 #### Line
 Input property of the GetTaxRequest describing item lines.
