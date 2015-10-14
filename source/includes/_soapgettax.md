@@ -480,7 +480,7 @@ Default is false. Setting this property to True will prevent any further documen
 The case-sensitive code that identifies the company in the AvaTax account in which the document should be posted. This code is declared during the company setup in the <a href="https://admin-development.avalara.net/" target="_parent">AvaTax Admin Console</a>. If no value is passed, the document will be assigned to the default company. If a value is passed that does not match any company on on the account, an error is returned.
 
 **CurrencyCode:** string [3], *optional*  
-3 character ISO 4217 compliant currency code. If unspecified, a default of USD will be used.
+3 character <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217 compliant currency code</a>. If unspecified, a default of USD will be used.
 
 **CustomerCode:** string [50], *required*  
 The case-sensitive client application customer reference code. This is required since it is the key to the Exemption Certificate Management Service in the Admin Console.

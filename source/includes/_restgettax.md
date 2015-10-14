@@ -476,7 +476,7 @@ The case-sensitive code that identifies the company in the AvaTax account in whi
 The case-sensitive client application customer reference code. This is required since it is the key to the Exemption Certificate Management Service in the Admin Console.
 
 **CurrencyCode:** string [3], *optional*  
-3 character ISO 4217 compliant currency code. If unspecified, a default of USD will be used.
+3 character <A href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217 compliant currency code</a>. If unspecified, a default of USD will be used.
 
 **CustomerUsageType:** string [25], *optional*  
 The client application customer or usage type. More information about this value is available in the <a href="https://help.avalara.com/kb/001/What_are_the_Entity_Use_Codes_used_for_Avalara_AvaTax%3F">Avalara Help Center.</a>   
