@@ -4,16 +4,16 @@
 
 The ProcessTransactions method uses an array of Transactions to calculate taxes based on scenarios predefined in the Avalara AvaTax Excise application.
 
-**Transactions:** ArrayOfTransaction_5_18_0, *optional*  
-Container object to hold an array of Transaction_5_18_0
+**Transactions:** ArrayOfTransaction_5_22_0, *optional*  
+Container object to hold an array of Transaction_5_22_0
 
-#### Transaction_5_18_0
+#### Transaction_5_22_0
 
 ```csharp
 
 TaxDetermination taxDetermination = new TaxDetermination();
-Transaction_5_18_0[] transactions = new Transaction_5_18_0[1];
-Transaction_5_18_0 transactions_0 = new Transaction_5_18_0();
+Transaction_5_22_0[] transactions = new Transaction_5_22_0[1];
+Transaction_5_22_0 transactions_0 = new Transaction_5_22_0();
 transactions_0.Company = "Determination Company";
 transactions_0.EffectiveDate = new DateTime(2014, 2, 11);
 transactions_0.InvoiceNumber = "";
@@ -26,12 +26,15 @@ transactions_0.Seller = "";
 transactions_0.Buyer = "";
 transactions_0.PreviousSeller = "";
 transactions_0.NextBuyer = "";
-transactions_0. SellerVatNumber = "";
-transactions_0. BuyerVatNumber = "";
-transactions_0. CustomsStatus = "";
-transactions_0. FormAPresentedInd = "";
-transactions_0. SimplifiedProcedureInd = "";
-transactions_0. Incoterms = "";
+transactions_0.Middleman = "";
+transactions_0.SellerVatNumber = "";
+transactions_0.BuyerVatNumber = "";
+transactions_0.CustomsStatus = "";
+transactions_0.FormAPresentedInd = "";
+transactions_0.SimplifiedProcedureInd = "";
+transactions_0.Incoterms = "";
+transactions_0.PerspectiveBusinessType = "";
+transactions_0.ChainLeg = "";
 transactions_0.UserData = "UserDataINV";
 transactions_0.UserTranId = "TRN9001";
 transactions_0.SourceSystem = "home";
@@ -39,8 +42,8 @@ transactions_0.SaveTransactionInd = "Y";
 transactions_0.DebugInd = "N";
 transactions_0.CalculationMethod = "NORMAL";
 transactions_0.TotalDyedUnits = 1000;
-TransactionLine_5_18_0[] transactionLines = new TransactionLine_5_18_0[1];
-TransactionLine_5_18_0 transactionLines_0 = new TransactionLine_5_18_0();
+TransactionLine_5_22_0[] transactionLines = new TransactionLine_5_22_0[1];
+TransactionLine_5_22_0 transactionLines_0 = new TransactionLine_5_22_0();
 transactionLines_0.InvoiceLine = 1000;
 transactionLines_0.MovementStartDate = new DateTime(2014, 2, 11);
 transactionLines_0.MovementEndDate = new DateTime(2014, 2, 11);
@@ -64,6 +67,8 @@ transactionLines_0.Origin = "";
 transactionLines_0.OriginOutCityLimitInd = "";
 transactionLines_0.OriginExciseWarehouse = "";
 transactionLines_0.OriginSpecialJurisdictionInd = "Y";
+transactionLines_0.OriginAddress1 = "";
+transactionLines_0.OriginAddress2= "";
 transactionLines_0.DestinationCountryCode = "USA";
 transactionLines_0.DestinationJurisdiction = "WI";
 transactionLines_0.DestinationCounty = "Brown";
@@ -74,6 +79,8 @@ transactionLines_0.Destination = "";
 transactionLines_0.DestinationOutCityLimitInd = "";
 transactionLines_0.DestinationSpecialJurisdictionInd = "N";
 transactionLines_0.DestinationExciseWarehouse = "";
+transactionLines_0.DestinationAddress1 = "";
+transactionLines_0.DestinationAddress2 = "";
 transactionLines_0.SaleCountryCode = "USA";
 transactionLines_0.SaleJurisdiction = "WI";
 transactionLines_0.SaleCounty = "Brown";
@@ -83,6 +90,8 @@ transactionLines_0.SaleType = "";
 transactionLines_0.SaleLocation = "";
 transactionLines_0.SaleOutCityLimitInd = "";
 transactionLines_0.SaleExciseWarehouse = "";
+transactionLines_0.SaleAddress1 = "";
+transactionLines_0.SaleAddress2 = "";
 transactionLines_0.SaleSpecialJurisdictionInd = "N";
 transactionLines_0.CounterCountryCode = "USA";
 transactionLines_0.CounterJurisdiction = "WI";
@@ -95,6 +104,8 @@ transactionLines_0.CounterOutCityLimitInd = "";
 transactionLines_0.CounterExciseWarehouse = "";
 transactionLines_0.CounterSpecialJurisdictionInd = "N";
 transactionLines_0.CounterFiscalRepInd = "N";
+transactionLines_0.CounterAddress1 = "";
+transactionLines_0.CounterAddress1 = "";
 
 transactionLines_0.UserData = "UserData0";
 transactionLines_0.AlternativeFuelContent = null;
@@ -103,16 +114,16 @@ transactionLines_0.BlendToInd = "";
 transactionLines_0.FreightUnitPrice = 0.0625;
 transactionLines_0.FreightType = "NON_ITEMIZED_COMMON_CARRIER";
 
-TransactionLineJurisdiction_5_18_0 transactionLineOrigin_0 = new TransactionLineJurisdiction_5_18_0();
+TransactionLineJurisdiction_5_22_0 transactionLineOrigin_0 = new TransactionLineJurisdiction_5_22_0();
 transactionLineOrigin_0.SpecialJurisdictionCode = "SPD1-BROWN";
 transactionLineOrigin_0.SpecialJurisdictionType = "COUNTY";
-transactionLines_0. OriginSpecialJurisdictions = new TransactionLineJurisdiction_5_18_0[1];
+transactionLines_0. OriginSpecialJurisdictions = new TransactionLineJurisdiction_5_22_0[1];
 transactionLines_0. OriginSpecialJurisdictions[0] = transactionLineOrigin_0;
 transactionLines[0] = transactionLines_0;
 transactions_0.TransactionLines = transactionLines;
 transactions[0] = transactions_0;
     
-TransactionResultSummary_5_18_0 processTransactions_5_18_0Result = taxDetermination.ProcessTransactions_5_18_0(transactions);
+TransactionResultSummary_5_22_0 processTransactions_5_22_0Result = taxDetermination.ProcessTransactions_5_22_0(transactions);
 
 ```
 
@@ -120,11 +131,11 @@ TransactionResultSummary_5_18_0 processTransactions_5_18_0Result = taxDeterminat
 <?xml version="1.0" encoding="utf-8"?>
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     <soap:Body>
-         <ProcessTransactions_5_18_0 xmlns="http://taxes.services.fuelquest.com/">
+         <ProcessTransactions_5_22_0 xmlns="http://taxes.services.fuelquest.com/">
               <transactions>
-                  <Transaction_5_18_0>
+                  <Transaction_5_22_0>
                      <TransactionLines>
-                         <TransactionLine_5_18_0>
+                         <TransactionLine_5_22_0>
                              <InvoiceLine>1</InvoiceLine>
                              <MovementStartDate>2014-01-11T00:02:00</MovementStartDate>
                              <MovementEndDate>2014-01-11T00:02:00</MovementEndDate>
@@ -163,8 +174,8 @@ TransactionResultSummary_5_18_0 processTransactions_5_18_0Result = taxDeterminat
                              <CustomNumeric2 xsi:nil="true" />
                              <CustomNumeric3 xsi:nil="true" />
                              <NthTimeSale xsi:nil="true" />
-                         </TransactionLine_5_18_0>
-                         <TransactionLine_5_18_0>
+                         </TransactionLine_5_22_0>
+                         <TransactionLine_5_22_0>
                              <InvoiceLine>2</InvoiceLine>
                              <MovementStartDate>2014-01-11T00:02:00</MovementStartDate>
                              <MovementEndDate>2014-01-11T00:02:00</MovementEndDate>
@@ -201,7 +212,7 @@ TransactionResultSummary_5_18_0 processTransactions_5_18_0Result = taxDeterminat
                              <CustomNumeric2 xsi:nil="true" />
                              <CustomNumeric3 xsi:nil="true" />
                              <NthTimeSale xsi:nil="true" />
-                         </TransactionLine_5_18_0>
+                         </TransactionLine_5_22_0>
                      </TransactionLines>
                      <Company>rod Oil company</Company>
                      <EffectiveDate>2014-01-11T00:02:00</EffectiveDate>
@@ -218,9 +229,9 @@ TransactionResultSummary_5_18_0 processTransactions_5_18_0Result = taxDeterminat
                      <CustomNumeric1 xsi:nil="true" />
                      <CustomNumeric2 xsi:nil="true" />
                      <CustomNumeric3 xsi:nil="true" />
-                </Transaction_5_18_0>
+                </Transaction_5_22_0>
             </transactions>
-        </ProcessTransactions_5_18_0>
+        </ProcessTransactions_5_22_0>
     </soap:Body>
 </soap:Envelope>
 ```
@@ -271,6 +282,9 @@ ID of the Previous Seller (eg, Sel321, 7, sel345)
 **NextBuyer:** string[35], *optional*  
 ID of the Next Buyer (eg, Buy784, 24324, buy97887)
 
+**Middleman:** string[35], *optional*  
+ID of the Middleman (eg, Buy784, 24324, buy97887)
+
 **SellerVATNumber:** string[20], *optional*  
 Seller VAT Registration Number  (eg, 1234567890123456790)
 
@@ -288,6 +302,12 @@ Indicates if the simplified procedure is used for VAT (eg, Y,N)
 
 **Incoterms:** string[3], *optional*  
 International Chamber of Commerce (ICC) rules for the use of domestic and international trade terms (eg, EXW, FCA, FAS, FOB, CFR, CIF, CPT, CIP, DAF, DES, DEQ, DDU, DDP)
+
+**PerspectiveBysinessType:** string[3], *optional*  
+(BUY, SEL)
+
+**ChainLeg:** string[1], *optional*  
+(1, 2)
 
 **UserData:** string[255], *optional*  
 String to hold any data you may want to pass into a transaction and potentially receive back untouched.  May also be used for customizing calculations based on business rules
@@ -319,10 +339,10 @@ Decimal to hold data you want to pass into a transaction to be used for customiz
 **OrderType:** string[50], *optional*  
 A code to describe the order type.  Currently not used but included for future taxation scenarios.
 
-**TransactionLines:** <a href=#transactionline_5_18_0>TransactionLine_5_18_0[]</a>, *optional*  
+**TransactionLines:** <a href=#transactionline_5_22_0>TransactionLine_5_22_0[]</a>, *optional*  
 An array of transaction lines which are invoice line items that contain the product and origin and destination information for a transaction
 
-**TransactionExchangeRates:** <a href=#exchangerate_5_18_0>ExchangeRate_5_18_0[]</a>, *optional*  
+**TransactionExchangeRates:** <a href=#exchangerate_5_22_0>ExchangeRate_5_22_0[]</a>, *optional*  
 An array of transaction Exchange Rates which are exchange rate definitions to be used to calculate the taxes and return tax amounts.
 
 **SaveTransactionInd:** string[1], *optional*  
@@ -343,7 +363,7 @@ Sum of all resulting taxes from the reporting_tax_amount field  (eg, 2.00, 0.82)
 **ReportingCurrency:** string[10], *optional*  
 Currency the taxes need to be reported in which may differ from the currency of tax rate    (eg, USD, GBP, EUR)
 
-#### TransactionLine_5_18_0
+#### TransactionLine_5_22_0
 
 **InvoiceLine** int, *required*  
 A unique identifier within the transaction for the invoice line item    (eg, 1, 2, 3)
@@ -411,8 +431,11 @@ Excise Warehouse Number of the Origin   Free-form
 **OriginSpecialJurisdictionInd**   string[1], *optional*  
 Indicates if the origin has special jurisdictions.  Y, N
 
-**OriginSpecialJurisdictions**   string[1], *optional*  
-Array of special jurisdictions for the origin.  N/A
+**OriginAddress1**   string[35], *optional*  
+1st Line of the Street Address of the Origin. Free-form.
+
+**OriginAddress2**   string[35], *optional*  
+2nd Line of the Street Address of the Origin. Free-form.
 
 **DestinationCountryCode**   string[3], *optional*  
 ISO standard 3 character country code of the destination location   USA, CAN
@@ -441,11 +464,17 @@ Single character that specifies if the destination location resides within or ou
 **DestinationSpecialJurisdicitonInd**    string[1], *optional*  
 Indicates if the destination has special jurisdictions. Y, N
 
-**DestinationSpecialJurisdictions** <a href=#transactionlinejurisdiction_5_18_0>TransactionLineJurisdiction_5_18_0[]</a>, *optional*  
+**DestinationSpecialJurisdictions** <a href=#transactionlinejurisdiction_5_22_0>TransactionLineJurisdiction_5_22_0[]</a>, *optional*  
 Array of special jurisdictions for the destination. N/A
 
 **DestinationExciseWarehouse**  string[20], *optional*  
  Excise Warehouse Number of the Destination  Free-form
+
+**DestinationAddress1**   string[35], *optional*  
+1st Line of the Street Address of the Destination. Free-form.
+
+**DestinationOriginAddress2**   string[35], *optional*  
+2nd Line of the Street Address of the Destination. Free-form.
 
 **SaleCountryCode**  string[3], *optional*  
 ISO standard 3 character country code of the Sale location  USA, CAN
@@ -474,10 +503,16 @@ Single character that specifies if the Sale location resides within or outside o
 **SaleExciseWarehouse**  string[20], *optional*  
 Excise Warehouse Number of the Sale Location    Free-form
 
+**SaleAddress1**   string[35], *optional*  
+1st Line of the Street Address of the Sale. Free-form.
+
+**SaleOriginAddress2**   string[35], *optional*  
+2nd Line of the Street Address of the Sale. Free-form.
+
 **SaleSpecialJurisdictionInd**  string[1], *optional*  
 Indicates if the sale locaiton has special jurisdictions.   Y, N
 
-**SaleSpecialJurisdictions** <a href=#transactionlinejurisdictions_5_18_0>TransactionLineJurisdiction_5_18_0[]</a>, *optional*  
+**SaleSpecialJurisdictions** <a href=#transactionlinejurisdictions_5_22_0>TransactionLineJurisdiction_5_22_0[]</a>, *optional*  
 Array of special jurisdictions for the sale location.   N/A
 
 **CounterCountryCode**   string[3], *optional*  
@@ -513,6 +548,12 @@ Single character that specifies if the Counter location resides within or outsid
 **CounterFiscalRepInd**  string[1], *optional*  
 Indicates if the Counter is a fiscal rep.   Y, N
 
+**CounterAddress1**   string[35], *optional*  
+1st Line of the Street Address of the Counter location. Free-form.
+
+**CounterAddress2**   string[35], *optional*  
+2nd Line of the Street Address of the Counter location. Free-form.
+
 **UserData**   string[255], *optional*  
 String to hold any data you may want to pass into a transaction and potentially receive back untouched.  May also be used for customizing calculations based on business rules  
 
@@ -540,7 +581,7 @@ The type of freight.    NONE, ITEMIZED_COMMON_CARRIER, NONITEMIZED_NOT_COMMON_CA
 **FreightLineAmount**  decimal[28,10], *optional*  
 The total amount of value of product on the line item calculated by BilledUnits * FreightUnitPrice, If left blank the Avalara AvaTax Excise application will calculate  137.00, 456.58, 5213.47
 
-**TransactionLineMeasures** <a href=#transactionlinemeasure_5_18_0>TransactionLineMeasure_5_18_0[]</a>, *optional*  
+**TransactionLineMeasures** <a href=#transactionlinemeasure_5_22_0>TransactionLineMeasure_5_22_0[]</a>, *optional*  
 Array of Measures to convert the input value to for this transaction line element   N/A
 
 **CustomString1**   string[128], *optional*  
@@ -564,7 +605,7 @@ Decimal to hold data you want to pass into a transaction to be used for customiz
 **NthTimeSale**   decimal[2,0], *optional*  
 Decimal to tell how many times a product has been sold in the supply chain. 1,2,3
 
-#### TransactionLineMeasure_5_18_0
+#### TransactionLineMeasure_5_22_0
 
 **QuantityInd** string[1], *optional*  
 Type of Quantity for the Line referencing Billed, Net or Gross Value    B, N, G
@@ -575,7 +616,7 @@ The Measurement type the Measure Value is defined in    BRL, GAL, LTR
 **MeasureValue** decimal[28,10], *required*  
 Numeric  Unit of the Quanity indicator type 100, 200, 300
 
-#### TransactionExchangeRate_5_18_0
+#### TransactionExchangeRate_5_22_0
 
 **FromCurrency** string[10], *optional*  
 Currency type Value must start with USD, EUR, GBP
@@ -589,7 +630,7 @@ Date the Conversion Factor is valid for 4/23/2009, 5/17/2009
 **ConversionFactor** decimal[15,10], *required*  
 Numeric Amount determining the conversion factor between the from and to currencies 0.123234, 4.3245
 
-#### TransactionLineJurisdiction_5_18_0
+#### TransactionLineJurisdiction_5_22_0
 
 **SpecialJurisdictionCode** string[30], *required*  
 The unique code of the special jurisdiction.
