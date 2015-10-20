@@ -4,7 +4,7 @@ The Avalara AvaTax Excise Web Service is a SOAP web service that is the external
 
 At this time, Excise sample code/libraries are available in .NET only.
 
-**Versioning:** The Excise Tax SOAP API currently implements inline explicit versioning. The method name contains the version number. In the example provided, 5_18_0 is the current version of the service. Please replace this when using newer or older versions of the service.
+**Versioning:** The Excise Tax SOAP API currently implements inline explicit versioning. The method name contains the version number. Version 5_22_0 is used in the example provided. Please replace this when using newer or older versions of the service.
 
 Please note the application name changes effective 7/31/2014:
 

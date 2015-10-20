@@ -1,15 +1,15 @@
 ### ProcessTransactions Response
 
-**ProcessTransactions_5_18_0Response:** TransactionResultSummary_5_18_0, *optional*  
-Container to hold the results of the call to ProcessTransactions_5_18_0
+**ProcessTransactions_5_22_0Response:** TransactionResultSummary_5_22_0, *optional*  
+Container to hold the results of the call to ProcessTransactions_5_22_0
 
-**TransactionResult_5_18_0Response:** TransactionResult_5_18_0, *optional*  
+**TransactionResult_5_22_0Response:** TransactionResult_5_22_0, *optional*  
 Container object that defines the result of a single transaction
 
-#### TransactionResultSummary_5_18_0
+#### TransactionResultSummary_5_22_0
 
 **NumberProcessed** int[10], *required*  
-Number of transactions processed during the call to ProcessTransactions_5_18_0
+Number of transactions processed during the call to ProcessTransactions_5_22_0
 
 **NumberSuccess** int[10], *required*  
 Number of transactions processed that did not contain errors and returned a valid result
@@ -17,20 +17,20 @@ Number of transactions processed that did not contain errors and returned a vali
 **NumberFailed** int[10], *required*  
 Number of transactions processed that did contain errors
 
-**TransactionResults** <a href='#transactionresult_5_18_0'>TransactionResult_5_18_0[]</a>, *optional*  
-An array of actual transaction results returned from the call to ProcessTransactions_5_18_0
+**TransactionResults** <a href='#transactionresult_5_22_0'>TransactionResult_5_22_0[]</a>, *optional*  
+An array of actual transaction results returned from the call to ProcessTransactions_5_22_0
 
 
-#### TransactionResult_5_18_0
+#### TransactionResult_5_22_0
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     <soap:Body>
-        <ProcessTransactions_5_18_0Response xmlns="http://taxes.services.fuelquest.com/">
-            <ProcessTransactions_5_18_0Result>
+        <ProcessTransactions_5_22_0Response xmlns="http://taxes.services.fuelquest.com/">
+            <ProcessTransactions_5_22_0Result>
                 <TransactionResults>
-                    <TransactionResult_5_18_0>
+                    <TransactionResult_5_22_0>
                         <UserTranId />
                         <TranId>2988728</TranId>
                         <Status>Success</Status>
@@ -39,7 +39,7 @@ An array of actual transaction results returned from the call to ProcessTransact
 ```
 
 **UserTranId** string[50], *optional*  
-A unique Id for the transaction as defined by the calling application which was passed in by the calling application in the Transaction_5_18_0 object
+A unique Id for the transaction as defined by the calling application which was passed in by the calling application in the Transaction_5_22_0 object
 
 **TranId** int[10], *required*  
 Unique Id assigned to the Transaction by the Avalara AvaTax Excise application
@@ -53,20 +53,20 @@ A numeric representation of the success or failure of the transaction
 **TotalTaxAmount** decimal[28,6], *required*  
 Sum of all taxes on all line items and on the invoice itself
 
-**TransactionTaxes** <a href='#transactiontax_5_18_0'>TransactionTax_5_18_0[]</a>, *optional*  
+**TransactionTaxes** <a href='#transactiontax_5_22_0'>TransactionTax_5_22_0[]</a>, *optional*  
 Object defining the individual taxes returned from the transaction
 
-**TrasactionErrors** <a href='#transactionerror_5_18_0'>TransactionError_5_18_0[]</a>, *optional*  
+**TrasactionErrors** <a href='#transactionerror_5_22_0'>TransactionError_5_22_0[]</a>, *optional*  
 Object defining the individual errors returned from the transaction
 
 **UserReturnValue** string[512], *optional*  
-String that returns the UserData field passed into the Transactions_5_18_0 object
+String that returns the UserData field passed into the Transactions_5_22_0 object
 
-#### TransactionTax_5_18_0 
+#### TransactionTax_5_22_0 
 
 ```xml
                         <TransactionTaxes>
-                            <TransactionTax_5_18_0>
+                            <TransactionTax_5_22_0>
                                 <TransactionTaxAmounts />
                                 <SequenceId>1</SequenceId>
                                 <TransactionLine>1</TransactionLine>
@@ -98,8 +98,8 @@ String that returns the UserData field passed into the Transactions_5_18_0 objec
                                 <StatusCode>ACTIVE</StatusCode>
                                 <QuantityInd>B</QuantityInd>
                                 <ReportingTaxAmount xsi:nil="true" />
-                            </TransactionTax_5_18_0>
-                            <TransactionTax_5_18_0>
+                            </TransactionTax_5_22_0>
+                            <TransactionTax_5_22_0>
                                 <TransactionTaxAmounts />
                                 <SequenceId>2</SequenceId>
                                 <TransactionLine>1</TransactionLine>
@@ -131,8 +131,8 @@ String that returns the UserData field passed into the Transactions_5_18_0 objec
                                 <StatusCode>ACTIVE</StatusCode>
                                 <QuantityInd>B</QuantityInd>
                                 <ReportingTaxAmount xsi:nil="true" />
-                            </TransactionTax_5_18_0>
-                            <TransactionTax_5_18_0>
+                            </TransactionTax_5_22_0>
+                            <TransactionTax_5_22_0>
                                 <TransactionTaxAmounts />
                                 <SequenceId>10</SequenceId>
                                 <TransactionLine>2</TransactionLine>
@@ -164,8 +164,8 @@ String that returns the UserData field passed into the Transactions_5_18_0 objec
                                 <StatusCode>ACTIVE</StatusCode>
                                 <QuantityInd>B</QuantityInd>
                                 <ReportingTaxAmount xsi:nil="true" />
-                            </TransactionTax_5_18_0>
-                            <TransactionTax_5_18_0>
+                            </TransactionTax_5_22_0>
+                            <TransactionTax_5_22_0>
                                 <TransactionTaxAmounts />
                                 <SequenceId>11</SequenceId>
                                 <TransactionLine>2</TransactionLine>
@@ -197,7 +197,7 @@ String that returns the UserData field passed into the Transactions_5_18_0 objec
                                 <StatusCode>ACTIVE</StatusCode>
                                 <QuantityInd>B</QuantityInd>
                                 <ReportingTaxAmount xsi:nil="true" />
-                            </TransactionTax_5_18_0>
+                            </TransactionTax_5_22_0>
                         </TransactionTaxes>
 ```
 
@@ -285,7 +285,7 @@ The Unit of Measure the tax quantity isdefined in   BRL, GAL, LTR
 **SubtotalInd** string[2], *optional*  
 Indication of which field(s) to use for the sales tax base of the tax.  (Freight Only, Unit Price Only, Combined).  C, F, U
 
-**TransactionTaxAmounts** <a href='#transactiontaxamount_5_18_0'>TransactionTaxAmount_5_18_0[]</a>, *optional*  
+**TransactionTaxAmounts** <a href='#transactiontaxamount_5_22_0'>TransactionTaxAmount_5_22_0[]</a>, *optional*  
 An Array of Tax Amounts in requested Currencies N/A
 
 **StatusCode** string[30], *optional*  
@@ -300,7 +300,7 @@ Tax Amount Converted to the Reporting Currency specified on the header  0.82, 2.
 **ReportingTaxCurrency** string[10], *optional*  
 Currency requested in the reporting currency field on the header    USD, EUR, GBP
 
-#### TransactionTaxAmount_5_18_0
+#### TransactionTaxAmount_5_22_0
 
 **SequenceId** int[10], *required*  
 Ordinal id for the Tax Amount
@@ -311,49 +311,54 @@ Currency type of the tax amount
 **TaxAmount** decimal[28,6], *required*  
 Amount of tax in the defined currency
 
-#### TransactionError_5_18_0
+#### TransactionError_5_22_0
 
 ```xml
                         <TransactionErrors>
-                            <TransactionError_5_18_0>
+                            <TransactionError_5_22_0>
                                 <SequenceId>1</SequenceId>
                                 <ErrorCode>-897</ErrorCode>
                                 <ErrorMessage>Buyer "1" does not exist or is not active for 1/11/2014.</ErrorMessage>
                                 <ErrorLevelInd>Warning</ErrorLevelInd>
-                            </TransactionError_5_18_0>
-                            <TransactionError_5_18_0>
+                                <Transaction Line />
+                            </TransactionError_5_22_0>
+                            <TransactionError_5_22_0>
                                 <SequenceId>2</SequenceId>
                                 <ErrorCode>-898</ErrorCode>
                                 <ErrorMessage>Seller "4375601" does not exist or is not active for 1/11/2014.</ErrorMessage>
                                 <ErrorLevelInd>Warning</ErrorLevelInd>
-                            </TransactionError_5_18_0>
-                            <TransactionError_5_18_0>
+                                <Transaction Line />
+                            </TransactionError_5_22_0>
+                            <TransactionError_5_22_0>
                                 <SequenceId>3</SequenceId>
                                 <ErrorCode>-891</ErrorCode>
                                 <ErrorMessage>LASALLE is not a valid county in IL, USA.  Please update the Destination on transaction line 1.</ErrorMessage>
                                 <ErrorLevelInd>Warning</ErrorLevelInd>
-                            </TransactionError_5_18_0>
-                            <TransactionError_5_18_0>
+                                <TransactionLine>1</TransactionLine>
+                            </TransactionError_5_22_0>
+                            <TransactionError_5_22_0>
                                 <SequenceId>4</SequenceId>
                                 <ErrorCode>-881</ErrorCode>
                                 <ErrorMessage>No county was provided on the Sale Location for transaction line 1.</ErrorMessage>
                                 <ErrorLevelInd>Warning</ErrorLevelInd>
-                            </TransactionError_5_18_0>
-                            <TransactionError_5_18_0>
+                                <TransactionLine>1</TransactionLine>
+                            </TransactionError_5_22_0>
+                            <TransactionError_5_22_0>
                                 <SequenceId>5</SequenceId>
                                 <ErrorCode>-880</ErrorCode>
                                 <ErrorMessage>No city was provided on the Sale Location for transaction line 1.</ErrorMessage>
                                 <ErrorLevelInd>Warning</ErrorLevelInd>
-                            </TransactionError_5_18_0>
+                                <TransactionLine>1</TransactionLine>
+                            </TransactionError_5_22_0>
                         </TransactionErrors>
                         <UserReturnValue />
-                    </TransactionResult_5_18_0>
+                    </TransactionResult_5_22_0>
                 </TransactionResults>
                 <NumberProcessed>1</NumberProcessed>
                 <NumberSuccess>1</NumberSuccess>
                 <NumberFailed>0</NumberFailed>
-            </ProcessTransactions_5_18_0Result>
-        </ProcessTransactions_5_18_0Response>
+            </ProcessTransactions_5_22_0Result>
+        </ProcessTransactions_5_22_0Response>
     </soap:Body>
 </soap:Envelope>
 ```
@@ -369,3 +374,6 @@ String description of the error Rate for CountryCode: USA,Jurisdiction: ID,Local
 
 **ErrorLevelInd** string[1], *optional*  
 Text describing the severity of the error.  C - Critical, W - Warning
+
+**TransactionLine** Int[1], *optional*  
+The line on which the error occurred. 1, 2, 3
