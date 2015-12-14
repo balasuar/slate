@@ -9,7 +9,7 @@ Since the REST API does not provide an explicit ping function, this method can a
 This method is available for the United States only. Any latitude/longitude value outside of the US will return an error from this method.
   
 <aside class='notice'>
-    To get an XML response, use `GET /1.0/tax/<location>/get.xml?<saleamount>` See <a href="https://gist.github.com/anyarms/c9726471eed9244f84d3">here</a>> for a full XML call/response.
+    To get an XML response, use `GET /1.0/tax/<location>/get.xml?<saleamount>` See <a href="https://gist.github.com/anyarms/c9726471eed9244f84d3">here</a> for a full XML call/response.
 </aside>
 
 ##### Headers

@@ -6,7 +6,7 @@ Production:	POST ttps://avatax.avalara.net/1.0/tax/cancel
 Voids or deletes and existing transaction record from the AvaTax system.
     
 <aside class='notice'>
-    Note that xml-encoded requests should use the same URL (`POST /1.0/tax/cancel`), but should set the Content-Type header to `text/xml`. See <a href="https://gist.github.com/anyarms/5194135">here</a>> for a full XML call/response.
+    Note that xml-encoded requests should use the same URL (`POST /1.0/tax/cancel`), but should set the Content-Type header to `text/xml`. See <a href="https://gist.github.com/anyarms/5194135">here</a> for a full XML call/response.
 </aside>
 
 ##### Headers

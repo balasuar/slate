@@ -8,7 +8,7 @@ Calculates taxes on a document such as a sales order, sales invoice, purchase or
 ##### URL and Method
     
 <aside class='notice'>
-    Note that xml-encoded requests should use the `POST /1.0/tax/get.xml` and set the Content-Type header to `text/xml`. See <a href="https://gist.github.com/anyarms/7717fc9a6f268747b1d0">here</a>> for a full XML call/response.
+    Note that xml-encoded requests should use the `POST /1.0/tax/get.xml` and set the Content-Type header to `text/xml`. See <a href="https://gist.github.com/anyarms/7717fc9a6f268747b1d0">here</a> for a full XML call/response.
 </aside>
 
 ##### Headers
