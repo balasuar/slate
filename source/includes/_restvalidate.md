@@ -6,7 +6,7 @@ Production: GET https://avatax.avalara.net/1.0/address/validate?<address>
 Normalizes a single US or Canadian address, providing a non-ambiguous address match.
     
 <aside class='notice'>
-    To get an XML response, use `GET /1.0/tax/<location>/get.xml?<saleamount>` See <a href="https://gist.github.com/anyarms/c9726471eed9244f84d3">here</a>> for a full XML call/response.
+    To get an XML response, use `GET /1.0/tax/<location>/get.xml?<saleamount>` See <a href="https://gist.github.com/anyarms/c9726471eed9244f84d3">here</a> for a full XML call/response.
 </aside>
 
 ##### Headers
