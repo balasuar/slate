@@ -7,7 +7,7 @@ Retrieves tax rate details for the supplied geographic coordinates and sale amou
 Since the REST API does not provide an explicit ping function, this method can also be used to test connectivity to the service.
   
 <aside class='notice'>
-    To get an XML response, use `GET /1.0/tax/<location>/get.xml?<saleamount>`
+    To get an XML response, use `GET /1.0/address/validate.xml?<address>` See <a href="https://gist.github.com/anyarms/2a2a287e4f97139b3722">here</a>> for a full XML call/response.
 </aside>
 
 ##### Headers
