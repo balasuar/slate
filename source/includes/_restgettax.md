@@ -8,7 +8,7 @@ Calculates taxes on a document such as a sales order, sales invoice, purchase or
 ##### URL and Method
     
 <aside class='notice'>
-    Note that xml-encoded requests should use the `POST /1.0/tax/cancel.xml` and set the Content-Type header to `text/xml`.
+    Note that xml-encoded requests should use the `POST /1.0/tax/get.xml` and set the Content-Type header to `text/xml`. See <a href="https://gist.github.com/anyarms/7717fc9a6f268747b1d0">here</a>> for a full XML call/response.
 </aside>
 
 ##### Headers
@@ -654,10 +654,10 @@ Country code. If not provided, will default to "US".
 Postal or ZIP code, Required unless City and Region are specified, and/or Latitude and Longitude are provided.
 
 **Latitude:** decimal, *optional*  
-Geographic latitude. If Latitude is defined, it is expected that the longitude field will also be provided. Failure to do so will result in operation error.
+Geographic latitude. If Latitude is defined, it is expected that the longitude field will also be provided. Failure to do so will result in operation error. Calculation by latitude/longitude is available for the United States only. If a latitude/longitude value outside of the US is provided, the service will return an error.
 
 **Longitude:** decimal, *optional*  
-Geographic longitude. If Longitude is defined, it is expected that the latitude field will also be provided. Fail to do so will result in operation error.
+Geographic longitude. If Longitude is defined, it is expected that the latitude field will also be provided. Fail to do so will result in operation error. Calculation by latitude/longitude is available for the United States only. If a latitude/longitude value outside of the US is provided, the service will return an error.
 
 **TaxRegionId:** int, *optional*  
 AvaTax tax region identifier. If a non-zero value is entered into TaxRegionId, other fields will be ignored.
@@ -994,10 +994,10 @@ Country code, as ISO 3166-1 (Alpha-2) country code (e.g. “US”)
 Postal code
 
 **Latitude:** decimal  
-Geographic latitude. Latitude is only defined if input address was a geographic point.
+Geographic latitude. Latitude is only defined if input address was a geographic point. Calculation by latitude/longitude is available for the United States only. If a latitude/longitude value outside of the US is provided, the service will return an error.
 
 **Longitude:** decimal  
-Geographic longitude. Longitude is only defined if input address was a geographic point.
+Geographic longitude. Longitude is only defined if input address was a geographic point. Calculation by latitude/longitude is available for the United States only. If a latitude/longitude value outside of the US is provided, the service will return an error.
 
 **TaxRegionId:** string  
 AvaTax tax region identifier
