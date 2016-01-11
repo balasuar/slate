@@ -356,75 +356,7 @@ Content-Type: application/json
     "parent_node": 23587,
     "hs_code": "5703201000",
     "name": "HTS_5703201000",
-    "description": "Hand-hooked, that is, in which the tufts were inserted by hand or by means of a hand tool",
-    "rates": [
-      {
-        "sourceCountry": null,
-        "formula": "rate(5.8%,costbasis())",
-        "type": "ad valorem",
-        "unit": "",
-        "raw": "5.8%",
-        "currency": "USD",
-        "required": [
-          "value"
-        ]
-      },
-      {
-        "sourceCountry": "AU",
-        "formula": "notax()",
-        "type": "ad valorem",
-        "unit": "",
-        "raw": "Free",
-        "currency": "USD",
-        "required": [
-          "value"
-        ]
-      },
-      {
-        "sourceCountry": "BH",
-        "formula": "notax()",
-        "type": "ad valorem",
-        "unit": "",
-        "raw": "Free",
-        "currency": "USD",
-        "required": [
-          "value"
-        ]
-      },
-      {
-        "sourceCountry": "CA",
-        "formula": "notax()",
-        "type": "ad valorem",
-        "unit": "",
-        "raw": "Free",
-        "currency": "USD",
-        "required": [
-          "value"
-        ]
-      },
-      {
-        "sourceCountry": "CL",
-        "formula": "notax()",
-        "type": "ad valorem",
-        "unit": "",
-        "raw": "Free",
-        "currency": "USD",
-        "required": [
-          "value"
-        ]
-      },
-      {
-        "sourceCountry": "MX",
-        "formula": "notax()",
-        "type": "ad valorem",
-        "unit": "",
-        "raw": "Free",
-        "currency": "USD",
-        "required": [
-          "value"
-        ]
-      }
-    ]
+    "description": "Hand-hooked, that is, in which the tufts were inserted by hand or by means of a hand tool"
   }
 ]
 ```
